@@ -1,0 +1,49 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.inlabschibsted {
+  @extend %page;
+  visibility: visible;
+}
+
+
+.inlabschibsted__title {
+  position: absolute;
+  font-size: 18rem;
+  top: -4%;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  font-family: $font-nd-tupa-nova;
+  text-shadow: 0 1px #ff0000, 0 1.05px #ff0000, 1.05px 1px #ff0000, 1.05px 1.05px #ff0000, 3.1px 4.1px #ff9090, 1.1px 4.15px #ff9090, 2.15px 6.2px #ff9090, 4.15px 8.25px #ff9090, 6.2px 9.3px #ff9090;
+
+}
+
+.inlabschibsted__wrapper {
+  height: 100%;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+/* Hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+      display: none;
+}
+}
+
+
+.bg_inLabSchibsted{
+  width:100%;
+  height:100%;
+  position: sticky;
+  background-color:#c5c5c5;
+
+}

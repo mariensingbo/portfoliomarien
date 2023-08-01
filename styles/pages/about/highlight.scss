@@ -1,0 +1,119 @@
+.about__highlight {
+  margin: 20rem 0;
+
+  &:first-child {
+    margin-bottom: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.about__highlight__wrapper {
+  height: 104rem;
+  width: 144rem;
+  margin: auto;
+  position: relative;
+
+  @include media('<=phone') {
+    height: 188.2rem;
+    width: 100%;
+
+    .about__highlight:nth-child(4) & {
+      height: 119.3rem;
+      width: 100%;
+    }
+  }
+}
+
+.about__highlight__label {
+  @extend %description-12;
+
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  top: 9rem;
+  transform: translateX(-50%);
+  text-align: center;
+  letter-spacing: 0.1rem;
+  width: 9.6rem;
+
+  @include media('<=phone') {
+    font-size: 2.4rem;
+    margin-top: 6.5rem;
+    width: 19rem;
+    top: 92rem;
+  }
+}
+
+.about__highlight__title {
+  @extend %title-200;
+
+
+    padding-bottom: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family:$font-nd-tupa-nova;
+    color: #ff6464;
+    text-shadow: 0 1px black, 0 1.05px black, 1.05px 1px black, 1.05px 1.05px black, 3.1px 4.1px black, 1.1px 4.15px black, 2.15px 6.2px black, 4.15px 8.25px black, 6.2px 9.3px black;
+    text-align: CENTER;
+    line-height: 100%;
+    z-index: 1;
+    mix-blend-mode: luminosity;
+
+
+  @include media('<phone') {
+      font-size: 22rem;
+      margin-top: 5.5rem;
+      transform: translate(-50%, -50%);
+      line-height: 100%;
+      padding-bottom: 0%;
+      text-align: center;
+
+  }
+}
+
+.about__highlight__media {
+  position: absolute;
+  height: 76rem;
+  width: 50%;
+
+  .about__highlight:nth-child(4) & {
+    width: 36rem;
+    height: 52.8rem;
+  }
+
+  &:first-child {
+    top: 0;
+    left: 0;
+  }
+
+  &:last-child {
+    bottom: 0;
+    right: 0;
+  }
+
+  @include media('<=phone') {
+    .about__highlight:last-child & {
+      width: 54rem;
+      height: 76rem;
+
+      & {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+@include media ('<phone') {
+  .about__highlight__media {
+width:100%
+}}
+.about__highlight__media__image {
+  @extend %cover;
+
+  object-fit: cover;
+}

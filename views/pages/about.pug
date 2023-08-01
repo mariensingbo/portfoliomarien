@@ -1,0 +1,54 @@
+extends ../_includes/layout
+
+block variables
+  - var template = 'about'
+  - var titleCount = 0
+
+block content
+  script(src='https://unpkg.com/three@0.149.0/build/three.min.js')
+
+
+
+  .about(data-background="#2D81E0" data-color="#37384c")
+    .about__wrapper
+      section.about__gallery
+        .about__gallery__wrapper
+          each media in about.data.gallery
+            figure.about__gallery__media
+              img.about__gallery__media__image(data-src=media.image.url alt=media.image.alt)
+
+      each section in about.data.body
+        if section.slice_type == 'title'
+          - titleCount++
+          h2.about__title(class=`title-${titleCount}` data-animation="title")!=section.primary.text.replace(/\n/g, '<br>')
+
+
+        if section.slice_type == 'content'
+          section.about__content(class=`${section.primary.type === 'Left' ? 'about__content--left' : 'about__content--right'   }`)
+            .about__content__wrapper
+              .about__content__box
+                p.about__content__label(data-animation="label")!=section.primary.label
+
+                .about__content__description!=PrismicH.asHTML(section.primary.description).replace(/<p>/g, '<p data-animation="paragraph">')
+
+              figure.about__content__media
+                img.about__content__media__image(data-src=section.primary.image.url alt=section.primary.image.alt)
+
+        if section.slice_type == 'highlight'
+          section.about__highlight
+            .about__highlight__wrapper
+              if section.primary.label
+                p.about__highlight__label(data-animation="label")=section.primary.label
+
+              h3.about__highlight__title(data-animation='highlight')=section.primary.title
+
+              each media in section.items
+                figure.about__highlight__media
+                  img.about__highlight__media__image(data-src=media.image.url alt=media.image.alt)
+
+        if section.slice_type == 'gallery'
+          section.about__gallery
+            .about__gallery__wrapper
+              each media in section.items
+                figure.about__gallery__media
+                  img.about__gallery__media__image(data-src=media.image.url alt=media.image.alt)

@@ -1,0 +1,65 @@
+.word {
+  display: inline-block;
+  margin-right: 0.25em; /* Adjust this value for the desired spacing between words */
+}
+
+
+.preloader {
+  @extend %cover;
+  @extend %center;
+  background: $color-contessa;
+  color: #ffffff;
+  text-align: center;
+  z-index: z('preloader');
+  overflow: hidden;
+
+}
+
+.preloader__text {
+  opacity:0;
+}
+
+.preloader__text {
+  width:  100%;
+  font-size: 5.2rem;
+  max-width: 200rem;
+  line-height: 1.5;
+  span {
+    display: inline-block;
+    opacity:1;
+  }
+
+  span span {
+    @extend %title-53;
+    margin-right: 0.0em
+  }
+
+  @include media('<phone') {
+    font-size:2rem;
+  }
+}
+
+.preloader__number {
+  @extend %description-14;
+  position: absolute;
+  overflow: hidden;
+  bottom: 5.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include media('<phone') {
+    font-size: 2.5rem;
+    margin-top: 0%;
+    bottom:15%;
+  }
+}
+
+.preloader__number__text {
+  display: inline-block;
+
+}
+
+.space-span {
+  display: inline-block;
+  width: 0.5em;
+}

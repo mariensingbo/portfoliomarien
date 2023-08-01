@@ -1,0 +1,45 @@
+
+
+.about {
+  @extend %page;
+  // background: $color-cadet-blue;
+  // color: $color-bright-grey;
+}
+.about__wrapper {
+    padding-top: 10rem
+}
+
+.about__title.title-1 {
+  font-size: 17rem;
+  font-family: $font-nd-tupa-nova;
+  text-shadow: 0 1px black, 0 1.05px black, 1.05px 1px black, 1.05px 1.05px black, 1.1px 1.1px black, 1.1px 1.15px black, 1.15px 1.2px black, 1.15px 3.25px black, 4.2px 4.3px black;
+  color: #FF6464;
+  line-height: 130%;
+  margin-top: -11%;
+}
+.about__title.title-2 {
+  font-size: 5rem;
+}
+
+.about__title {
+  max-width: 107rem;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1;
+  font-size: 5rem;
+  color: white;
+  line-height: 64px;
+  font-family: $font-helvetica-neue-lt-pro;
+  @include media('<phone') {
+    max-width: 67.7rem;
+  }
+}
+
+
+
+
+
+
+
+
+

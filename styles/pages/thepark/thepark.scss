@@ -1,0 +1,188 @@
+.thepark {
+  @extend %page;
+
+    background: #FEC4C4;
+
+  // color: $color-bright-grey;
+  overflow:hidden;
+
+}
+
+.thepark__wrapper {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  overflow:hidden;
+  scroll-behavior: smooth;
+  /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        display: none;
+  }
+
+}
+
+@include media ('<phone') {
+
+  .thepark__wrapper {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    overflow: scroll;
+    height: 100%;
+}
+}
+
+
+.thepark__title {
+position:relative;
+font-family: $font-nd-tupa-nova;
+font-size: 20rem;
+display: flex;
+align-content: center;
+justify-content: center;
+-webkit-text-stroke: 2px;
+-webkit-text-stroke-color: #ffa2a2;
+text-shadow: 3px 3px #b65c5c;
+}
+
+
+
+@include media ('<phone') {.thepark__title {
+  position: relative;
+  margin-top: 21%;
+}}
+
+
+.thepark__video {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3%;
+  position: relative;
+}
+
+
+@include media ('<phone') {.thepark__video {
+  width: 100%;
+  display: flex;
+  margin-top: -24%;
+  display: flex;
+  align-content: center;
+
+}}
+
+
+.thepark__deliverables {
+position:absolute;
+width:100%;
+}
+
+@include media ('<phone') {.thepark__deliverables {
+
+
+    position: relative;
+    width: 84%;
+    margin-top: -22%;
+    color: black;
+    font-family: $font-helvetica-neue-lt-pro;
+    height: auto;
+    font-size: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 8%;
+    margin-top: -22%;
+}}
+
+
+
+.thepark_intro {
+  position:relative;
+  width:100%;
+  margin-top:0%;
+ }
+
+@include media ('<phone') {
+
+    .thepark_intro {
+        position: relative;
+        width: 100%;
+        opacity: 1;
+        height: auto;
+        font-size: 2.3rem;
+        color: black;
+        font-family: system-ui;
+        margin-top: 4%;
+    }}
+
+
+.headOf3D {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: #ffc7c7;
+  text-shadow: 3px 3px #ff5757;
+  font-size: 13rem;
+  font-family: $font-nd-tupa-nova;
+  display: flex;
+  justify-content: center;
+}
+
+.headOf3Dimage {
+  position: relative;
+  width: 100%;
+  opacity: 1;
+}
+
+@include media ('<phone') { .headOf3D {
+
+    position: relative;
+    width: 100%;
+    height: auto;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: #ffc7c7;
+    text-shadow: 3px 3px #ff5757;
+    font-size: 13rem;
+    font-family: $font-nd-tupa-nova;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5%;
+    padding-top: 12%;
+}
+}
+
+
+
+.myTask {
+ position:relative;
+ width:100%;
+ height:auto;
+}
+
+
+@include media ('<phone') { .myTask {
+  position: relative;
+  width: 100%;
+  height: auto;
+  color: black;
+ }
+}
+
+.charactersImage {
+  position: relative;
+  width: 100%;
+  opacity:1;
+}
+
+
+@include media ('<phone') {.charactersImage {
+  position: relative;
+  width: 100%;
+  opacity:1;
+}}
+
+

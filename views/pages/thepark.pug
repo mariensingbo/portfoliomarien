@@ -1,0 +1,43 @@
+extends ../_includes/layout
+
+block variables
+  - var template = 'thepark'
+
+block content
+  script(src='https://unpkg.com/three@0.149.0/build/three.min.js')
+
+  script(src="https://unpkg.com/three@0.149.0/examples/js/loaders/GLTFLoader.js")
+
+
+  script(type="module" src="./src/three/dat.gui.module.js")
+  script(async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js")
+
+  script(src= 'src/Videoplayer.js')
+
+
+
+  .thepark
+
+   each section in thepark.data.body
+      if section.slice_type == 'content'
+        .thepark__wrapper
+          .thepark__title THE PARK
+
+          .thepark__video
+            iframe(src='https://player.vimeo.com/video/371710469?h=06aa2657da&color=ffa2a2&title=0&byline=0&portrait=0' width='960' height='545' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen='')
+
+
+          .thepark__deliverables!=section.primary.delivables_objectives.replace(/\n/g, '<br>')
+          .thepark_intro!=section.primary.intro_mobile.replace(/\n/g, '<br>')
+
+
+          .headOf3D Head of 3D
+          img.headOf3Dimage(src='/img/HeadOf3D.jpg' width='60' alt='')
+          .myTask!=section.primary.mytask.replace(/\n/g, '<br>')
+          img.charactersImage(src='/img/characters.jpg' width='60' alt='')
+          .myTask2
+
+
+
+
+

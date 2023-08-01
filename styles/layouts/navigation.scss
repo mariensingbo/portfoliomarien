@@ -1,0 +1,79 @@
+.navigation {
+  @extend %cover;
+
+  color: $color-white;
+  z-index: z('navigation');
+  position: fixed;
+  pointer-events: none;
+}
+
+.navigation__link {
+  font-size: 0;
+  position: absolute;
+  left: 8rem;
+  top: 4rem;
+  width: 12.8rem;
+  pointer-events: auto;
+  height: 2rem;
+  transition: opacity 0.4s ease;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @include media('<phone') {
+    .navigation__link {
+      left: 5rem;
+      top: 5rem;
+      width: 18.9rem;
+      height: 4.3rem;
+      pointer-events: auto; /* Add this line */
+    }
+  }
+}
+.navigation__link__icon {
+  display: block;
+  color:white;
+}
+.navigation__list {
+  left: 4rem;
+}
+.navigation__list__item {
+  position: fixed;
+  right: 4rem;
+  top: 4rem;
+  justify-content: right;
+  pointer-events: auto;
+}
+.navigation__list__link {
+  @extend %link--hidden;
+  @extend %title-20;
+color:white;
+  display: block;
+  line-height: 1;
+}
+
+.social-media-icons {
+  position: absolute;      /* Change 'absolute' to 'fixed' to keep icons at the top of the page at all times */
+  height: 100%;         /* Set height to 'auto' to accommodate the content (icons) */
+  width: 100%;          /* Set width to 'auto' to accommodate the content (icons) */
+  top: 10px;            /* Positions the icons container 10px from the top edge of the viewport */
+  right: 10px;          /* Positions the icons container 10px from the right edge of the viewport */
+  z-index: 1000;        /* Sets a high z-index to ensure the icons stay on top of other content */
+  display: flex;        /* Use 'flex' to align icons horizontally */
+  gap: 10px;            /* Add gap between the icons */
+}
+
+
+@include media ('<phone') {
+  .social-media-icons {
+display:none;}
+}
+
+
+
+#MailIcon {
+
+
+}
+

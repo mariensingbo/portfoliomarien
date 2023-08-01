@@ -1,0 +1,330 @@
+
+import * as THREE from 'three';
+import { Plane, Transform } from 'ogl';
+import map from 'lodash/map';
+import GSAP from 'gsap';
+import ProcessGallery from './processGallery.js';
+import { CharacterMorphTarget } from './Character_webcam/character_webcam.js';
+
+window.webcamState = {
+  isOn: false
+};
+
+const renderer = new THREE.WebGLRenderer();
+
+
+export default class {
+  constructor({ gl, scene, sizes }) {
+    this.gl = gl;
+    this.scene= scene;
+    this.sizes = sizes;
+    this.height = sizes.height;
+    this.group = new Transform();
+
+    this.x = {
+      current: 0,
+      target: 0,
+      lerp: 0.1,
+    };
+
+    this.y = {
+      current: 0,
+      target: 0,
+      lerp: 0.1,
+    };
+
+    this.scrollCurrent = {
+      x: 0,
+      y: 0,
+    };
+
+    this.scroll = {
+      x: 0,
+      y: 0,
+    };
+
+    this.speed = {
+      current: 0,
+      target: 0,
+      lerp: 0.1,
+    };
+
+    fetch('animations/qhOvqDR60b.json')
+    .then(response => response.json())
+    .then(data => {
+        this.animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'), // replace with your container ID
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            animationData: data
+        });
+
+        this.animation.addEventListener('DOMLoaded', () => {
+          this.playAnimation();
+      });
+
+      // Replay the animation 3 seconds after it has completed
+      this.animation.addEventListener('complete', () => {
+          setTimeout(() => {
+              this.playAnimation();
+          }, 3000); // 3000 ms = 3 seconds
+      });
+
+        this.animation.setSpeed(0.75); // 0.5 for half speed
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    this.scrollIndex = 0;
+    this.animating = false;  // new flag to track if an animation is currently running
+    this.scrollContainer = document.querySelector('.scrollContainer');
+    this.scrollContent = document.querySelector('.scrollContent');
+
+   // this.faceManElements = document.querySelector('.theNegroSpaceProgram__wrapper')
+    this.caseElement = document.querySelector('.case');
+    this.conceptElement = document.querySelector('.concept');
+    this.contextElement = document.querySelector('.context');
+    this.processElement = document.querySelector('.process');
+    this.resultsElement = document.querySelector('.results');
+    this.creditsElement = document.querySelector('.credits');
+
+    this.prefaceTitleElement = document.querySelector('.preface_Title');
+    this.prefaceTitleElement2 = document.querySelector('.preface_Title2');
+
+    this.manifestoTextElement = document.querySelector('.manifesto_text1');
+    this.manifestoTextElement = document.querySelector('.manifesto_text2');
+    this.manifestoTextElement = document.querySelector('.manifesto_text3');
+    this.poemTextElement = document.querySelector('.poem')
+    this.characterCanvasElement = document.querySelector('.character__canvas');
+
+
+    this.animaticElement = document.querySelector('.storyboard__Title');
+    this.animaticElement2 = document.querySelector('#arrow2Animatic');
+
+    this.assetsElement = document.querySelector('.menu__ac');
+    this.assetsElement2 = document.querySelector('#arrow2ToAssets')
+
+    this.tryFaceRigElement = document.querySelector('.tryFaceRig');
+    this.leaveFaceRigElement = document.querySelector('.leaveFaceRig');
+    this.backtoContextElement = document.querySelector('#arrowBackToContext');
+    this.backtoContextElement2 = document.querySelector('#arrow2BackToContext');
+
+    this.arrowBackToProcessElement = document.querySelector('#arrowBackToProcess');
+    this.arrowToNextSlideElement = document.querySelector('#arrowToNextSlide');
+
+    this.arrowBackToGalleryElement = document.querySelector('#arrowBackToGallery');
+    this.arrowToCreditsElement = document.querySelector('#arrowToCredits');
+
+
+
+    this.prefaceTitleElement.addEventListener('click', () => this.onPrefaceTitleClick());
+    this.prefaceTitleElement2.addEventListener('click', () => this.onPrefaceTitleClick2());
+
+    this.animaticElement.addEventListener('click', () => this.onAnimaticClick());
+    this.animaticElement2.addEventListener('click', () => this.onAnimaticClick());
+
+
+    this.assetsElement.addEventListener('click', () => this.onAssetsClick());
+    this.assetsElement2.addEventListener('click', () => this.onAssetsClick());
+
+    this.backtoContextElement.addEventListener('click', () => this.onBacktoContextClick());
+    this.backtoContextElement2.addEventListener('click', () => this.onBacktoContextClick());
+
+    this.arrowBackToProcessElement.addEventListener('click', () => this.onArrowBackToProcess());
+    this.arrowToNextSlideElement.addEventListener('click', () => this.onArrowToNextSlide());
+    this.tryFaceRigElement.addEventListener('click', () => this.onTryFaceRigClick());
+    this.leaveFaceRigElement.addEventListener('click', () => this.onGoBackClick());
+    this.creditsElement.addEventListener('click', () => this.onCreditsClick());
+
+    this.scrollContainer.addEventListener('wheel', (e) => this.onScroll(e));
+
+    window.addEventListener('webcamStateChange', (event) => {
+      this.isWebcamOn = event.detail.isWebcamOn;
+      this.isWebcamManuallyStopped = event.detail.isWebcamManuallyStopped;
+
+    });
+
+
+    this.scrolledDown = false;
+    this.scrolledRight = false;  // Add this line
+
+    this.group = new Transform();
+
+    this.x = {
+      current: 0,
+      target: 0,
+      lerp: 0.1,
+    };
+
+    this.y = {
+      current: 0,
+      target: 0,
+      lerp: 0.1,
+    };
+
+    this.scrollCurrent = {
+      x: 0,
+      y: 0,
+    };
+
+    this.scroll = {
+      x: 0,
+      y: 0,
+    };
+
+    this.speed = {
+      current: 0,
+      target: 0,
+      lerp: 0.1,
+    };
+
+
+  this.canvas = document.createElement('canvas');
+  this.canvas.width = window.innerWidth;
+  this.canvas.height = window.innerHeight;
+  document.body.appendChild(this.canvas);
+
+  this.renderer = sharedRenderer;
+
+    this.onResize({
+      sizes: this.sizes,
+    });
+    this.group.setParent(this.scene);
+
+    this.characterMorphTargetInstance = null;
+
+
+    this.show();
+  }
+
+  createGeometry() {
+    this.geometry = new Plane(this.gl, {
+      heightSegments: 20,
+      widthSegments: 20,
+    });
+  }
+
+
+  show() {
+
+    map(this.medias, (media) => media.show());
+
+
+}
+
+  hide() {
+    map(this.medias, (media) => media.hide());
+  }
+
+  // Events
+  playAnimation() {
+    this.animation.goToAndPlay(0, true);
+}
+
+  onResize(e) {
+
+    this.sizes = e.sizes;
+    // this.height = this.sizes.height;
+    this.scroll.x = this.x.target = 0;
+    this.scroll.y = this.y.target = 0;
+   // `+ this.faceMan.onResize(e);
+
+  }
+  onTouchDown({ x, y }) {
+    this.speed.target = 1;
+
+    this.scrollCurrent.x = this.scroll.x;
+    this.scrollCurrent.y = this.scroll.y;
+  }
+
+  onTouchMove({ x, y }) {
+    const xDistance = x.start - x.end;
+    const yDistance = y.start - y.end;
+
+    this.x.target = this.scrollCurrent.x - xDistance;
+    this.y.target = this.scrollCurrent.y - yDistance;
+  }
+
+  onTouchUp({ x, y }) {
+    this.speed.target = 0;
+  }
+
+onPrefaceTitleClick() {
+//code for what happens when you click on the preface title
+}
+onPrefaceTitleClick2() {
+//code for what happens when you click on the preface title
+}
+onAnimaticClick() {
+//code for what happens when you click on the animatic
+ }
+onAssetsClick() {
+//code for what happens when you click on the assets
+}
+
+onBacktoContextClick() {
+//code for what happens when you click on the back to context
+}
+onArrowBackToProcess() {
+//code for what happens when you click on the arrow back to process
+}
+onArrowToNextSlide() {
+//code for what happens when you click on the arrow back to process
+}
+onTryFaceRigClick() {
+//code for what happens when you click on the arrow back to process
+
+}
+onGoBackClick() {
+//code for what happens when you click on the arrow back to process
+}
+onCreditsClick() {
+//code for what happens when you click on the arrow back to process
+
+}
+onScroll(e) {
+//code for what happens when you click on the arrow back to process
+
+}
+onWheel({}) {
+//code for what happens when you click on the arrow back to process
+
+}
+  update() {
+
+  }
+
+  destroy() {
+    this.renderer.forceContextLoss();
+    this.renderer.dispose();
+    this.prefaceTitleElement.removeEventListener('click', this.onPrefaceTitleClick);
+    this.animaticElement.removeEventListener('click', this.onAnimaticClick);
+    this.prefaceTitleElement.addEventListener('click', () => this.onPrefaceTitleClick());
+    this.prefaceTitleElement2.addEventListener('click', () => this.onPrefaceTitleClick2());
+    this.animaticElement.addEventListener('click', () => this.onAnimaticClick());
+    this.animaticElement2.addEventListener('click', () => this.onAnimaticClick());
+    this.assetsElement.addEventListener('click', () => this.onAssetsClick());
+    this.assetsElement2.addEventListener('click', () => this.onAssetsClick());
+    this.backtoContextElement.addEventListener('click', () => this.onBacktoContextClick());
+    this.backtoContextElement2.addEventListener('click', () => this.onBacktoContextClick());
+    this.arrowBackToProcessElement.addEventListener('click', () => this.onArrowBackToProcess());
+    this.arrowToNextSlideElement.addEventListener('click', () => this.onArrowToNextSlide());
+    this.tryFaceRigElement.addEventListener('click', () => this.onTryFaceRigClick());
+    this.leaveFaceRigElement.addEventListener('click', () => this.onGoBackClick());
+    this.creditsElement.addEventListener('click', () => this.onCreditsClick());
+
+    window.removeEventListener('webcamStateChange', this.webcamStateChangeCallback);
+    this.scene.removeChild(this.group);
+
+    if (this.characterMorphTargetInstance) {
+        this.characterMorphTargetInstance.dispose();
+    }
+    document.body.removeChild(this.canvas);
+
+    this.group = null;
+    this.canvas = null;
+    this.scene = null;
+  }
+}

@@ -1,0 +1,85 @@
+extends ../_includes/layout
+
+block variables
+  - var template = 'places'
+
+block content
+
+
+  script(src='https://unpkg.com/three@0.149.0/build/three.min.js')
+  script(type="module" src="./src/three/dat.gui.module.js")
+  script(async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js")
+
+
+
+
+  .places
+    .places__wrapper
+
+       each section in places.data.body
+        if section.slice_type == 'content'
+
+          .bg_places
+              .places__title PLACES
+
+
+              .container__deliverables
+                .places__deliverables!=section.primary.delivables_objectives.replace(/\n/g, '<br>', '<p data-animation="paragraph">')
+                .placesVideos
+                  .places__video1
+                    iframe(src='https://player.vimeo.com/video/394418726?h=56bd9f8f28&title=0&byline=0&portrait=0' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen='')
+                  .places__video2
+                    iframe(src='https://player.vimeo.com/video/395453657?h=47e63aeb82&title=0&byline=0&portrait=0' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen='')
+                .places__objectives Deliverables and objectives:
+                .places__intro!=section.primary.intro.replace(/\n/g, '<br>')
+                 img.places__storyoutlines(src='/img/text_storyboard.png' width='60' alt='Animation Moodboard')
+                 img.places__moodboard(src='/img/PLACES_MOODBOARD.jpg' width='60' alt='Animation Moodboard')
+                 .moodboardtext!=section.primary.moodboardtext.replace(/\n/g, '<br>', '<p data-animation="paragraph">')
+
+
+
+
+
+
+              .places__caseContainer
+
+                  img.places__storyboard(src='/img/PLACES_STORYBOARD.png' width='60' alt='Animation Storyboard')
+
+
+              .placesProcessContainer
+                video#processPlaces1(autoplay loop muted)
+                  source(src='Places1Process.mp4', type='video/mp4')
+
+                video#processPlaces2(autoplay loop muted)
+                  source(src='Places2Process.mp4', type='video/mp4')
+
+
+              .placesCredits
+              table.credits-table
+                thead
+                  tr
+                    th
+                    th
+                tbody
+                  tr
+                    td.role Creative Director
+                    td.name Amr Khaled
+                  tr
+                    td.role Producer
+                    td.name Elli Garperian
+                  tr
+                    td.role Art Director
+                    td.name Marien Singbo
+                  tr
+                    td.role Lead Animator
+                    td.name Marien Singbo
+                  tr
+                    td.role Modeling
+                    td.name Nicholas Bauer, Elli Garperian, Amr Khaled, Maria Kudryk, Marien Singbo
+                  tr
+                    td.role Rigging
+                    td.name Elli Garperian, Marien Singbo
+
+
+
+

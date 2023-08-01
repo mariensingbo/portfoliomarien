@@ -1,0 +1,817 @@
+
+
+@media only screen and (min-width : 992px) {
+
+  $shadowcolour: #000000;
+  %textshadows{
+    text-shadow:
+    0 1px $shadowcolour,
+    0 1.05px $shadowcolour,
+    1.05px 1px $shadowcolour,
+    1.05px 1.05px $shadowcolour,
+    1.1px 1.1px $shadowcolour,
+    1.1px 1.15px $shadowcolour,
+    1.15px 1.2px $shadowcolour,
+    1.15px 1.25px $shadowcolour,
+    1.2px 1.3px $shadowcolour,
+  }
+
+  .navtitle__places {
+    @extend %textshadows;
+    position: relative;
+    top: 0%;
+    left: 65%;
+    z-index: 1;
+    opacity: 1;
+    color: #FF6464;
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: black;
+    font-family: $font-nd-tupa-nova;
+    font-size: 2.7rem;
+
+}
+
+
+.navtitle__ThePark {
+  @extend %textshadows;
+  position: relative;
+  top: 0%;
+  left: 65%;
+  z-index: 1;
+  opacity: 1;
+  color: #FF6464;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: black;
+  font-family: $font-nd-tupa-nova;
+  font-size: 2.7rem;
+}
+
+
+.navdescription__places {
+  font-family: $font-helvetica-neue-lt-pro;
+  height: 100%;
+  width: 68%;
+  position: relative;
+  font-size: 1rem;
+  margin-top: 2%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  color: #ffffff;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  font-size: 0.7rem;
+}
+
+.navdescription__ThePark {
+  font-family: $font-helvetica-neue-lt-pro;
+  height: 100%;
+  width: 68%;
+  position: relative;
+  font-size: 1rem;
+  margin-top: 2%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  color: #ffffff;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  font-size: 0.7rem;
+}
+
+.projectDetails1 {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  width: 100%;
+  position: relative;
+  margin-left: 34%;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2px;
+}
+
+
+
+
+.year1{
+  font-family: $font-helvetica-neue-lt-pro;
+  font-size: 0.7rem;
+  color: black;
+  margin-left: -1rem;
+}
+
+
+
+.navtitle__thenegrospaceprogram {
+  font-family: $font-nd-tupa-nova;
+  @extend %textshadows;
+  position: relative;
+  margin-top: -1%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  color: #FF6464;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: black;
+  font-size: 2.7rem;
+  line-height: 2.7rem;
+}
+
+.year5 {
+  font-family: $font-helvetica-neue-lt-pro;
+  font-size: 0.75rem;
+  width: 100%;
+  margin-left: 13%;
+  position: relative;
+  text-align: left;
+  margin-top: 0;
+  border-radius: 2px;
+  color: black;
+}
+.year2 {
+  font-family: $font-helvetica-neue-lt-pro;
+  font-size: 0.75rem;
+  width: 100%;
+  margin-left: 13%;
+  position: relative;
+  text-align: left;
+  margin-top: 0;
+  border-radius: 2px;
+  color: black;
+}
+
+.yearBox2 {
+  height: 1.1rem;
+  width: 16%;
+  margin-top: 3%;
+  margin-left: 0%;
+  background: #FF6464;
+  z-index: -1;
+  border-radius: 2px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1%;
+}
+
+
+.yearBox3 {
+  position: relative;
+  height: 1.1rem;
+  width: 7rem;
+  margin-top: 2%;
+  margin-left: 65%;
+  background: #FF6464;
+  z-index: -1;
+  border-radius: 0.1rem;
+}
+
+
+.yearBox4 {
+  position: relative;
+  height: 1.1rem;
+  width: 7rem;
+  margin-top: 0%;
+  margin-left: 65%;
+  background: #FF6464;
+  z-index: -1;
+  border-radius: 0.1rem;
+}
+
+
+.yearBox5 {
+  position: relative;
+  height: 1.1rem;
+  width: 7rem;
+  margin-top: 0%;
+  margin-left: 65%;
+  background: #FF6464;
+  z-index: -1;
+  border-radius: 0.1rem;
+}
+
+
+.navdescription__thenegrospaceprogram {
+  font-family: $font-helvetica-neue-lt-pro;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin-top: 1%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  font-size: 0.7rem;
+  color: #ffffff;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  padding-bottom: 2%;
+}
+
+
+
+
+.year {
+  font-family: $font-helvetica-neue-lt-pro;
+
+
+}
+
+.yearBox1 {
+  position: relative;
+  height: 1.1rem;
+  width: 7rem;
+  margin-top: 0%;
+  margin-left: 65%;
+  background: #FF6464;
+  z-index: -1;
+  border-radius: 1px;
+}
+
+
+.navtitle__Mountains {
+
+  font-family: $font-nd-tupa-nova; ;
+  @extend %textshadows;
+  position: relative;
+  height: 100%;
+  width: 100px;
+  margin-top: 0%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  color: #FF6464;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: black;
+  font-size: 2.7rem;
+  line-height: 2.7rem;
+  padding-bottom:0.5rem;
+
+}
+
+
+
+.navtitle__INLabSchibsted {
+
+font-family: $font-nd-tupa-nova; ;
+@extend %textshadows;
+position: relative;
+height: 100%;
+width: 100px;
+margin-top: 0%;
+margin-left: 65%;
+z-index: 1;
+opacity: 1;
+color: #FF6464;
+text-align: left;
+transition: opacity 0.1s ease-in-out;
+-webkit-text-stroke-width: 0.2px;
+-webkit-text-stroke-color: black;
+font-size: 2.7rem;
+line-height: 2.7rem;
+}
+
+
+.navdescription__INLabSchibsted {
+
+
+  font-family: $font-helvetica-neue-lt-pro;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin-top: 1%;
+    margin-left: 65%;
+    z-index: 1;
+    opacity: 1;
+    color: #ffffff;
+    text-align: left;
+    transition: opacity 0.5s ease-in-out;
+    font-size: 0.6rem;
+}
+
+.yearBox3 {
+  position: relative;
+  height: 1.1rem;
+  width: 7rem;
+  margin-top: 2%;
+  margin-left: 65%;
+  background: #FF6464;
+  z-index: -1;
+  border-radius: 0.1rem;
+}
+
+
+.year3 {
+font-family: $font-helvetica-neue-lt-pro;
+color: black;
+position: absolute;
+height: 1.1rem;
+width: 14rem;
+margin-top: -0.15rem;
+margin-left: -4.5rem;
+z-index: -1;
+font-size: 0.9rem;
+}
+
+
+}
+
+
+.year4 {
+  font-family: $font-helvetica-neue-lt-pro;
+  color: black;
+  font-size: 0.9rem;
+  width: auto;
+  height: 100%;
+  padding: 0px;
+}
+
+
+.navdescription__Mountains {
+  font-family: $font-helvetica-neue-lt-pro;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin-top: 1%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  font-size: 0.7rem;
+  color: #ffffff;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  padding-bottom: 2%;
+}
+
+
+
+
+@include media('<phone') {
+
+
+
+
+  /* Wrap container */
+
+  #wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    align-items: flex-start;
+    margin-left: -47%;
+    text-align:left;
+    top:99vh
+
+  }
+
+  .n0 {
+    top: 28%;
+}
+
+
+  /* Columns */
+  .n {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 76%;
+    margin-top: 9%;
+    text-align: left;
+}
+
+
+
+.n2 {
+  top: 43%;
+  margin-left: 90%;
+}
+
+.n3 {
+  top: 48.5%;
+}
+
+
+.n4 {
+  top: 47%;
+  left: 36%;
+}
+
+  .navtitle__places {
+    position: relative;
+    margin-top: 27%;
+    left: -9%;
+}
+
+
+
+
+  .navtitle__places, .navtitle__thenegrospaceprogram, .navtitle__INLabSchibsted, .navtitle__ThePark, .navtitle__Mountains {
+    font-family: $font-nd-tupa-nova;
+    color: #FF6464;
+    font-size: 2.4rem;
+    line-height: 2.2rem;
+    width: 19%;
+    position: relative;
+}
+
+.navtitle__ThePark {
+  position: relative;
+  margin-top: 0%;
+  margin-left: 22%;
+  font-size: 3rem;
+  margin-bottom: 1%;
+}
+
+
+
+  /* Nav descriptions unified style*/
+  .navdescription__places,
+  .navdescription__thenegrospaceprogram,
+  .navdescription__INLabSchibsted,
+  .navdescription__ThePark
+  .navdescription__Mountains {
+    font-family:$font-helvetica-neue-lt-pro;
+    font-size: 0.7rem;
+    margin-bottom: 15px; /* Change the space between navdescription and the next row element */
+  }
+
+  /* Nav descriptions separate style*/
+  .navdescription__places {
+    margin-left: -9%;
+    width: 80%;
+    margin-top: 1%;
+}
+
+
+
+  .navdescription__thenegrspaceprogram {
+    margin-right: 0%;
+  }
+
+  .navdescription__INLabSchibsted {
+    margin-right: 0%;
+    margin-top: 1.5%;
+}
+
+
+.navdescription__ThePark {
+  margin-left: 23%;
+  margin-top: 1%;
+}
+.navdescription__Mountains {
+  margin-left: 0%;
+}
+
+
+    /* Row elements */
+    .year,
+    .yearBox,
+    .status,
+    .statusBox {
+      margin-bottom: 15px; /* Change the space between rows */
+    }
+
+    .status {font-family: $font-helvetica-neue-lt-pro;     font-size: 0.7rem; margin-top: 0.8px; margin-left: 5px;  color: #000000;}
+
+  .statusBox {
+    position: absolute;
+    height: 1.3rem;
+    width: 6rem;
+    background: #00d32a;
+    z-index: -1;
+    margin-lefT: 22%;
+    margin-top: 18.4%;
+    border-radius: 5px;
+    z-index: -1;
+  }
+
+  .year1, .year2, .year3, .year4, .year5 {
+      font-family:$font-helvetica-neue-lt-pro;
+      font-size: 0.7rem;
+      margin-top: 1.5%;
+      height: 100%;
+      color: black;
+  }
+
+
+  .yearBox1 {
+    margin-left: -9%;
+}
+
+.yearBox2 {
+width:20%;
+}
+
+
+
+.year1 {
+  margin-left: -9%;
+  margin-top: -2.5%;
+}
+
+  .year2 {
+    margin-left: 13%;
+    margin-top: 0%;
+}
+
+
+  .year3{margin-left: 13%;}
+  .year4{margin-left: 13%;}
+
+
+  .yearBox1, .yearBox2, .yearBox3, .yearBox4, .yearBox5 {
+    position: relative;
+    height: 1rem;
+    width: 7rem;
+    background: #ff6464;
+    z-index: -1;
+    margin-top: 2%;
+    border-radius: 5px;
+    padding-left: 3px;
+}
+
+
+.yearBox4 {
+
+  padding-left:0%;
+}
+
+
+.year4 {
+  margin-left: 22%;
+  padding-left: 5px;
+  padding-top: 0px;
+  width: 8rem;
+}
+
+.projectDetails1 {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  margin-left: -42%;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2px;
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+}
+
+@include media('<tablet') {
+
+
+  $shadowcolour: #000000;
+  %boxshadow{
+    box-shadow:
+    0px 1px $shadowcolour,
+    0px 1.05px $shadowcolour,
+    1.05px 1px $shadowcolour,
+    1.05px 1.05px $shadowcolour,
+    1.1px 1.1px $shadowcolour,
+    1.1px 1.15px $shadowcolour,
+    1.15px 1.2px $shadowcolour,
+    1.15px 1.25px $shadowcolour,
+    1.2px 1.3px $shadowcolour,
+  }
+
+
+  %textshadow{
+    text-shadow:
+    0 1px $shadowcolour,
+    0 1.05px $shadowcolour,
+    1.05px 1px $shadowcolour,
+    1.05px 1.05px $shadowcolour,
+    1.1px 1.1px $shadowcolour,
+    1.1px 1.15px $shadowcolour,
+    1.15px 1.2px $shadowcolour,
+    1.15px 1.25px $shadowcolour,
+    1.2px 1.3px $shadowcolour,
+  }
+
+/* Wrap container */
+
+#wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  align-items: flex-start;
+  margin-left: -47%;
+  text-align:left;
+  top:99vh
+
+}
+
+.n0 {
+  top: 28%;
+}
+
+
+/* Columns */
+.n {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 76%;
+  margin-top: 9%;
+  text-align: left;
+}
+
+
+
+.n2 {
+top: 43%;
+margin-left: 90%;
+}
+
+.n3 {
+top: 48.5%;
+}
+
+
+.n4 {
+  top: 400px;
+}
+
+.navtitle__places {
+  position: relative;
+  margin-top: 27%;
+  left: -9%;
+}
+
+
+
+
+.navtitle__places, .navtitle__thenegrospaceprogram, .navtitle__INLabSchibsted, .navtitle__ThePark, .navtitle__Mountains {
+  font-family: $font-nd-tupa-nova;
+  text-shadow:
+  0 1px black,
+  0 1.05px black,
+  1.05px 1px black,
+  1.05px 1.05px black,
+  1.1px 1.1px black,
+  1.1px 1.15px black,
+  1.15px 1.2px black,
+  1.15px 1.25px black,
+  1.2px 1.3px black,;
+  color: #FF6464;
+  font-size: 2.4rem;
+  line-height: 2.2rem;
+  width: 19%;
+  position: relative;
+}
+
+.navtitle__ThePark {
+position: relative;
+margin-top: 0%;
+margin-left: 22%;
+font-size: 3rem;
+margin-bottom: 1%;
+}
+
+
+
+/* Nav descriptions unified style*/
+.navdescription__places,
+.navdescription__thenegrospaceprogram,
+.navdescription__INLabSchibsted,
+.navdescription__ThePark {
+  font-family:$font-helvetica-neue-lt-pro;
+  font-size: 0.7rem;
+  margin-bottom: 15px; /* Change the space between navdescription and the next row element */
+}
+
+/* Nav descriptions separate style*/
+.navdescription__places {
+  margin-left: -9%;
+  width: 80%;
+  margin-top: 1%;
+}
+
+
+
+.navdescription__thenegrspaceprogram {
+  margin-right: 0%;
+}
+
+.navdescription__INLabSchibsted {
+  margin-right: 0%;
+  margin-top: 1.5%;
+}
+
+
+.navdescription__ThePark {
+margin-left: 23%;
+margin-top: 1%;
+}
+
+
+  /* Row elements */
+  .year,
+  .yearBox,
+  .status,
+  .statusBox {
+    margin-bottom: 15px; /* Change the space between rows */
+  }
+
+  .status {font-family: $font-helvetica-neue-lt-pro;     font-size: 0.7rem; margin-top: 0.8px; margin-left: 5px;  color: #000000;}
+
+.statusBox {
+  position: absolute;
+  height: 1.3rem;
+  width: 6rem;
+  background: #00d32a;
+  z-index: -1;
+  margin-lefT: 22%;
+  margin-top: 18.4%;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.year1, .year2, .year3, .year4, .year5 {
+    font-family:$font-helvetica-neue-lt-pro;
+    font-size: 0.7rem;
+    margin-top: 1.5%;
+    height: 100%;
+    color: black;
+}
+
+
+.yearBox1 {
+  margin-left: -9%;
+}
+
+.yearBox2 {
+width:20%;
+}
+
+
+
+.year1 {
+margin-left: -9%;
+margin-top: -2.5%;
+}
+
+.year2 {
+  margin-left: 13%;
+  margin-top: 0%;
+}
+
+
+.year3{margin-left: 13%;}
+.year4{margin-left: 13%;}
+
+
+.yearBox1, .yearBox2, .yearBox3, .yearBox4, .yearBox5 {
+  position: relative;
+  height: 1rem;
+  width: 7rem;
+  background: #ff6464;
+  z-index: -1;
+  margin-top: 2%;
+  border-radius: 5px;
+  padding-left: 3px;
+}
+
+
+.yearBox4 {
+
+padding-left:0%;
+}
+
+
+.year4 {
+margin-left: 22%;
+padding-left: 5px;
+padding-top: 0px;
+width: 8rem;
+}
+
+.projectDetails1 {
+display: flex;
+position: relative;
+flex-wrap: wrap;
+width: 100%;
+position: relative;
+margin-left: -42%;
+justify-content: center;
+align-items: baseline;
+gap: 2px;
+margin-top: 0;
+margin-bottom: 2px;
+}
+
+}

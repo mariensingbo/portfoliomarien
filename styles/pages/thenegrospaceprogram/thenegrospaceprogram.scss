@@ -1,0 +1,1626 @@
+:root {
+  --title-color: rgba(255, 255, 255, 0.25);
+}
+
+.dg.main {
+  z-index: 1000 !important;
+}
+
+
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 3s ease-in;
+}
+
+.scrollContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;  /* Hide the overflowing content */
+}
+
+.storyboard {
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0%;
+  width: 100vw;
+  z-index: 5;
+  display: flex;
+}
+
+.subTitle__Storyboard {
+  font-family: $font-helvetica-neue-lt-pro;
+  color: white;
+  position: absolute;
+  font-size: 3.8rem;
+  top: 171px;
+  left: 54%;
+  width: 100%;
+  z-index: 3;
+  opacity: 1;
+}
+
+
+.scrollContent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.theNegroSpaceProgram_wrapper, .case, .context, .concept {
+  height: 100vh;
+}
+/* Each section should be at least the height of the viewport */
+.scrollContent section {
+  height: 100vh;
+}
+
+.theNegroSpaceProgram {
+  @extend %page;
+  background: black;
+  // color: $color-bright-grey;
+  overflow:none;
+
+}
+
+.theNegroSpaceProgram__wrapper {
+  animation: fadeIn 4s ease-in forwards;
+}
+
+video {
+  position:absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  z-index: -2;
+  animation: fadeIn 4s ease-in forwards;
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.theNegroSpaceProgram__wrapper {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  overflow:none;
+}
+.theNegroSpaceProgram__title {
+
+  font-family: $font-nd-tupa-nova;
+  font-size: 17.5rem;
+  position:absolute;
+  margin-top: 5%;
+  display:flex;
+  justify-content: center;
+  height:100%;
+  width:100%;
+}
+
+.preface{
+  font-family: $font-helvetica-neue-lt-pro;
+  font-size: 5.5rem;
+  position: absolute;
+  margin-top: 29%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  margin-left: 0%;
+}
+
+.preface_Title, .preface_Title2 {
+  position: absolute;
+  font-size: 13rem;
+  width: 100vw;
+  margin-top: 10%;
+  margin-left: 0%;
+  z-index: 1;
+  height: auto;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 0.5s ease-in-out;
+  padding-bottom: 4px;
+}
+
+.preface_Title.active, .preface_Title2.active {
+  color: rgba(255, 255, 255, 1);
+}
+
+.preface_Title:hover:not(.no-hover), .preface_Title2:hover:not(.no-hover) {
+  color: rgba(255, 255, 255, 1);
+}
+
+.preface_Title2 {
+  margin-left: 50%;
+}
+
+
+
+.storyboard__Title, .menu__ac {
+  font-family: $font-helvetica-neue-lt-pro;
+  position: fixed;
+  font-size: 13rem;
+  width: auto;
+  z-index: 1;
+  height: auto;
+  background-color: #00000000;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 0.5s ease-in-out;
+  flex-wrap: wrap;
+  padding: 30px 200px 31px 150px;
+  margin-top: 35.5%;
+  position: fixed;
+  bottom: -103vh;
+}
+
+.storyboard__Title.active, .menu__ac.active {
+  color: rgba(255, 255, 255, 1);
+}
+
+.storyboard__Title:hover:not(.no-hover), .menu__ac:hover:not(.no-hover) {
+  color: rgba(255, 255, 255, 1);
+}
+
+
+.storyboard__Title {
+  position: fixed;
+  align-content: stretch;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  z-index: 2;
+  width: 64%;
+  padding: 30px 170px 32px 150px;
+  pointer-events: all;
+}
+.menu__ac {
+  position: fixed;
+  align-content: stretch;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 60%;
+  flex-direction: row;
+  margin-left: 40vw;
+  padding: 30px 215px 31px 150px;
+  pointer-events: all;
+}
+
+
+.case {
+  position: absolute;
+  top: 100vh;
+  width: 200vw;
+  background: #000000;
+  z-index: 2;
+  height: 50vh;
+}
+
+
+.context {
+  position: absolute;
+  top: 0vh;
+  width: 100vw;
+  height: 50vh;
+  background: #000000;
+  z-index: 2;
+}
+
+
+#arrow2BackToContext, #arrow2ToAssets, #arrow2Animatic {
+display:none
+}
+
+.context__flexbox {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  padding: 15px;
+  gap: 50px;
+  top: 0vh;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100vw;
+  align-content: center;
+  align-items: stretch;
+}
+
+.concept {
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  background: #000000;
+  z-index: 2;
+  height: 100vh;
+  margin-top: -100vh;
+  margin-left: 100vw;
+}
+
+
+.poem {
+  font-size: 1.55rem;
+  position: absolute;
+  top: 30vh;
+  width: 100vw;
+  color: white;
+  left: 55vw;
+  line-height: auto;
+  z-index: 14;
+}
+
+#storyboardVideo {
+  position: absolute;
+  width: 35%;
+  margin-top: 13%;
+  margin-left: 12vw;
+  border: 0.5px solid #ffffff;
+  border-radius: 60px;
+}
+
+.process {
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  z-index: 4;
+  opacity: 1.5;
+  height: 100vh;
+  margin-top: -100vh;
+  margin-left: 200vw;
+  pointer-events: none;
+}
+
+.blackOverlay {
+  position: sticky;
+  width: 100vw;
+  z-index: 3;
+  opacity: 1.5;
+  height: 100vh;
+  margin-top: -200vh;
+  margin-left: 200vw;
+  pointer-events: none;
+  background: rgb(0,0,0);
+  background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 60%, rgba(0,0,0,1) 95%);
+  background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 60%, rgba(0,0,0,1) 95%);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 60%, rgba(0,0,0,1) 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+}
+@include media ('<phone'){
+  .blackOverlay {
+    position: sticky;
+    width: 100vw;
+    z-index: 3;
+    opacity: 1.5;
+    height: 100vh;
+    margin-top: -200vh;
+    margin-left: 200vw;
+    pointer-events: none;
+    background: rgba(0,0,0,0);
+    background: -moz-linear-gradient(180deg, black 5%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, black 95%);
+    background: linear-gradient(180deg, transparent 5%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, black 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+}
+}
+
+.blackProcessBg {
+  position: absolute;
+  height: 230vh;
+  width: 100vw;
+  background-color: black;
+  z-index: 0;
+  margin-top: -100vh;
+  margin-left: 200vw;
+}
+
+
+.resultsContainer {
+  position:absolute;
+  top:0;
+  width: 50vw;
+}
+
+@include media ('<phone') {
+  .resultsContainer {
+      position: absolute;
+      top: 0px;
+      width: 100vw;
+  }}
+
+.results {
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  background: #000000;
+  z-index: 2;
+  opacity: 1.5;
+  height: 100vh;
+  margin-top: -100vh;
+  margin-left: 300vw;
+}
+
+@include media ('<phone') {
+  .results{
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  background: #000000;
+  z-index: 2;
+  opacity: 1.5;
+  height: 100vh;
+  margin-top: -100vh;
+  margin-left: 300vw;
+}}
+
+
+
+.Breakdown__title {
+  font-family: $font-nd-tupa-nova;
+  font-size: 11.5rem;
+  position: relative;
+  width: 100vw;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  top: 50vh;
+}
+
+
+.manifesto_text1, .manifesto_text2, .manifesto_text3  {
+
+font-family: $font-helvetica-neue-lt-pro;
+font-size: 1.1rem;
+width: 100vw;
+height: auto;
+
+}
+
+#arrowBackToContext, #arrowToAssets {
+  margin-top: 85vh;
+  display:none;
+  pointer-events: none;
+}
+
+
+#arrowToCase {
+  position: absolute;
+  height: 50%;
+  margin-left: 88%;
+  margin-top: 40%;
+  fill: white;
+  z-index: 2;
+  pointer-events: all;
+}
+
+.festival_notification {
+  position: absolute;
+  font-family: $font-helvetica-neue-lt-pro;
+  font-size: 3.1rem;
+  width: 18vw;
+  text-align: center;
+  margin-top: -18%;
+  margin-left: 73%;
+  z-index: 1;
+  background-color: black;
+  color: white;
+  height: 11vh;
+  border-radius: 3px;
+  border-style: outset;
+  border-color: white;
+  border-width: medium;
+}
+
+.access {
+  position: absolute;
+  height: auto;
+  width: 138%;
+  top: 12rem;
+  text-align: left;
+  left: 36%;
+  font-size: 1.3rem;
+}
+
+.face__canvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+
+#arrowBackToContext {
+  position: fixed;
+  padding: 40px 40px;
+  fill: rgba(255, 255, 255, 0);
+  z-index: 2;
+  stroke-width: 2px;
+  stroke: white;
+  stroke-opacity: 0.25;
+  transition: all 1s ease;
+  pointer-events: all;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 12vw;
+}
+
+.arrowBackToContext {
+  pointer-events: all;
+}
+
+#arrowBackToContext:hover {
+  fill:rgba(255, 255, 255, 1);
+  stroke-width:0;
+  stroke: white;
+  stroke-opacity: 1;
+  pointer-events: all;
+}
+
+
+
+#arrowToAssets {
+  position: fixed;
+  fill: rgba(255, 255, 255, 0);
+  z-index: 2;
+  stroke-width: 2px;
+  stroke: white;
+  transition: all 1s ease;
+  padding: 40px 40px;
+  top: -9vh;
+  display: flex;
+  height: 100vh;
+  width: 12vw;
+  flex-direction: row;
+  justify-content: flex-end;
+  pointer-events: all;
+  left: 190vw;
+}
+
+
+.arrowToAssets {
+  pointer-events: all;
+}
+
+#arrowToAssets:hover {
+  fill:rgba(255, 255, 255, 1);
+  stroke-width:0;
+  stroke:white;
+  stroke-opacity:1;
+  pointer-events: all;
+  stroke:white;
+  stroke-width:0px;
+}
+
+
+
+#storyboardCharacterRun {
+  position: absolute;
+  width: 20%;
+  margin-top: 50%;
+  margin-left: 18%;
+  border: 0.5px solid #c8c8c8;
+}
+
+.process__menu, .process__menu2 {
+  font-family: $font-helvetica-neue-lt-pro;
+  position: fixed;
+  bottom: -100vh;
+  font-size: 13rem;
+  width: 100vw;
+  margin-left: 0%;
+  z-index: 1;
+  height: auto;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 0.5s ease-in-out;
+}
+
+.process__menu {
+  margin-left: 0%;
+  padding-left: 0%;
+}
+
+.process__menu2 {
+  margin-left: 71%;
+}
+body {
+  margin: 0; /* Remove default body margin */
+  height: 100vh; /* Set body height to full viewport height */
+  display: flex; /* Use flexbox for vertical centering */
+  flex-direction: column; /* Align children vertically */
+}
+
+.processButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-top: 41%;
+}
+
+#arrowBackToProcess {
+  fill: rgba(255, 255, 255, 0);
+  z-index: 7;
+  stroke-width: 2px;
+  stroke: white;
+  stroke-opacity: 1;
+  transition: all 1s ease;
+  pointer-events: all;
+  grid-column: 1;
+  margin-left: -40%;
+}
+
+
+#arrowToNextSlide {
+  fill: rgba(255, 255, 255, 0);
+  stroke: white;
+  stroke-width: 2px;
+  justify-self: start;
+  z-index: 7;
+  margin-left: 40%;
+}
+
+#arrowBackToProcess, #arrowToNextSlide {
+  padding-bottom: 100px;
+  width:100%;
+}
+
+
+
+
+#arrowBackToProcess.active {
+  fill: rgba(255, 255, 255, 1);
+}
+
+@include media ('<phone') {
+  #arrowBackToProcess {
+    fill: white;
+    justify-self: start;
+}
+}
+
+
+
+
+
+#arrowBackToProcess:hover:not(.no-hover), #arrowBackToProcess:hover:not(.no-hover) {
+  fill: rgba(255, 255, 255, 1);
+}
+
+#arrowBackToProcess, #arrowToNextSlide {
+  padding-bottom: 148%;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+@include media ('<phone') {
+  #arrowToNextSlide {
+    fill: white;
+    justify-self: end;
+  }
+}
+
+@include media ('<phone') {
+
+    .processButtons {
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      height: 100%;
+      margin-top:100%;
+  }
+
+
+
+
+  #arrowBackToProcess, #arrowToNextSlide {
+    bottom: 16.5vh;
+
+}
+}
+
+.tryFaceRig {
+  font-family: $font-helvetica-neue-lt-pro;
+  position: absolute;
+  width: 32%;
+  margin-left: 65%;
+  margin-top: 48.3%;
+  z-index: 100;
+  border: 1px solid;
+  font-size: 0.65rem;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background-color: rgba(0, 170, 3, 0.5);
+  pointer-events: all;
+}
+
+
+
+
+
+@include media ('<phone') {
+  .tryFaceRig {
+    position: relative;
+    width: auto;
+    margin-left: 50%;
+    margin-top: 30.3%;
+    z-index: 7;
+    border: 1px solid;
+    font-size: 0.8rem;
+    padding: 1px 3px;
+    border-radius: 2px;
+    background-color: rgba(0, 170, 3, 0.5);
+    font-family: $font-helvetica-neue-lt-pro;
+}
+
+
+}
+@include media ('<phone') {
+#progress-bar {
+width: 0%;
+height: 20px;
+background: green
+}}
+
+.leaveFaceRig {
+  position: absolute;
+  width: 31%;
+  margin-left: 355px;
+  margin-top: 127%;
+  z-index: 7;
+  font-size: 0.8rem;
+  padding: 1px 3px;
+  font-family: $font-helvetica-neue-lt-pro;
+}
+
+@include media ('<phone') {
+
+  .leaveFaceRig {
+    position: absolute;
+    width: 100%;
+    margin-left: 0vw;
+    height:100;
+    z-index: 5;
+}
+}
+
+
+.arrowBackToProcess, .arrowToNextSlide {
+  pointer-events: all;
+  width:100%;
+}
+
+@include media ('<phone') {
+
+.arrowBackToProcess, .arrowToNextSlide {
+  pointer-events: all;
+  width:30%;
+}}
+
+#lottie-animation {
+display:none;
+}
+
+
+ @include media ('<phone') {
+  #lottie-animation {
+    position: absolute;
+    width: 30%;
+    z-index: 5;
+    margin-top: -9%;
+    left: 43%;
+    display: block;
+}}
+
+
+.processText {
+  font-family: $font-helvetica-neue-lt-pro;
+  position: absolute;
+  height: auto;
+  color: white;
+  z-index: 5;
+  margin-top: 33%;
+  margin-left: 64%;
+  width: 100%;
+  font-size: 0.7rem;
+}
+
+
+@include media ('<phone') {
+
+  .processText {
+    position: absolute;
+    width: auto;
+    height: auto;
+    color: white;
+    z-index: 5;
+    margin-top: 30%;
+    margin-left: 40%;
+    width: 39%;
+    font-size: 0.8rem;
+}
+}
+
+.unrealengine2 {
+
+}
+
+
+
+@include media ('<phone') {
+
+.unrealengine2 {
+
+}
+}
+
+
+
+.cinema4D2, .unrealengine2, .marvelousdesigner2, .substancePainterSC, .houdini, .afterEffects {
+  background: white;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 22px;
+  padding-top: 1px;
+  font-size: 0.6rem;
+}
+
+
+
+@include media ('<phone') {
+  .cinema4D2, ,.unrealengine2, .marvelousdesigner2, .substancePainterSC, .houdini, .afterEffects {
+    background: white;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 22px;
+    padding-top:1px
+}}
+
+
+
+  #canvasContainer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    /* Add other styles as needed */
+  }
+  .myNewElement {
+position:absolute;
+width:100%;
+top:0%;
+}
+
+  #characterWebcam {
+    position:absolute;
+    width: 100%;
+    top:0%;
+  }
+  .character__canvas {
+    position: absolute;
+    width: 100%;
+    top: -30%;
+    left: 88%;
+    height: 100vh;
+    z-index: 1;
+}
+
+
+
+@include media ('<phone') {
+
+  .character__canvas {
+    position: absolute;
+    width: 100vw;
+    top: -35%;
+    left: 100%;
+    height: 110vh;
+    z-index: 3;
+    pointer-events: none;
+}
+}
+
+#indicator-container {
+  position: fixed;
+  top: 34vh;
+  left: 208%;
+  height: 100%;
+  z-index: 10;
+}
+
+@include media ('<phone') {
+
+  #indicator-container {
+    position: fixed;
+    top: 5vh;
+    left: 233%;
+    height: 100%;
+    z-index: 10;
+    width: 100vw;
+}
+
+
+
+}
+
+.indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  margin: 0 10px;
+  transition: background-color 0.5s ease;
+  margin-top: 10px;
+}
+
+@include media ('<phone') {
+  .indicator {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: background-color 0.5s ease;
+    margin-left: 1px;
+}
+
+
+
+
+}
+
+
+  #canvasContainer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top:0%;
+    z-index:2;
+    /* Add other styles as needed */
+  }
+
+  .startWebcamButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    top: 1%;
+    left: 101.7%;
+    border-radius: 10px;
+    width: 4%;
+    font-family: $font-helvetica-neue-lt-pro;
+}
+
+@include media ('<phone') {
+
+  .startWebcamButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 9px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2rem;
+    margin: 1px 1px;
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    top: 22%;
+    left: 204vw;
+    border-radius: 10px;
+    font-family: $font-helvetica-neue-lt-pro;
+    pointer-events: all;
+    width: 16%;
+}
+
+
+}
+
+
+
+.dg.ac {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: 0;
+  display: none;
+}
+
+.lil-gui.root>.title {
+  background: #000000;
+  color: #ffffff;
+}
+
+
+.lil-gui.root > .children {
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 1rem;
+  font-size: 1.24rem;
+}
+
+@include media ('<phone') {
+  .lil-gui.root > .children {
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 2.2rem;
+}
+
+}
+
+.lil-gui.root {
+  display: flex;
+  flex-direction: column;
+  width: var(--width,50vw);
+}
+
+
+@include media ('<phone') {
+  .lil-gui.root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
+
+.lil-gui.autoPlace {
+  max-height: 85vh;
+  position: absolute;
+  right: -96vw;
+  top: 6%;
+  z-index: 2;
+  font-family: $font-helvetica-neue-lt-pro;
+}
+
+@include media ('<phone') {
+  .lil-gui.autoPlace {
+    max-height: 75vh;
+    position: absolute;
+    right: -100vw;
+    top: 104%;
+    z-index: 2;
+    font-family: $font-helvetica-neue-lt-pro;
+}}
+
+
+.lil-gui.root > .title {
+  background: #000000;
+  color: var(--title-text-color);
+  font-size: 5rem;
+  padding-bottom: 10%;
+}
+
+
+@include media ('<phone') {
+  .lil-gui.root > .title {
+    background: #b85672;
+    color: var(--title-text-color);
+    font-size: 3rem;
+    padding-bottom: 10%;
+  }
+}
+.lil-gui .title {
+  --title-height: calc(var(--widget-height) + var(--spacing)*17.25);
+  -webkit-tap-highlight-color: transparent;
+  text-decoration-skip: objects;
+  cursor: pointer;
+  font-weight: 600;
+  height: var(--title-height);
+  line-height: calc(var(--title-height) - 4px);
+  outline: none;
+  padding: 0 var(--padding);
+  font-size: 4rem;
+}
+@include media ('<phone') {
+  .lil-gui .title {
+    --title-height: calc(var(
+    --widget-height) + var(--spacing)*5.25);
+    -webkit-tap-highlight-color: transparent;
+    text-decoration-skip: objects;
+    cursor: pointer;
+    font-weight: 600;
+    height: var(--title-height);
+    line-height: calc(var(--title-height) + -4px);
+    outline: none;
+    padding: 0px 35vw var(--padding);
+}
+
+}
+
+
+.lil-gui {
+  --background-color: #1f1f1f;
+  --text-color: #ebebeb;
+  --title-background-color: #111;
+  --title-text-color: #ebebeb;
+  --widget-color: #000000;
+  --hover-color: #151515;
+  --focus-color: #373737;
+  --number-color: #ffffbf;
+  --string-color: #b37e7e;
+  --font-size: 11px;
+  --input-font-size: 11px;
+  --font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-family-mono: Menlo,Monaco,Consolas,"Droid Sans Mono",monospace;
+  --padding: 4px;
+  --spacing: 4px;
+  --widget-height: 31px;
+  --name-width: 31%;
+  --slider-knob-width: 6px;
+  --slider-input-width: 0%;
+  --color-input-width: 27%;
+  --slider-input-min-width: 45px;
+  --color-input-min-width: 45px;
+  --folder-indent: 7px;
+  --widget-padding: 0 0 0 3px;
+  --widget-border-radius: 3px;
+  --checkbox-size: calc(var(--widget-height)*0.75);
+  --scrollbar-width: 23px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  text-align: left;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lil-gui .controller {
+  align-items: center;
+  display: flex;
+  margin: var(--spacing) 0;
+  padding: 2px var(--padding);
+}
+
+@include media ('<phone') {
+  .lil-gui {
+
+    --background-color: #535353;
+    --text-color: #ebebeb;
+    --title-background-color: #000;
+    --title-text-color: #ffffff;
+    --widget-color: #424242;
+    /* --hover-color: #4f4f4f; */
+    --focus-color: #fde2e2;
+    --number-color: #ffcfcf;
+    --string-color: #a2db3c;
+    --font-size: 11px;
+    --input-font-size: 11px;
+    --font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    --font-family-mono: Menlo,Monaco,Consolas,
+  "Droid Sans Mono",monospace;
+    --padding: 4px;
+    --spacing: 4px;
+    --widget-height: 20px;
+    --name-width: 45%;
+    --slider-knob-width: 13px;
+    --slider-input-width: 0%;
+    --color-input-width: 0%;
+    --slider-input-min-width: 45px;
+    --color-input-min-width: 45px;
+    --folder-indent: 0px;
+    /* --widget-padding: 0 0 0 3px; */
+    --widget-border-radius: 30px;
+    --checkbox-size: calc(var(
+  --widget-height)*0.75);
+    --scrollbar-width: 18px;
+    background-color: #7d7d7d;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-style: normal;
+    font-weight: 200;
+    line-height: 11px;
+    text-align: left;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+@include media ('<phone') {
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0px;
+    margin-top: 25%;
+}
+}
+
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    opacity:1;
+}
+
+@include media ('<phone') {
+  .image-grid img {
+      width: 100%;
+      height: auto;
+      opacity:1;
+  }
+
+}
+
+.stills {
+  position: absolute;
+  width: 28%;
+  top: 1%;
+  left: 70%;
+  font-size: 3rem;
+  font-family: $font-helvetica-neue-lt-pro;
+  font-size: 2rem;
+  background: white;
+  color: black;
+  border-radius: 1rem;
+  padding-left: 17px;
+}
+
+@include media ('<phone') {
+  .stills {
+    position: absolute;
+    width: 48vw;
+    top: 11vh;
+    left: -5vw;
+    font-size: 3rem;
+    font-family: $font-helvetica-neue-lt-pro;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    background: rgba(255,255,255,0);
+    color: white;
+    display: none;
+}
+}
+
+#arrowBackToGallery, #arrowToCredits {
+  position: absolute;
+  width: 100%;
+  top: 81%;
+  fill: white;
+}
+
+@include media ('<phone') {
+  #arrowBackToGallery, #arrowToCredits {
+    position: absolute;
+    width: 100%;
+    top: 74.6vh;
+    fill: white;
+}
+}
+
+#arrowBackToGallery {
+  position: absolute;
+  width: 100%;
+  left: 57vw;
+}
+
+@include media ('<phone') {
+  #arrowBackToGallery {
+    position: absolute;
+    left: 3%;
+}}
+
+
+@include media ('<phone') {
+  .arrowBackToGallery{
+  width: 16vw;}
+  }
+
+
+
+
+#arrowToCredits {
+  position: absolute;
+  width: 100%;
+  left: 189%;
+}
+
+
+
+#arrowToResults {
+  position: absolute;
+  width: 100%;
+  left: 0%;
+  fill: white;
+  top: 81%;
+}
+
+@include media ('<phone') {
+  #arrowToResults {
+    position: absolute;
+    width: 100%;
+    fill: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+}
+
+@include media ('<phone') {
+  #arrowToCredits {
+    position: absolute;
+    width: 100%;
+    fill: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    left: -5%;
+}
+
+}
+
+@include media  ('<phone') {
+  .arrowToCredits {
+  width: 16vw;
+  }}
+
+@include media ('<phone') {
+#loading-text {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+  z-index: 3;
+  width: 81%;
+}}
+
+
+#BackUp {
+  position:absolute;
+  top:0%;
+  width:100%;
+}
+
+@include media ('<phone') {
+
+  #BackUp {
+    position: absolute;
+    width: 19%;
+    left: 32vw;
+    top: -10vh;
+}
+
+}
+.credits {
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  background: #000000;
+  z-index: 3;
+  opacity: 1.5;
+  height: 100vh;
+  margin-top: -100vh;
+  margin-left: 400vw;
+}
+
+
+@include media ('<phone') {
+.credits {
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  background: #000000;
+  z-index: 2;
+  opacity: 1.5;
+  height: 100vh;
+  margin-top: -100vh;
+  margin-left: 350vw;
+}}
+
+@include media ('<phone') {
+  .credits {
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    background: #000000;
+    z-index: 8;
+    opacity: 1.5;
+    height: 100vh;
+    margin-top: -100vh;
+    margin-left: 200%;
+}}
+
+.laurels {
+  position: absolute;
+  top: 27%;
+  width: 35%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  left: 32vw;
+}
+
+@include media ('<phone') {
+  .laurels {
+    position: absolute;
+    top: 25vh;
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    left: 9vw;
+}
+}
+
+
+
+.laurels img {
+  opacity: 1;
+  width: 100%;
+}
+
+
+
+
+
+.thankYou {
+  position: absolute;
+  top: 27vh;
+  left: 56vw;
+  width: 82%;
+  font-size: 3rem;
+  font-family: $font-helvetica-neue-lt-pro;
+}
+
+@include media ('<phone') {
+  .thankYou {
+    position: absolute;
+    top: 97%;
+    left: 18px;
+    width: 86%;
+    font-size: 2.5rem;
+}
+}
+
+.thankYouNames {
+  position: absolute;
+  top: 21vh;
+  left: 0;
+  width: 100%;
+  font-size: 1.5rem;
+  font-family: arial;
+}
+
+
+@include media ('<phone') {
+  .thankYouNames {
+    position: absolute;
+    top: 122%;
+    left: 27px;
+    width: 100%;
+    font-size: 11px;
+    font-family: Roboto;
+}
+}
+
+
+
+.PremiereInterview {
+  position: absolute;
+  width: 100%;
+  top: 59%;
+  left: 15%;
+  z-index: 3;
+}
+
+@include media ('<phone') {
+  .PremiereInterview {
+    position: absolute;
+    top: 36%;
+    left: 66%;
+    width: 100%;
+}
+}
+
+
+
+
+.framePremiere img {
+  position:absolute;
+  width:100%;
+  top:0%;
+  left:0%;
+}
+
+@include media ('<phone') {
+.framePremiere img {
+  position:absolute;
+  top:0%;
+  left:0%;
+}
+
+}
+
+.PremiereInterview img {
+  opacity: 1;
+  width: 10%;
+  -webkit-box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
+  -moz-box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
+  box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
+  border: 1px solid #ffffff;
+}
+
+
+@include media ('<phone') {
+  .PremiereInterview img {
+    opacity: 1;
+    width: 26%;
+    -webkit-box-shadow: -5px 5px 0px 2px #000, -5px 5px 0px 3px white;
+    -moz-box-shadow: -5px 5px 0px 2px #000, -5px 5px 0px 3px white;
+    box-shadow: -5px 5px 0px 2px #000, -5px 5px 0px 3px white;
+    border: 1px solid #ffffff;
+}
+}
+
+
+
+
+
+.TempoInterview {
+  position: absolute;
+  top: 45%;
+  left: 2%;
+  width: 83%;
+}
+
+@include media ('<phone') {
+
+  .TempoInterview {
+    position: absolute;
+    top: 36%;
+    left: 15%;
+}
+
+}
+
+.frameTempo img {
+  opacity: 1;
+  width: 20%;
+  -webkit-box-shadow:-18px 18px 0px 2px #000, -18px 18px 0px 3px white;
+  -moz-box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
+  box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
+  border: 1px solid #ffffff;
+}
+
+
+@include media ('<phone') {
+
+  .frameTempo img {
+    width: 52%;
+    opacity: 1;
+    width: 41%;
+    -webkit-box-shadow: -7px 7px 0px 2px #000, -7px 7px 0px 3px white;
+    -moz-box-shadow: -7px 7px 0px 2px #000, -7px 7px 0px 3px white;
+    box-shadow: -7px 7px 0px 2px #000000, -7px 7px 0px 3px white;
+    border: 1px solid #ffffff;
+}
+
+
+}
+
+
+
+.frameTempo{
+  position:absolute;
+  width:100%;
+  top:0%;
+  left:0%;
+}
+
+.screenings {
+  position: absolute;
+  width: 46%;
+  font-size: 5rem;
+  lefT: 27%;
+  top: 16%;
+  font-family: $font-helvetica-neue-lt-pro;
+}
+
+
+@include media ('<phone') {
+  .screenings {
+    position: absolute;
+    width: 100%;
+    font-size: 3.9rem;
+    lefT: 8%;
+    top: 19%;
+    font-family: $font-helvetica-neue-lt-pro;
+}
+
+
+}
+
+.screeningsText {
+  position: absolute;
+  width: 100%;
+  font-size: 2rem;
+  top: 426%;
+  z-index: 5;
+  left: 10%;
+}
+
+@include media ('<phone') {
+  .screeningsText {
+    position: absolute;
+    width: 88%;
+    font-size: 1.9rem;
+    top: 37vh;
+    z-index: 5;
+    left: 1%;
+}
+}
+
+
+
+
+@include media ('<phone') {
+  #arrowToResults {
+    position: absolute;
+    width: 100%;
+    fill: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    margin-top: 38.55vh;
+    margin-left: -72vw;
+}}
+
+
+
+  @include media ('<phone') {.arrowBackToResults {
+    position:absolute;
+
+    width: 18.5%;
+  }}
+

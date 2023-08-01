@@ -1,0 +1,780 @@
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+// Mobile Styles
+.header-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  margin-left: 0%;
+  margin-top: 0%;
+}
+
+.video-hidden {
+  opacity: 0;
+}
+
+video {
+  transition: opacity 0.5s;
+}
+
+// Desktop styles
+
+.mycredits {
+  position: absolute;
+  z-index: 2;
+  height: 100;
+  width: 100%;
+  margin-left: 4%;
+  font-size: 1.5rem;
+  bottom: 1%;
+  font-family: $font-helvetica-neue-lt-pro;
+}
+
+
+@include media ('<phone') {
+.mycredits {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  height: auto;
+  align-items: flex-end;
+
+}}
+
+
+@keyframes animateHeight {
+  0% { height: 0; }
+  100% { height: 100%; }
+}
+
+
+
+.vertical__line {
+  position: sticky;
+  left: 0;
+  width: 45px;
+  background: rgb(255,255,255);
+  background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) -45%, rgba(255,100,100,1) 0%, rgba(255,74,74,1) 66%, rgba(255,195,195,0) 100%);
+  background: -moz-linear-gradient(180deg, rgba(255,255,255,1) -45%, rgba(255,100,100,1) 0%, rgba(255,74,74,1) 66%, rgba(255,195,195,0) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,1) -45%, rgba(255,100,100,1) 0%, rgba(255,74,74,1) 66%, rgba(255,195,195,0) 100%);
+  z-index: 2;
+  animation: animateHeight 2s; /* 2 seconds */
+  animation-fill-mode: forwards;
+  height: 0;
+}
+
+
+
+@include media('<phone') {
+
+  .vertical__line {
+    visibility:hidden;
+  display:none;}
+}
+
+@include media('<tablet') {
+
+  .vertical__line {
+    visibility:hidden;
+  display:none;}
+}
+
+
+.home {
+    @extend %page;
+    // background: $color-contessa;
+    // color: $color-white;
+    overflow:hidden;
+    text-align: center;
+    &::before, &::after {
+        content: '';
+        height: 24rem;
+        width: 100%;
+        z-index: 1;
+        position: fixed;
+        left: 0;
+        pointer-events:all;
+  }
+    &::before {
+        overflow:hidden;
+        background: rgb(45, 129, 224,);
+        background: -moz-linear-gradient( 0deg, rgba(201, 113, 100, 0) 0%, #2D81E0 100%, rgba(45, 129, 224, 1) 100% );
+        background: -webkit-linear-gradient( 0deg, rgba(201, 113, 100, 0) 0%, #2d81e0 100%, #2D81E0(201, 113, 100, 1) 100% );
+        background: linear-gradient( 0deg, rgba(201, 113, 100, 0) 0%, #2D81E0 100%, rgba(45, 129, 224, 1) 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c97164",endColorstr="#c97164",GradientType=1);
+        top: 0;
+        pointer-events:all;
+  }
+    &::after {
+        overflow:hidden;
+        background: rgb(45, 129, 224);
+        background: -moz-linear-gradient( 180deg, rgba(255, 34, 0, 0) 0%, #2D81E0 100%, #2D81E0 100% );
+        background: -webkit-linear-gradient( 180deg, rgba(201, 113, 100, 0) 0%, #2D81E0 100%, #2D81E0 100% );
+        background: linear-gradient( 180deg, rgba(201, 113, 100, 0) 0%, rgba(255, 195, 195, 1) 100%, rgba(255, 195, 195, 1) 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c97164",endColorstr="#c97164",GradientType=1);
+        bottom: 0;
+        pointer-events:all;
+  }
+}
+.home__wrapper {
+    height: 100%;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        display: none;
+  }
+}
+.home__titles {
+    @extend %vertical-titles;
+}
+.home__titles__label {
+    @extend %vertical-titles__label;
+}
+.home__titles__title {
+    @extend %vertical-titles__title;
+}
+.home__gallery {
+    @extend %cover;
+    visibility: hidden;
+    width: 241.8rem + 9rem;
+    height: 172.5rem;
+    background-color: transparent;
+
+}
+
+.bg {
+display:none;
+position: absolute;
+
+transition: opacity 0.25s;
+background-color: rgba(45, 129, 224, 1);
+/* here is the new line */
+/* here is the new line */
+}
+
+
+
+@include media ('<phone') {
+  .bg {
+    display: block;
+    background-color: #2d81e0;
+    width: 1200%;
+    height: 1200%;
+    transition: opacity 0.25s;
+    opacity: 1;
+    position: fixed;
+}}
+.home__gallery__media {
+    position: absolute;
+    background-color: transparent;
+    visibility: hidden;
+
+
+
+    &:nth-child(1) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 16.6rem;
+        left: 9.4rem;
+        background-color: transparent;
+  }
+    &:nth-child(2) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 19.4rem;
+        left: 54rem;
+        background-color: transparent;
+
+
+      }
+    &:nth-child(3) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 10.9rem;
+        left: 106.3rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(4) {
+        width: 40.6rem;
+        height: 60.8rem;
+        top: 0;
+        left: 154.1rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(5) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 10.6rem;
+        left: 207rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(6) {
+        width: 37.5rem;
+        height: 52.3rem;
+        top: 69.3rem;
+        left: 0;
+        background-color: transparent;
+
+      }
+    &:nth-child(7) {
+        width: 40.6rem;
+        height: 60.8rem;
+        top: 66.4rem;
+        left: 46.7rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(8) {
+        width: 39.7rem;
+        height: 58.2rem;
+        top: 64.9rem;
+        left: 101.4rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(9) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 64rem;
+        left: 160rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(10) {
+        width: 39.7rem;
+        height: 58.2rem;
+        top: 64.9rem;
+        left: 202.1rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(11) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 129.1rem;
+        left: 13rem;
+        background-color: transparent;
+
+      }
+    &:nth-child(12) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 130.6rem;
+        background-color: transparent;
+
+  }
+    &:nth-child(14) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 111.1rem;
+        background-color: transparent;
+
+  }
+    &:nth-child(15) {
+        width: 27.8rem;
+        height: 41.8rem;
+        top: 128.8rem;
+        background-color: transparent;
+
+  }
+}
+.home__gallery__media__image {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+
+
+}
+.home__link {
+    letter-spacing: 0.05;
+    width: 28.84em;
+    height: 6rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    text-transform: uppercase;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    .explore-btn {
+        font-family: $font-helvetica-neue-lt-pro;
+        font-size: 4rem;
+        z-index: 3;
+  }
+}
+
+@include media ('<phone') {
+.home__link {
+
+  bottom:20rem;
+}}
+
+
+
+.home__link__icon {
+    @extend %cover;
+
+}
+.header__wrapper {
+    right: 2%;
+    position:absolute;
+  }
+  #canvas.WebGLRenderer{
+    //top: 0;
+    //left: 0;
+    //width: 100%;
+    //height: 100%;
+    //z-index: 0;
+  }
+  .nav__wrapper {
+    scroll-behavior: smooth;
+    scroll-snap-align: end;
+    height: 100vh;
+    z-index: 0;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .nav__wrapper.visible {
+    opacity: 1;
+  }
+  .nav {
+
+  }
+
+  @include media ('<phone') {
+    .nav {
+    display:none;
+    pointer-events: none;
+    }
+  }
+
+  @include media ('<tablet') {
+    .nav {
+    display:none;
+    pointer-events: none;
+    }
+  }
+
+  .nav__bg {
+    position: absolute;
+    top: 80%;
+    width: 300%;
+    height: 200%;
+    background: rgb(45,129,224,1);
+    background: linear-gradient(180deg, rgba(45, 129, 224, 0.3666258739824054) 0%, rgba(45, 129, 224, 0) 0%, rgba(45, 129, 224, 1) 7%, rgba(45, 129, 224, 1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(45, 129, 224, 0.3666258739824054) 0%, rgba(45, 129, 224, 0) 0%, rgba(45, 129, 224, 1) 7%, rgba(45, 129, 224, 1) 100%);
+    background: -moz-linear-gradient(180deg, rgba(45, 129, 224, 0.3666258739824054) 0%, rgba(45, 129, 224, 0) 0%, rgba(45, 129, 224, 1) 7%, rgba(45, 129, 224, 1) 100%);
+    z-index: -1;
+    opacity: 1;
+  }
+  #wrap {
+    position: relative;
+    width: 200%;
+    height: 100%;
+    top: 100vh;
+    left:0%;
+    opacity:0;
+  }
+
+  .n0, .n1, .n2, .n3, .n4, .n5 { pointer-events:all; z-index:1001;}
+
+  .n {
+    scroll-snap-align: start;
+    position: absolute;
+    top: 30%;
+    width: 230px;
+}
+  .n0 {
+  }
+
+  .n1 {
+    top: 45%;
+  }
+  .n2 {
+    top: 50%;
+}
+.n3 {
+  top: 60%;
+}
+  .n4 {
+    top: 75%;
+  }
+  .n5 {
+    top:70%;
+  }
+  .home-nav {
+    @extend %helvetica-15;
+    font-size: 35px;
+    position: absolute;
+    top: 150%;  /* adjust this to 50% */
+    right: 3.5vh;
+    z-index: 100;
+    border: none;
+    width: 300px;
+    list-style: none;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    opacity: 0;
+    transform: translateY(-50%);  /* adjust this to -50% */
+  }
+
+
+  .onTour {
+    font-size: 0.75rem;
+    font-family: $font-helvetica-neue-lt-pro;
+}
+  @include media ('<phone') {
+    .onTour {
+    display:block;
+    pointer-events: none;
+
+  }
+
+  }
+
+  .onTourBox {
+    width: 5rem;
+    background: #00d32a;
+    z-index: -1;
+    margin-lefT: 0%;
+    margin-top: 2%;
+    border-radius: 2px;
+    z-index: -1;
+}
+
+#sound {
+  position: sticky;
+  left: 75%;
+  opacity: 1;
+  width: 3.5%;
+  z-index: 1003;
+  pointer-events: all;
+  margin-top: -0.5%;
+}
+
+@include media ('<phone') {
+  #sound {
+display:none;
+}}
+
+
+  @include media ('<phone') {
+
+    .onTourBox {
+      position: relative;
+      height: 1rem;
+      width: 5rem;
+      background: #00d32a;
+      z-index: -1;
+      margin-lefT: 0%;
+      margin-top: -2%;
+      border-radius: 2px;
+      z-index: -1;
+      padding-left: 1%;
+  }
+
+
+  }
+
+
+  .home_nav li  {
+    font-size: 35px;
+    border: none;
+    color: rgb(255, 255, 255);
+    transition: color 1s;
+    @extend %link--hidden;
+  }
+
+
+
+  @include media('<phone') {
+    ul.home_nav li {
+   display:none;
+   pointer-events:none;
+    }
+  }
+
+  li:hover {
+    color:#ffeab9;
+    border: 2px
+  }
+
+
+  @include media('<phone') {
+    li:hover {
+   display:none;
+   pointer-events:none;
+    }
+  }
+  #top-btn {
+    font-family:$font-nd-tupa-nova;
+    font-size: 5.3rem;
+    position: absolute;
+    top: 138%;
+    right: 16%;
+    fill: #2D81E0;
+    stroke: white;
+    stroke-width: 1px;
+    z-index: 20;
+    border: none;
+    width: 300px;
+    list-style: none;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    opacity:0.4;
+    transition: all 1s ease;
+
+  }
+
+  .topBtnCircle {
+    display:none;
+  }
+
+
+@include media ('<phone') {
+  .topBtnCircle {
+    display:block;
+    fill:white;
+  }}
+
+  @include media ('<phone') {
+    #top-btn {
+      font-family: $font-nd-tupa-nova;
+      font-size: 5.3rem;
+      position: absolute;
+      top: 169%;
+      right: 9%;
+      fill: #2D81E0;
+      stroke: white;
+      stroke-width: 1px;
+      z-index: 20;
+      border: none;
+      width: 100px;
+      list-style: none;
+      text-align: right;
+      margin: 0;
+      padding: 0;
+      opacity: 1;
+      transition: all 1s ease;
+      fill: white;
+  }
+  }
+  #top-btn:hover {
+    fill:white;
+    stroke-width:0;
+    opacity: 1;
+  }
+  #top-btn.visible {
+    opacity: 1;
+  }
+  .arrow__icon {
+    position: absolute;
+    z-index: 20;
+    left: 45%;
+    width:100%;
+    pointer-events: all;
+  }
+  #block {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: rgb(0, 0, 0);
+    z-index: 5;
+  }
+  #container {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .social-media-icons {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    top: 42.5%;
+    left: 60%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  #MailIcon {
+    position: absolute;
+    height:100%;
+    height:100%;
+    top: 0%;
+    left: 0%;
+    z-index:2;
+    pointer-events: visible;
+  }
+  #InstagramIcon {
+    position: absolute;
+    height:100%;
+    height:100%;
+    top: 0%;
+    left: 5%;
+    z-index:2;
+    pointer-events: visible;
+  }
+  #linkedInIcon {
+    position: absolute;
+    height:100%;
+    height:100%;
+    top: 0%;
+    left: 10%;
+    z-index:2;
+    pointer-events: visible;
+  }
+
+
+  @include media ('<phone') {
+
+    .social-media-icons, #MailIcon, #InstagramIcon, #linkedInIcon {
+      display:none;
+      pointer-events:none;
+    }
+  }
+
+
+
+  .openCase {
+    font-family: $font-nd-tupa-nova;
+    background: #ff6464;
+    border-radius: 1.5px;
+    padding: 0px 3px 1px;
+    font-size: 1.4rem;
+    box-shadow: 0 1px #000000, 0 1.05px #000000, 1.05px 1px #000000, 1.05px 1.05px #000000, 1.1px 1.1px #000000, 1.1px 1.15px #000000, 1.15px 1.2px #000000, 1.15px 1.25px #000000, 1.2px 1.3px #000000;
+    -webkit-text-stroke: black;
+    -webkit-text-stroke-width: 0.1px;
+    transition:background-color 0.3s;
+
+}
+
+.openCase:hover {
+  background-color: orangered; /* Change the background color on hover */
+}
+  .case1 {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 56%;
+    font-size: 1.4rem;
+  }
+
+  @include media ('<phone') {
+    .case1 {
+      position: relative;
+      margin-top: 2%;
+      margin-left: -10%;
+      font-size: 1.4rem;
+  }
+  }
+
+
+
+  .case2 {
+    position: relative;
+    margin-left: 56%;
+    font-size: 1.4rem;
+    pointer-events: all;
+    z-index: 1001;
+}
+
+  @include media ('<phone') {
+    .case2 {
+      position: relative;
+      margin-top: 0%;
+      width: auto;
+      margin-left: 0%;
+  }
+  }
+
+
+  .case3 {
+    position: relative;
+    margin-top: 3%;
+    width: 29%;
+    margin-left: 65%;
+}
+
+
+  @include media ('<phone') {
+
+    .case3 {
+      position: absolute;
+      margin-top: 32%;
+      width: auto;
+      font-size: 1.4rem;
+      margin-left: 0%;
+  }
+  }
+
+  .case4 {
+    position: absolute;
+    margin-top: 2%;
+    width: auto;
+    margin-left: 14%;
+    font-size: 1.4rem;
+}
+
+  @include media ('<phone') {
+    .case4 {
+      position: relative;
+      margin-top: 0%;
+      width: auto;
+      margin-left: 23%;
+      font-size: 1.4rem;
+  }
+
+  }
+
+  .case5 {
+    position: absolute;
+    width: auto;
+    margin-top: 0%;
+    margin-left: 14%;
+    width: auto;
+    font-size: 1.4rem;
+}
+
+  @include media ('<phone') {
+    .case5 {
+      position: relative;
+      margin-top: 0%;
+      margin-left: 0%;
+      width: auto;
+      font-size: 1.4rem;
+  }
+  }
+
+
+

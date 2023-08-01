@@ -1,0 +1,698 @@
+#container2 {
+overflow: hidden;
+width: 100vw;
+height: 100vh;
+position: absolute;
+z-index: 2;
+pointer-events: none;
+top: -100vh;
+left: 114%;
+}
+.o {
+  scroll-snap-align: start;
+  position: absolute;
+  margin-top: -3vh;
+  height: 0px;
+  width: 180px;
+  background: #ffffff;
+  pointer-events: all;
+  z-index: 10;
+  left: -3%;
+}
+
+
+
+@include media ('<phone') {
+.o {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 50%;
+  margin-top: 19%;
+  text-align: left;
+
+
+}
+}
+
+
+
+.o1 {
+  top: 50%;
+  margin-top: -30%;
+  margin-left: -24%;
+
+}
+
+
+
+@include media ('<phone') {
+  .o1 {
+    top: 31.5%;
+}}
+
+.o2 {
+  top: -6%;
+  pointer-events: all;
+  z-index: 100;
+  left: -26%;
+}
+
+
+@include media ('<phone') {
+  .o2 {
+    top: 100px;
+    margin-left: 121%;
+}}
+
+.o3 {
+  top: 0%;
+  left: -30%;
+}
+
+@include media ('<phone') {
+  .o3 {
+    top: 300px;
+    left: 0%;
+}}
+
+.o4 {
+  top: 6%;
+  left: -26%;
+}
+
+@include media ('<phone') {
+  .o4 {
+    top: -5%;
+    left: 0%;
+}
+}
+
+.o5 {
+  top:600px;
+}
+
+@include media ('<phone') {
+  .o5 {
+    top: 600px;
+}}
+
+
+
+
+
+
+@include media ('<phone') {
+#container2 {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  top: -100vh;
+  left: 114%;
+  top: -103vh;
+}
+
+}
+
+
+#clip-path-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  clip-path: inset(-100vh -50vw 30vh 45vw);
+  pointer-events: none;
+  top: -13%;
+  left: 77%;
+  z-index: 4;
+}
+
+
+#negrospaceprogram__wrap {
+  position: relative;
+  width: 200%;
+  height: 200%;
+  top: 19vh;
+  margin-top: -32%;
+  z-index: 5;
+  margin-left: 109%;
+  pointer-events: all;
+}
+
+@include media('<phone') {
+  #negrospaceprogram__wrap {
+    top: -69vh;
+    left: -113vw;
+    height: 136%;
+    width: 100%;
+}}
+
+
+.processGallery__wip {
+@extend %helvetica-15;
+display: flex;
+position: absolute;
+top: -100vh;
+z-index: 3;
+border: none;
+width: 12%;
+list-style: none;
+text-align: left;
+padding: 0;
+left: 100%;
+background-color: #000000;
+padding-left: 40px;
+padding-top: 50vh;
+padding-bottom: 0%;
+flex-wrap: wrap;
+justify-content: flex-start;
+align-content: center;
+flex-direction: column-reverse;
+align-items: baseline;
+}
+
+
+
+@include media('<phone') {
+  .processGallery__wip {
+    font-family: $font-helvetica-neue-lt-pro;
+    z-index: 3;
+    position: absolute;
+    top: -98vh;
+    left: 92vw;
+    background: none;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+    width: 100%;
+    display: none;
+    pointer-events: none;
+}
+
+}
+
+
+
+.processGallery__wip li {
+font-size: 35px;
+border: none;
+color: rgb(255, 255, 255);
+transition: color 1s;
+@extend %link--hidden ;
+}
+
+
+@include media('<phone'){
+  .processGallery__wip li {
+    font-size: 2rem;
+    padding-left: 9px;
+}}
+
+
+@include media('<tablet'){
+  .processGallery__wip li {
+    font-size: 2rem;
+    padding-left: 9px;
+}}
+
+
+
+.navdescription__character2 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin-top: 2%;
+  z-index: 1;
+  opacity: 1;
+  color: #ffffff;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+}
+
+
+@include media ('<phone') {
+  .navdescription__character2 {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin-top: -17%;
+    z-index: 1;
+    opacity: 1;
+    color: #ffffff;
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+}}
+
+@include media ('<tablet') {
+  .navdescription__character2 {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin-top: -17%;
+    z-index: 1;
+    opacity: 1;
+    color: #ffffff;
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+}}
+
+
+
+.navtitle__nebula {
+  font-family: $font-nd-tupa-nova;
+  position: relative;
+  margin-top: 0%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  color: rgba(255, 255, 255, 0);
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: white;
+  font-size: 2.7rem;
+  line-height: 2.7rem;
+}
+
+
+
+@include media ('<phone') {
+
+  .navtitle__nebula {
+    font-family: $font-nd-tupa-nova;
+    position: relative;
+    margin-top: 0%;
+    margin-left: 55%;
+    z-index: 1;
+    opacity: 1;
+    color: rgba(0, 0, 0, 0);
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: white;
+    font-size: 2.7rem;
+    line-height: 2.7rem;
+}
+
+
+  }
+
+
+
+
+  .navtitle__spacecapsule, .navtitle__character1, .navtitle__character2 {
+    font-family: $font-nd-tupa-nova;
+    color: #ffffff00;
+    font-size: 2.4rem;
+    margin-top: 0%;
+    line-height: 2.2rem;
+    width: 100%;
+    margin-left: 67%;
+    height: 100%;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 0.2px;
+    position: relative;
+}
+
+@include media('<phone'){
+  .navtitle__spacecapsule, .navtitle__character1, .navtitle__character2 {
+    font-family: $font-nd-tupa-nova; ;
+    color: #ffffff00;
+    font-size: 2.4rem;
+    margin-top: 28%;
+    line-height: 2.2rem;
+    width: 100%;
+    margin-left: 67%;
+    height: 100%;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 0.5px;
+}
+}
+
+.navtitle__spacecapsule{
+  position:relative;
+  left:0vw;
+  top:0vh;
+
+}
+@include media ('<phone') {
+  .navtitle__spacecapsule {
+    position: relative;
+    left: 11vw;
+    top: 0%;
+    font-size: 2.7rem;
+    -webkit-text-stroke-width: 0.2px;
+}
+}
+
+
+
+@include media('<phone') {
+  .navtitle__character1 {
+    left: 11%;
+    margin-top: -23%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 0.2px;
+    font-size: 2.7rem;
+}
+}
+
+
+.navdescription__nebula {
+  font-family: $font-helvetica-neue-lt-pro;
+  height: 100%;
+  position: relative;
+  margin-top: 3%;
+  margin-left: 98px;
+  z-index: 1;
+  opacity: 1;
+  font-size: 0.7rem;
+  color: #ffffff;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  width: 100%;
+}
+
+@include media ('<phone') {
+  .navdescription__nebula {
+    font-family: $font-helvetica-neue-lt-pro;
+    height: 100%;
+    width: 82%;
+    position: absolute;
+    margin-top: 43px;
+    z-index: 1;
+    opacity: 1;
+    font-size: 0.7rem;
+    color: #ffffff;
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+    left: -18%;
+}
+
+}
+
+.navdescription__nebula, .navdescription__character1, .navdescription__character2, .navdescription__spacecapsule {
+  font-family: sans-serif;
+  font-size: 0.35rem;
+  margin-left: 65%;
+  line-height: 0.75vh;
+  position: relative;
+}
+
+
+
+@include media ('<phone') {
+  .navdescription__nebula, .navdescription__character1, .navdescription__character2, .navdescription__spacecapsule {
+    font-family: sans-serif;
+    font-size: 0.5rem;
+    margin-top: 1%;
+    margin-left: 39%;
+    line-height: 4px;
+    font-family: "Suisse BP";
+}
+}
+
+
+
+.navdescription__character1 {
+  margin-left: 66%;
+  width: 100%;
+  height: 100%;
+  margin-top: 8%;
+}
+
+
+
+@include media ('<phone') {
+  .navdescription__character1 {
+    margin-left: 79%;
+    width: 100%;
+    height: 100%;
+    margin-top: 8%;
+}
+
+}
+
+.navtitle__character2 {
+  font-family: $font-nd-tupa-nova;
+  position: relative;
+  margin-top: 0%;
+  margin-left: 65%;
+  z-index: 1;
+  opacity: 1;
+  text-align: left;
+  transition: opacity 0.1s ease-in-out;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: white;
+  font-size: 2.7rem;
+  line-height: 2.7rem;
+}
+
+
+@include media('<phone'){
+  .navtitle__character2 {
+    font-size: 2.7rem;
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    margin-top: 4%;
+    margin-left: 40%;
+    z-index: 1;
+    opacity: 1;
+    color: rgba(0, 0, 0, 0);
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: #fffcfc;
+    line-height: 2.7rem;
+}
+}
+
+
+.navdescription__spacecapsule {
+  margin-left: 65%;
+  width: 100%;
+  height: 100%;
+  margin-top: 3%;
+}
+
+
+@include media ('<phone') {
+  .navdescription__spacecapsule {
+    margin-left: 93%;
+    width: 100%;
+    height: 100%;
+    margin-top: 1%;
+    position: relative;
+}
+}
+
+
+
+.software,
+.softwareBox
+{
+  margin-bottom: 15px; /* Change the space between rows */
+}
+
+.status {font-family: $font-helvetica-neue-lt-pro;     font-size: 0.7rem; margin-top: 0.8px; margin-left: 5px;  color: #000000;}
+
+.statusBox {
+position: absolute;
+height: 1.3rem;
+width: 6rem;
+background: #00d32a;
+z-index: -1;
+margin-lefT: 22%;
+margin-top: 18.4%;
+border-radius: 5px;
+z-index: -1;
+}
+
+.software1, .software2, .software3, .software4 {
+  font-family:$font-helvetica-neue-lt-pro;
+  font-size: 0.7rem;
+  margin-top: 1.5%;
+  height: 100%;
+  color: black;
+}
+
+
+
+.software1{margin-left: 13%;}
+.software2{margin-left: 13%; margin-top: -3%;}
+.software3{margin-left: 13%;}
+.software4{margin-left: 13%;}
+
+
+
+
+
+
+.softwareBox2, .softwareBox3, .softwareBox4, .softwareBox5 {
+  position: relative;
+  height: 1.1rem;
+  width: 12rem;
+  margin-top: 17%;
+  margin-left: 65%;
+  z-index: -1;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 39%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  color: black;
+}
+
+
+@include media ('<phone') {
+  .softwareBox2, .softwareBox3, .softwareBox4, .softwareBox5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 47%;
+    font-size: 0.55rem;
+    color: black;
+    font-family:$font-helvetica-neue-lt-pro;
+    position: relative;
+    height: 1.3rem;
+    z-index: -1;
+    border-radius: 5px;
+    margin-left: 39%;
+}
+
+
+
+}
+
+.softwareBox4 {
+  position: relative;
+  width: 17rem;
+  margin-top: 16%;
+  margin-left: 65%;
+  z-index: -1;
+  height: 100%;
+  gap: 1px;
+}
+
+@include media ('<phone') {
+  .softwareBox4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 55%;
+    font-size: 0.55rem;
+    color: black;
+    margin-left: 79%;
+    margin-top: -14%;
+    align-content: space-between;
+    position: relative;
+    font-family: $font-helvetica-neue-lt-pro;
+}
+
+}
+
+
+
+
+.softwareBox5 {
+  position: relative;
+  height: 1.1rem;
+  width: 37%;
+  margin-top: 17%;
+  margin-left: 65%;
+  z-index: -1;
+}
+
+
+@include media ('<phone') {
+  .softwareBox5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 28%;
+    font-size: 0.55rem;
+    color: black;
+    font-family: $font-helvetica-neue-lt-pro;
+    margin-left: 93%;
+    margin-top: 10%;
+}
+
+
+
+}
+
+.software3 {
+font-family: $font-helvetica-neue-lt-pro;
+color: white;
+position: absolute;
+height: 1.1rem;
+width: 14rem;
+margin-top: 0;
+margin-left: -6.5rem;
+z-index: -1;
+}
+
+
+.software{
+font-family: $font-helvetica-neue-lt-pro;
+
+
+}
+
+.softwareBox1 {
+position: relative;
+height: 1.1rem;
+width: 7rem;
+margin-top: 34px;
+margin-left: 65%;
+z-index: -1;
+border-radius: 1px;
+}
+
+.softwareBox2 {
+  font-size: 8px;
+  width: 33%;
+  height: 9px;
+  position: relative;
+  margin-left: 117px;
+  margin-top: 2%;
+  border-radius: 2px;
+}
+
+
+@include media ('<phone') {
+  .softwareBox2 {
+    font-family: $font-helvetica-neue-lt-pro;
+    font-size: 0.6rem;
+    width: 26%;
+    margin-left: 55%;
+    position: relative;
+    text-align: left;
+    margin-top: 2%;
+    border-radius: 2px;
+    color: black;
+}
+}
+
+
+
+
+.software1{
+font-family: $font-helvetica-neue-lt-pro;
+font-size: 0.7rem;
+color: black;
+margin-left: -1rem;
+}
+
