@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import * as OrbitControls from '../../../../shared/src/three/OrbitControls.js';
 import * as dat from '../../../../shared/src/three/dat.gui.module.js';
-import { GLTFLoader } from 'three/GLTFLoader';
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js"
+import { GLTFLoader } from 'three';
+import { DRACOLoader } from "three"
 import gsap from 'src/gsap-core.js';
 import { Elastic } from 'src/gsap-core.js';
 

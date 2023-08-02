@@ -2,12 +2,13 @@
 
 // keep the imports and global constants outside the class, they can be reused
 import * as THREE from 'three';
-//import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js"
-import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+//import { OrbitControls } from 'three-addons/node_modules/three/a/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment';
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+
+import { GUI } from 'three-addons/node_modules/three/examples/js/libs/dat.gui.min';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module';
 import * as dat from 'dat.gui';
 import vision from '@mediapipe/tasks-vision';
 const { FaceLandmarker, FilesetResolver } = vision;

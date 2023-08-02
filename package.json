@@ -2,7 +2,6 @@
   "name": "Marien Singbo - 3D Artist and Animator",
   "version": "1.0.0",
   "description": "Marien",
-
   "scripts": {
     "backend:build": "node app.js",
     "backend:development": "nodemon app.js",
@@ -22,6 +21,7 @@
     "@mediapipe/tasks-vision": "^0.10.2-rc2",
     "@parcel/transformer-glsl": "^2.9.3",
     "@sentry/webpack-plugin": "^2.4.0",
+    "@types/three": "^0.155.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "concurrently": "^6.3.0",
@@ -63,6 +63,8 @@
     "sass-loader": "^12.1.0",
     "scrollto": "^1.0.1",
     "terser-webpack-plugin": "^5.2.4",
+    "three": "^0.155.0",
+    "three-addons": "^1.2.0",
     "webpack": "^5.77.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.3.0",

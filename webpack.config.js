@@ -24,9 +24,6 @@ module.exports = {
   },
 
   externals: {
-    'three': 'THREE',
-    'three/GLTFLoader': 'THREE.GLTFLoader',
-    'three/GLTFLoader': 'THREE.DRACOloader',
 
   },
   devtool: "source-map", // Source map generation must be turned on
