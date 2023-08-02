@@ -27,13 +27,19 @@ block content
                 .places__deliverables!=section.primary.delivables_objectives.replace(/\n/g, '<br>', '<p data-animation="paragraph">')
                 .placesVideos
                   .places__video1
-                    iframe(src='https://player.vimeo.com/video/394418726?h=56bd9f8f28&title=0&byline=0&portrait=0' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen='')
+                      iframe(src='https://player.vimeo.com/video/394418726?h=56bd9f8f28&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen='')
+                      script(src='https://player.vimeo.com/api/player.js')
+                      
                   .places__video2
-                    iframe(src='https://player.vimeo.com/video/395453657?h=47e63aeb82&title=0&byline=0&portrait=0' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen='')
-                .places__objectives Deliverables and objectives:
+                      iframe(src='https://player.vimeo.com/video/395453657?h=47e63aeb82&badge=0&autopause=0&player_id=0&app_id=58479' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' style='position:absolute;top:0;left:0;width:100%;height:100%;' title='Part 2')
+                      script(src='https://player.vimeo.com/api/player.js')
+
+
+                .places__objectives Scope and objectives:
                 .places__intro!=section.primary.intro.replace(/\n/g, '<br>')
-                 img.places__storyoutlines(src='/img/text_storyboard.png' width='60' alt='Animation Moodboard')
-                 img.places__moodboard(src='/img/PLACES_MOODBOARD.jpg' width='60' alt='Animation Moodboard')
+                 .places__preproduction Pre-production
+                 img.places__storyoutlines(src='/img/text_storyboard.png' width='60' alt='draft outlines')
+                 img.places__moodboard(src='/img/PLACES_MOODBOARD.jpg' width='60' alt='Moodboard')
                  .moodboardtext!=section.primary.moodboardtext.replace(/\n/g, '<br>', '<p data-animation="paragraph">')
 
 
@@ -42,9 +48,15 @@ block content
 
 
               .places__caseContainer
+                  .places__storyboardContainer
+                    img.places__storyboard(src='/img/PLACES_STORYBOARD.png' width='60' alt='Storyboard')
+                    .places__storyboardText!=section.primary.places__storyboardtext.replace(/\n/g, '<br>', '<p data-animation="paragraph">')
 
-                  img.places__storyboard(src='/img/PLACES_STORYBOARD.png' width='60' alt='Animation Storyboard')
 
+
+              .places__RoleText My role
+              .places__Role
+               .places__text!=section.primary.mytask.replace(/\n/g, '<br>', '<p data-animation="paragraph">')
 
               .placesProcessContainer
                 video#processPlaces1(autoplay loop muted)
