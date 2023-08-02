@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Marien",
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "scripts": {
     "backend:build": "node app.js",
