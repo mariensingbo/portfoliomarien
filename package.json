@@ -2,6 +2,9 @@
   "name": "Marien Singbo - 3D Artist and Animator",
   "version": "1.0.0",
   "description": "Marien",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "backend:build": "node app.js",
     "backend:development": "nodemon app.js",
