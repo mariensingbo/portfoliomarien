@@ -1,7 +1,6 @@
 
 
 // keep the imports and global constants outside the class, they can be reused
-import * as THREE from 'three';
 //import { OrbitControls } from 'three-addons/node_modules/three/a/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -160,9 +159,7 @@ export class CharacterMorphTarget {
         loadingText.style.transition = 'opacity 1.0s linear';
         loadingText.style.opacity = '0';
 
-        // Add fade-in animation to the mesh
-        mesh.classList.add('fade-in');
-        startFadeInAnimation(mesh);
+
       },
       (xhr) => {
         const percentage = (xhr.loaded / xhr.total) * 100;
@@ -309,12 +306,7 @@ export class CharacterMorphTarget {
     }
 }
 
-startFadeInAnimation(mesh) {
-  // Remove the "fade-in" class after a short delay to allow the fade-in animation to trigger
-  setTimeout(() => {
-    mesh.classList.remove('fade-in');
-  }, 100);
-}
+
 
 
 

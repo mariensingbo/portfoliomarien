@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import * as OrbitControls from '../../../../shared/src/three/OrbitControls.js';
 import * as dat from '../../../../shared/src/three/dat.gui.module.js';
-import { GLTFLoader } from 'three';
-import { DRACOLoader } from "three"
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import gsap from 'src/gsap-core.js';
 import { Elastic } from 'src/gsap-core.js';
 
@@ -21,6 +21,10 @@ class Header {
     headerWrapper.appendChild(this.headerCanvas);
     this.gl = this.headerCanvas.getContext('webgl');
 
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onTouchStart = this.onTouchStart.bind(this);
+    this.onTouchEnd = this.onTouchEnd.bind(this);
+    this.onResize = this.onResize.bind(this);
 
     this.dpr = window.devicePixelRatio || 1;
 
@@ -38,6 +42,7 @@ class Header {
   }
 
   init() {
+    this.getScaleFactor()
     this.setupModels();
     this.setupLights();
     this.setupCamera();
@@ -47,13 +52,13 @@ class Header {
   }
 
   setupModels() {
-    this.dracoLoader = new THREE.DRACOLoader();
+    this.dracoLoader = new DRACOLoader();
     this.dracoLoader.setDecoderPath('src/three/Loaders/draco/');
     this.gltfLoader = new GLTFLoader();
     this.mesh = null;
 
     this.gltfLoader.load(
-      'model/header/MarienSingbo_0003-v2.gltf',
+      'https://prismic-io.s3.amazonaws.com/mariensingbo/e765e072-22c6-4c3b-a13a-ce04ff0ef1bf_MarienSingbo_0004.glb',
       (gltf) => {
         gltf.scene.traverse((node) => {
           if (node.isMesh) this.mesh = node;
@@ -78,41 +83,71 @@ class Header {
     );
   }
 
-  updateModelScale() {
-    if (this.mesh) {
-      const scaleFactor = Math.min(
-        this.sizes.width / 1080,
-        this.sizes.height / 1080
-      );
-      this.mesh.scale.set(scaleFactor, scaleFactor, scaleFactor);
+  getScaleFactor() {
+    const width = this.sizes.width;
+
+    // You can adjust these ranges as per your needs
+    if (width <= 600) {
+      // Phones (0-600px)
+      return width / 1080;
+    } else if (width <= 900) {
+      // Tablets (601-900px)
+      return width / 1440;
+    } else {
+      // Desktops (Above 900px)
+      return width / 2160;
     }
   }
 
-  animateModelScale() {
-    if (this.mesh) {
-      const scaleFactor = Math.min(
+updateModelScale() {
+  if (this.mesh) {
+    let scaleFactor;
+
+    if (window.innerWidth <= 768) {  // Assuming tablet width <= 768px
+      scaleFactor = Math.min(
+        this.sizes.width / 540,   // Change these values to suit your tablet's model scaling
+        this.sizes.height / 960
+      );
+    } else {
+      scaleFactor = Math.min(
         this.sizes.width / 1080,
         this.sizes.height / 1080
       );
-      gsap.fromTo(
-        this.mesh.scale,
-        { x: 0, y: 0, z: 0 },
-        {
-          duration: 1.5,
-          x: scaleFactor,
-          y: scaleFactor,
-          z: scaleFactor,
-          ease: Elastic.easeOut.config(0.6, 0.30, false),
-
-
-        }
-      );
     }
+
+    this.mesh.scale.set(scaleFactor, scaleFactor, scaleFactor);
   }
+}
+
+
+updateModelScale() {
+  if (this.mesh) {
+    const scaleFactor = this.getScaleFactor();
+    this.mesh.scale.set(scaleFactor, scaleFactor, scaleFactor);
+  }
+}
+
+animateModelScale() {
+  if (this.mesh) {
+    const scaleFactor = this.getScaleFactor();
+    gsap.fromTo(
+      this.mesh.scale,
+      { x: 0, y: 0, z: 0 },
+      {
+        duration: 1.5,
+        x: scaleFactor,
+        y: scaleFactor,
+        z: scaleFactor,
+        ease: Elastic.easeOut.config(0.6, 0.30, false),
+      }
+    );
+  }
+}
+
   setupLights() {
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0);
     this.scene.add(this.ambientLight);
-    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0);
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0 );
     this.directionalLight.castShadow = true;
     this.directionalLight.shadow.mapSize.set(1024, 1024);
     this.directionalLight.shadow.camera.far = 5;
@@ -208,7 +243,6 @@ class Header {
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.headercanvas,
-     // gl: this.gl,
       context: this.gl,
       antialias: true,
       alpha: true,
@@ -217,12 +251,13 @@ class Header {
     this.renderer.setSize(this.sizes.width, this.sizes.height);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
     this.renderer.setClearColor(0x0500a3, 0);
+    this.renderer.outputColorSpace = THREE.LinearSRGBColorSpace
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   }
 
   loop() {
-    this.loopID = window.requestAnimationFrame(() => this.loop());
+    window.requestAnimationFrame(() => this.loop());
 
     this.renderer.render(this.scene, this.camera);
   }
@@ -234,58 +269,36 @@ class Header {
 
 
   destroy() {
-    // Cancel the animation frame request
-    if (this.loopID) {
-      window.cancelAnimationFrame(this.loopID);
-    }
+    // Remove the header canvas from its parent element
+    this.renderer.forceContextLoss();
+    this.renderer.dispose();
 
-    // Remove event listeners
     window.removeEventListener('mousemove', this.onMouseMove);
     window.removeEventListener('touchstart', this.onTouchStart);
     window.removeEventListener('touchend', this.onTouchEnd);
     window.removeEventListener('resize', this.onResize);
 
-    // Dispose of three.js objects
-    if (this.scene) {
-      this.scene.traverse(object => {
-        if (object.isMesh) {
-          if (object.material.map) {
-            object.material.map.dispose();
-            object.material.map = null;
-          }
-          object.material.dispose();
-          object.material = null;
-          object.geometry.dispose();
-          object.geometry = null;
-        }
-        object = null;
-      });
+    // Stop animations
+    gsap.killTweensOf(this.mesh.scale);
+    gsap.killTweensOf(this.mesh.morphTargetInfluences);
+
+    // Remove objects from the scene
+    if (this.mesh) {
+      this.scene.remove(this.mesh);
+      this.mesh.geometry.dispose();
+      this.mesh.material.dispose();
     }
 
-    if (this.renderer) {
-      this.renderer.forceContextLoss();
-      this.renderer.dispose();
-      this.renderer.domElement = null;
-      this.renderer = null;
-    }
+    this.scene.remove(this.ambientLight);
+    this.scene.remove(this.directionalLight);
+    this.scene.remove(this.camera);
 
-    // Remove the header canvas from its parent element
     const headerWrapper = document.querySelector('.header__wrapper');
     if (headerWrapper) {
       headerWrapper.removeChild(this.headerCanvas);
     } else {
       console.warn("The '.header__wrapper' element was not found.");
     }
-
-    // Nullify properties
-    this.gl = null;
-    this.sizes = null;
-    this.headerCanvas = null;
-    this.dpr = null;
-    this.scene = null;
-    this.pointer = null;
-    this.camera = null;
-    this.raycaster = null;
   }
 
 }
