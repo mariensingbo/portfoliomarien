@@ -36,6 +36,7 @@
 
   @include media('<phone') {
     font-size:2rem;
+    width:100vw;
   }
 }
 

@@ -657,6 +657,19 @@ display:none;
   }
 
 
+  #MailIcon,
+  #InstagramIcon,
+  #linkedInIcon {
+      transition: transform 0.15s ease-in-out;
+  }
+  
+  #MailIcon:hover,
+  #InstagramIcon:hover,
+  #linkedInIcon:hover {
+      transform: scale(0.1);
+  }
+  
+
   @include media ('<phone') {
 
     .social-media-icons, #MailIcon, #InstagramIcon, #linkedInIcon {

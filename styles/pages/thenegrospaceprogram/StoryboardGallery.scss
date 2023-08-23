@@ -7,7 +7,19 @@ z-index: 2;
 pointer-events: none;
 top: -100vh;
 left: 114%;
-}
+
+@include media ('<tablet') {
+      
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  top: -89vh;
+  left: 100%;
+}}
+
 .o {
   scroll-snap-align: start;
   position: absolute;
@@ -41,8 +53,16 @@ left: 114%;
   top: 50%;
   margin-top: -30%;
   margin-left: -24%;
-
+  
+  
+  @include media ('<tablet') {
+    top: 4%;
+    margin-top: -30%;
+    margin-left: -30%;
 }
+}
+
+
 
 
 
@@ -68,7 +88,13 @@ left: 114%;
 .o3 {
   top: 0%;
   left: -30%;
-}
+
+  @include media ('<tablet') {
+      top: -15%;
+      left: -30%;
+  }
+  }
+
 
 @include media ('<phone') {
   .o3 {
@@ -171,6 +197,7 @@ justify-content: flex-start;
 align-content: center;
 flex-direction: column-reverse;
 align-items: baseline;
+display:none;
 }
 
 
@@ -229,23 +256,22 @@ transition: color 1s;
   color: #ffffff;
   text-align: left;
   transition: opacity 0.1s ease-in-out;
-}
-
-
-@include media ('<phone') {
-  .navdescription__character2 {
+  @include media ('<tablet') {
     height: 100%;
     width: 100%;
     position: relative;
-    margin-top: -17%;
+    margin-top: 2%;
     z-index: 1;
     opacity: 1;
     color: #ffffff;
     text-align: left;
     transition: opacity 0.1s ease-in-out;
-}}
+    margin-left: 63%;
+  }
+}
 
-@include media ('<tablet') {
+
+@include media ('<phone') {
   .navdescription__character2 {
     height: 100%;
     width: 100%;
@@ -274,30 +300,32 @@ transition: color 1s;
   -webkit-text-stroke-color: white;
   font-size: 2.7rem;
   line-height: 2.7rem;
-}
 
-
-
-@include media ('<phone') {
-
-  .navtitle__nebula {
-    font-family: $font-nd-tupa-nova;
-    position: relative;
-    margin-top: 0%;
-    margin-left: 55%;
-    z-index: 1;
-    opacity: 1;
-    color: rgba(0, 0, 0, 0);
-    text-align: left;
-    transition: opacity 0.1s ease-in-out;
-    -webkit-text-stroke-width: 0.2px;
-    -webkit-text-stroke-color: white;
-    font-size: 2.7rem;
-    line-height: 2.7rem;
-}
-
-
+  @include media ('<tablet')  {
+    position:relative;
   }
+
+  @include media ('<phone') {
+      font-family: $font-nd-tupa-nova;
+      position: relative;
+      margin-top: -6%;
+      margin-left: 100%;
+      z-index: 1;
+      opacity: 1;
+      color: rgba(0, 0, 0, 0);
+      text-align: left;
+      transition: opacity 0.1s ease-in-out;
+      -webkit-text-stroke-width: 0.2px;
+      -webkit-text-stroke-color: white;
+      font-size: 2.7rem;
+      line-height: 2.7rem;
+  }
+  
+}
+
+
+
+
 
 
 
@@ -306,14 +334,27 @@ transition: color 1s;
     font-family: $font-nd-tupa-nova;
     color: #ffffff00;
     font-size: 2.4rem;
-    margin-top: 0%;
+    margin-top: -72%;
     line-height: 2.2rem;
     width: 100%;
-    margin-left: 67%;
+    margin-left: 116%;
     height: 100%;
     -webkit-text-stroke-color: white;
     -webkit-text-stroke-width: 0.2px;
     position: relative;
+
+
+    @include media ('<tablet') {
+      font-size: 2.4rem;
+      margin-top: -52%;
+      line-height: 2.2rem;
+      width: 100%;
+      margin-left: 110%;
+      height: 100%;
+      -webkit-text-stroke-color: white;
+      -webkit-text-stroke-width: 0.2px;
+      position: relative;
+    }
 }
 
 @include media('<phone'){
@@ -332,33 +373,42 @@ transition: color 1s;
 }
 
 .navtitle__spacecapsule{
-  position:relative;
-  left:0vw;
-  top:0vh;
+  position: relative;
+  left: -5.2vw;
+  top: 16vh;
 
+@include media ('<tablet'){
+  position: relative;
+  left: -4.2vw;
+  top: -3.2vh;
 }
-@include media ('<phone') {
-  .navtitle__spacecapsule {
+
+  @include media ('<phone') {
+    
     position: relative;
     left: 11vw;
     top: 0%;
     font-size: 2.7rem;
     -webkit-text-stroke-width: 0.2px;
 }
+
 }
 
 
+.navtitle__character1 {
+  margin-top: 0%;
+  margin-left: 87%;
 
 @include media('<phone') {
-  .navtitle__character1 {
-    left: 11%;
-    margin-top: -23%;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-text-stroke-color: white;
-    -webkit-text-stroke-width: 0.2px;
-    font-size: 2.7rem;
+
+  margin-top: -23%;
+  margin-left: 78%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 0.2px;
+  font-size: 2.7rem;
 }
 }
 
@@ -376,14 +426,7 @@ transition: color 1s;
   text-align: left;
   transition: opacity 0.1s ease-in-out;
   width: 100%;
-}
-
-@include media ('<phone') {
-  .navdescription__nebula {
-    font-family: $font-helvetica-neue-lt-pro;
-    height: 100%;
-    width: 82%;
-    position: absolute;
+  @include media ('<phone') {
     margin-top: 43px;
     z-index: 1;
     opacity: 1;
@@ -391,24 +434,27 @@ transition: color 1s;
     color: #ffffff;
     text-align: left;
     transition: opacity 0.1s ease-in-out;
-    left: -18%;
+    left: 56%;
+    width: 35%;
+  }
 }
 
-}
 
 .navdescription__nebula, .navdescription__character1, .navdescription__character2, .navdescription__spacecapsule {
-  font-family: sans-serif;
+  font-family: $font-suisse-bp;
   font-size: 0.35rem;
   margin-left: 65%;
-  line-height: 0.75vh;
+  line-height: auto;
   position: relative;
-}
 
+  @include media ('<tablet') {
+      font-family: $font-suisse-bp;
+      font-size: 0.75rem;
+      line-height: auto;
+      position: relative;
+  }
 
-
-@include media ('<phone') {
-  .navdescription__nebula, .navdescription__character1, .navdescription__character2, .navdescription__spacecapsule {
-    font-family: sans-serif;
+  @include media ('<phone') {
     font-size: 0.5rem;
     margin-top: 1%;
     margin-left: 39%;
@@ -420,10 +466,16 @@ transition: color 1s;
 
 
 .navdescription__character1 {
-  margin-left: 66%;
+  margin-left: 86%;
   width: 100%;
   height: 100%;
   margin-top: 8%;
+  @include media ('<phone') {
+    margin-left: 84%;
+    width: 100%;
+    height: 100%;
+    margin-top: 6%;
+}
 }
 
 
@@ -451,8 +503,23 @@ transition: color 1s;
   -webkit-text-stroke-color: white;
   font-size: 2.7rem;
   line-height: 2.7rem;
-}
 
+
+  @include media ('<tablet') {    
+    font-family: $font-nd-tupa-nova;
+    position: relative;
+    margin-top: -30%;
+    margin-left: 65%;
+    z-index: 1;
+    opacity: 1;
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: white;
+    font-size: 2.7rem;
+    line-height: 2.7rem;
+}
+}
 
 @include media('<phone'){
   .navtitle__character2 {
@@ -479,6 +546,15 @@ transition: color 1s;
   width: 100%;
   height: 100%;
   margin-top: 3%;
+
+
+  @include media ('<tablet') {
+    margin-left: 91%;
+    width: 100%;
+    height: 100%;
+    margin-top: 3%;
+  }
+
 }
 
 
@@ -550,40 +626,85 @@ z-index: -1;
   justify-content: space-between;
   align-content: flex-start;
   color: black;
+
+  @include media ('<tablet') {
+    position: relative;
+    height: 1.1rem;
+    width: 14rem;
+    margin-top: 8%;
+    margin-left: 65%;
+    z-index: -1;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 39%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    color: black;
 }
+
 
 
 @include media ('<phone') {
-  .softwareBox2, .softwareBox3, .softwareBox4, .softwareBox5 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 47%;
-    font-size: 0.55rem;
-    color: black;
-    font-family:$font-helvetica-neue-lt-pro;
-    position: relative;
-    height: 1.3rem;
-    z-index: -1;
-    border-radius: 5px;
-    margin-left: 39%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 47%;
+  font-size: 0.55rem;
+  color: black;
+  font-family:$font-helvetica-neue-lt-pro;
+  position: relative;
+  height: 1.3rem;
+  z-index: -1;
+  border-radius: 5px;
+  margin-left: 39%;
+}
+
+}
+
+.softwareBox3 {
+  position:relative;
+  
+
+
+  @include media ('<tablet') {
+
+
+  }
+
+  @include media ('<phone') {
+    margin-top: 14%;
+
+}
+
 }
 
 
 
-}
 
 .softwareBox4 {
   position: relative;
-  width: 17rem;
+  width: 16rem;
   margin-top: 16%;
-  margin-left: 65%;
+  margin-left: 85%;
   z-index: -1;
   height: 100%;
   gap: 1px;
-}
 
+  @include media ('<tablet') {
+    position: relative;
+    width: 28rem;
+    margin-top: 8%;
+    margin-left: 90%;
+    z-index: -1;
+    height: 100%;
+    gap: 1px;
+}
+}
 @include media ('<phone') {
   .softwareBox4 {
     display: flex;
@@ -608,11 +729,21 @@ z-index: -1;
 .softwareBox5 {
   position: relative;
   height: 1.1rem;
-  width: 37%;
-  margin-top: 17%;
+  width: 33%;
+  margin-top: 90%;
   margin-left: 65%;
   z-index: -1;
-}
+
+
+  @include media ('<tablet') {
+    position: relative;
+    height: 1.1rem;
+    width: 19%;
+    margin-top: -12%;
+    margin-left: 92%;
+    z-index: -1;
+
+}}
 
 
 @include media ('<phone') {
@@ -662,29 +793,28 @@ border-radius: 1px;
 }
 
 .softwareBox2 {
+  font-family: $font-helvetica-neue-lt-pro;
   font-size: 8px;
-  width: 33%;
+  width: 39%;
   height: 9px;
   position: relative;
   margin-left: 117px;
   margin-top: 2%;
   border-radius: 2px;
-}
 
 
-@include media ('<phone') {
-  .softwareBox2 {
-    font-family: $font-helvetica-neue-lt-pro;
+  @include media ('<phone') {
     font-size: 0.6rem;
     width: 26%;
-    margin-left: 55%;
+    margin-left: 94%;
     position: relative;
     text-align: left;
     margin-top: 2%;
     border-radius: 2px;
     color: black;
+  }
 }
-}
+
 
 
 

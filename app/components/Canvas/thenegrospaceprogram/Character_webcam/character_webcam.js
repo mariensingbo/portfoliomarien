@@ -6,7 +6,7 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
-import { GUI } from 'three-addons/node_modules/three/examples/js/libs/dat.gui.min';
+import GUI from 'lil-gui';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module';
 import * as dat from 'dat.gui';
 import vision from '@mediapipe/tasks-vision';
@@ -73,7 +73,7 @@ export class CharacterMorphTarget {
     this.scene = scene;
     this.sizes = sizes;
 
-    this.guide = null;
+    this.gui = null;
 
     this.webcamCharacterCanvas = document.createElement('canvas');
     this.webcamCharacterCanvas.id = 'characterWebcam'
@@ -139,18 +139,18 @@ export class CharacterMorphTarget {
         const head = mesh.getObjectByName('Man');
         const radianAngle = Math.PI; // 90 degrees in radians
 
-        this.guide = new GUI();
-        this.guide.close();
+        this.gui = new GUI();
+        this.gui.close();
 
         const influences = head.morphTargetInfluences;
         for (const [key, value] of Object.entries(head.morphTargetDictionary)) {
-          this.guide.add(influences, value, 0, 1, 0.01)
+          this.gui.add(influences, value, 0, 1, 0.01)
             .name(key.replace('blendShape1.', ''))
             .listen(influences);
         }
 
         const caseElement = document.querySelector('.case');
-        caseElement.appendChild(this.guide.domElement);
+        caseElement.appendChild(this.gui.domElement);
 
         this.renderer.setAnimationLoop(() => this.animation());
 
@@ -312,9 +312,9 @@ export class CharacterMorphTarget {
 
   initLights() {
     this.spotLights = {
-      light1: new THREE.SpotLight(0xffffff, 3, 600, Math.PI / 6, 0.1, 2),
-      light2: new THREE.SpotLight(0xffffff, 3, 600, Math.PI / 6, 0.1, 2),
-      light3: new THREE.SpotLight(0xffffff, 0.84, 600, Math.PI / 6, 0.1, 2),
+      light1: new THREE.SpotLight(0xffffff, 6, 600, Math.PI / 6, 0.1, 2),
+      light2: new THREE.SpotLight(0xffffff, 6, 600, Math.PI / 6, 0.1, 2),
+      light3: new THREE.SpotLight(0xffffff, 1.68, 600, Math.PI / 6, 0.1, 2),
     };
 
     this.spotLights.light1.position.set(-35,  15, -25);
@@ -325,7 +325,7 @@ export class CharacterMorphTarget {
     this.scene.add(this.spotLights.light2);
     this.scene.add(this.spotLights.light3);
 
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.84);
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 1.64);
     this.scene.add(this.ambientLight);
 
     // Add light positions and intensities to GUI
@@ -576,8 +576,8 @@ animation() {
     const caseElement = document.querySelector('.case');
 
     // Ensure both the caseElement and guide.domElement exist before trying to remove the child
-    if (caseElement && this.guide && this.guide.domElement) {
-      caseElement.removeChild(this.guide.domElement);
+    if (caseElement && this.gui && this.gui.domElement) {
+      caseElement.removeChild(this.gui.domElement);
     }
 
     // Clear HTML
@@ -662,10 +662,10 @@ if (webcamCharacterWrapper && this.webcamCharacterCanvas && webcamCharacterWrapp
     const caseElement = document.querySelector('.case');
 
     // Ensure both the caseElement and guide.domElement exist before trying to remove the child
-    if (caseElement && this.guide && this.guide.domElement) {
-      caseElement.removeChild(this.guide.domElement);
+    if (caseElement && this.gui && this.gui.domElement) {
+      caseElement.removeChild(this.gui.domElement);
     }
-    this.guide = null;
+    this.gui = null;
     // Remove listeners
     window.removeEventListener('resize', this.onWindowResize);
     window.removeEventListener('stopWebcam',this.stopWebcam);

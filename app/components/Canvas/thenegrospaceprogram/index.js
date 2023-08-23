@@ -132,6 +132,7 @@ export default class {
 
     this.prefaceTitleElement.addEventListener('click', () => this.onPrefaceTitleClick());
     this.prefaceTitleElement2.addEventListener('click', () => this.onPrefaceTitleClick2());
+    
 
     this.animaticElement.addEventListener('click', () => this.onAnimaticClick());
     this.animaticElement2.addEventListener('click', () => this.onAnimaticClick());
@@ -267,6 +268,7 @@ onPrefaceTitleClick() {
             onComplete: () => {
                 this.animating = false;
                 this.prefaceTitleElement.classList.add('active', 'no-hover');
+                
 
                 // Added staggered animation
 
@@ -276,12 +278,14 @@ onPrefaceTitleClick() {
         this.animating = true;
         this.scrolledDown = false;
         GSAP.to(this.scrollContent, {
-            y: 0,
-            duration: 1,
-            ease: "expo.inOut",
-            onComplete: () => {
-                this.animating = false;
-                this.prefaceTitleElement.classList.remove('active', 'no-hover');
+          y: 0,
+          duration: 1,
+          ease: "expo.inOut",
+          onComplete: () => {
+              this.animating = false;
+              this.prefaceTitleElement.classList.remove('active', 'no-hover');
+
+
 
                 // Reverse staggered animation
 
@@ -344,7 +348,7 @@ onPrefaceTitleClick2() {
         }
     } else {  // need to scroll up before proceeding with x-axis scrolling
         const caseRect = this.contextElement.getBoundingClientRect();
-        const scrollToEndOfCase = caseRect.bottom - window.innerHeight;
+        const scrollToEndOfCase = caseRect.top - window.innerHeight;
 
         this.animating = true;
         this.scrolledDown = false;

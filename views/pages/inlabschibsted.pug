@@ -6,20 +6,145 @@ block variables
 block content
 
 
-  script(src='https://unpkg.com/three@0.149.0/build/three.min.js')
   script(type="module" src="./src/three/dat.gui.module.js")
   script(async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js")
 
 
 
+  .scrollContainer
+    .scrollContent
+      .inlabschibsted
+        .inlabschibsted__wrapper
+          each section in inlab_schibsted.data.body
+            if section.slice_type == 'content'
 
-  .inlabschibsted
-  
-    .inlabschibsted__wrapper
+              .inlabschibsted__title!=section.primary.title.replace(/\n/g, '<br>')
+              video#schibstedHeader(muted="", autoplay="", playsinline="", loop="")
+                  source(src="https://prismic-io.s3.amazonaws.com/mariensingbo/a239fc44-ac48-4be7-ba6f-eb39ef28c4f6_Header.mp4", type="video/mp4")
 
-      .inlabschibsted__title IN/Lab Schibsted
-      .caseDescription
+              
+              .bg_inLabSchibsted
+              .inlabPrefaceContainer.textBox1
 
-      .bg_inLabSchibsted
+                .inLabSchibstedcaseBackground!=section.primary.background.replace(/\n/g, '<br>')
+                .inLabSchibstedUnderHeading!=section.primary.casedescription.replace(/\n/g, '<br>')
+                .inLabSchibstedcaseDescription!=section.primary.casedescription_underheading.replace(/\n/g, '<br>')
 
+              .inlabSchibstedlinktoWebsite(href="https://www.whatifthenews.com" rel="noopener noreferrer") whatifthenews.com to see more
+
+              .arrowSchibstedContainer
+                svg#arrowToSchibstedCase(data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 860.27 1019.74')
+                  polygon(points='430.97 1019.74 0 588.76 0 318.57 323.54 642.09 323.54 0 537.25 0 537.25 625.18 860.27 302.16 860.27 598.35 430.97 1019.74' style='none')
+
+              
+              .inlabSchibstedConceptOverview
+                .inlabSchibstedConceptTitle concepts 
+                .inlabSchibstedConceptIntro!=section.primary.schibsted_concepts.replace(/\n/g, '<br>')
+
+                .inlabSchibstedConceptList
+                  .newsBoxCurationLT news box curation
+                  .newsTherapyLT news therapy
+                  .aNewSoundLT a new sound
+                  .weAreHereLT we are here
+                  .pointOfViewsLT point of views
+                  .surpriseMeLT surprise me
+
+            if section.slice_type == 'timed_box_curation'
+
+              .newsboxCuration
+                .newsboxCurationTitle.textBox2!=section.primary.title.replace(/\n/g, '<br>')
+                .newBoxCurationIdentifiedProblemTitle
+                .newsBoxCurationParagraphContainer
+                  .newBoxCurationIdentifiedProblem!=section.primary.identified_problem.replace(/^Identified problem:/g, '<span class="identifiedProblem">Identified problem:</span>').replace(/\n/g, '<br>')
+                  .newsBoxCurationConcept!=section.primary.concept.replace(/\n/g, '<br>')
+                  .newsBoxCurationSketch
+                    img(src='img/inlabschibsted/NewsBoxCurationSketch.jpg' width='60' alt='')
+                .newsBoxCurationButtonContainer   
+                  .newsBoxCurationSketchButton.sketchbutton1 HOLD FOR SKETCHES
+                  
+                #videoContainer
+                  #newsBoxCurationVideoBlurred
+                  video#newsBoxCurationVideo(muted='' playsinline='' loop='' autoplay='')
+                    source(src='https://prismic-io.s3.amazonaws.com/mariensingbo/4239d5b9-0bf0-46ae-9575-3d3fea4fcab7_News+Box+Curation.mp4' type='video/mp4')
+
+            if section.slice_type == 'point_of_views'
+
+              .pointOfView
+                .pointOfViewTitle.textBox3!=section.primary.title.replace(/\n/g, '<br>')
+                .pointOfViewIdentifiedProblemTitle
+                .pointOfViewParagraphContainer
+                  .pointOfViewProblem!=section.primary.identified_problem.replace(/^Identified problem:/g, '<span class="identifiedProblem">Identified problem:</span>').replace(/\n/g, '<br>')
+                  .pointOfViewConcept!=section.primary.concept.replace(/\n/g, '<br>')
+                #videoContainer
+                  #pointOfViewVideoBlurred
+                  video#pointOfViewVideo(muted='' playsinline='' loop='' autoplay='') 
+                    source(src='https://prismic-io.s3.amazonaws.com/mariensingbo/32ae7408-2f39-4bb6-9046-47cce58085db_Point+of+Views_1.mp4' type='video/mp4')
+            
+            if section.slice_type == 'a_new_sound'
+
+              .aNewSound
+                .aNewSoundTitle.textBox4!=section.primary.title.replace(/\n/g, '<br>')
+                .aNewSoundIdentifiedProblemTitle
+                .aNewSoundParagraphContainer
+                  .aNewSoundProblem!=section.primary.identified_problem.replace(/^Identified problem:/g, '<span class="identifiedProblem">Identified problem:</span>').replace(/\n/g, '<br>')
+                  .aNewSoundConcept!=section.primary.concept.replace(/\n/g, '<br>')
+                #videoContainer
+                  #aNewSoundVideoBlurred
+                  video#aNewSoundVideo(muted='' playsinline='' loop='' autoplay='')
+                    source(src='https://prismic-io.s3.amazonaws.com/mariensingbo/95838194-11cd-4e02-af1a-512d40d3c0f7_A+New+Sound.mp4' type='video/mp4')
+
+            if section.slice_type == 'we_are_here'
+
+              .weAreHere
+                .weAreHereTitle.textBox5!=section.primary.title.replace(/\n/g, '<br>')
+                .weAreHereIdentifiedProblemTitle
+                .weAreHereParagraphContainer
+                  .weAreHereProblem!=section.primary.identified_problem.replace(/^Identified problem:/g, '<span class="identifiedProblem">Identified problem:</span>').replace(/\n/g, '<br>')
+                  .weAreHereConcept!=section.primary.concept.replace(/\n/g, '<br>')
+                #videoContainer
+                  #weAreHereVideoBlurred
+                  video#weAreHereVideo(muted='' playsinline='' loop='' autoplay='')
+                    source(src='https://prismic-io.s3.amazonaws.com/mariensingbo/83e714e3-5134-4591-8ed6-0af7c28f71b9_Puzzle.mp4' type='video/mp4')
+
+                    if section.slice_type == 'we_are_here'
+
+
+            if section.slice_type == 'on_demand_news_therapy'
+
+              .newsTherapy
+                .newsTherapyTitle.textBox6!=section.primary.title.replace(/\n/g, '<br>')
+                .newsTherapyIdentifiedProblemTitle
+                .newsTherapyParagraphContainer
+                  .newsTherapyProblem!=section.primary.identified_problem.replace(/^Identified problem:/g, '<span class="identifiedProblem">Identified problem:</span>').replace(/\n/g, '<br>')
+                  .newsTherapyConcept!=section.primary.concept.replace(/\n/g, '<br>')
+                #videoContainer
+                  #newsTherapyVideoBlurred
+                  video#newsTherapyVideo(muted='' playsinline='' loop='' autoplay='') 
+                    source(src='https://prismic-io.s3.amazonaws.com/mariensingbo/e988a292-d45e-426e-9e34-4b58ca7156d7_News+Therapy.mp4' type='video/mp4')
+                
+
+            if section.slice_type == 'surprise_me'
+
+              .surpriseMe
+                .surpriseMeTitle.textBox7!=section.primary.title.replace(/\n/g, '<br>')
+                .surpriseMeIdentifiedProblemTitle
+                .surpriseMeParagraphContainer
+                  .surpriseMeProblem!=section.primary.identified_problem.replace(/^Identified problem:/g, '<span class="identifiedProblem">Identified problem:</span>').replace(/\n/g, '<br>')
+                  .surpriseMeConcept!=section.primary.concept.replace(/\n/g, '<br>')
+                #videoContainer
+                  #surpriseMeVideoBlurred
+                  video#surpriseMeVideo(muted='' playsinline='' loop='' autoplay='')
+                    source(src='https://prismic-io.s3.amazonaws.com/mariensingbo/44d58bcf-ec8b-472b-8efd-480cce6505f1_Surprise+Me.mp4' type='video/mp4')
+              
+
+              .end
+               .endText That's all folks!
+               svg#endTopButton(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 151 151')
+                  polygon(points='69.31 31.37 101.43 63.49 101.43 83.63 77.32 59.52 77.32 107.37 61.39 107.37 61.39 60.78 37.32 84.86 37.32 62.78 69.31 31.37')
+                  path.endBtnCircle(d='M69.38,138.37C31.33,138.37,.38,107.42,.38,69.38S31.33,.38,69.38,.38s69,30.95,69,69-30.95,69-69,69Zm0-124.5c-30.65,0-55.5,24.85-55.5,55.5s24.85,55.5,55.5,55.5,55.5-24.85,55.5-55.5S100.03,13.87,69.38,13.87Z' style='stroke:#fff; stroke-miterlimit:10; stroke-width:1.75px;')
+
+
+
+            
+   
 

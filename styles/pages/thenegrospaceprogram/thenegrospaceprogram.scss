@@ -19,7 +19,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;  /* Hide the overflowing content */
+  overflow: hidden;
+  /* Hide the overflowing content */
 }
 
 .storyboard {
@@ -42,6 +43,32 @@
   width: 100%;
   z-index: 3;
   opacity: 1;
+
+  @include media ('<tablet') {
+    font-family: $font-helvetica-neue-lt-pro;
+    color: white;
+    position: absolute;
+    font-size: 11.8rem;
+    top: 171px;
+    left: 0%;
+    width: 100%;
+    z-index: 3;
+    opacity: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+}
+
+@include media ('<tablet') {
+  .storyboard__Text {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 
 
@@ -52,9 +79,13 @@
   gap: 0;
 }
 
-.theNegroSpaceProgram_wrapper, .case, .context, .concept {
+.theNegroSpaceProgram_wrapper,
+.case,
+.context,
+.concept {
   height: 100vh;
 }
+
 /* Each section should be at least the height of the viewport */
 .scrollContent section {
   height: 100vh;
@@ -64,7 +95,7 @@
   @extend %page;
   background: black;
   // color: $color-bright-grey;
-  overflow:none;
+  overflow: none;
 
 }
 
@@ -72,8 +103,21 @@
   animation: fadeIn 4s ease-in forwards;
 }
 
+
+#headerVideo {
+  margin-top: 0%;
+
+  width: 100%;
+
+  @include media ('<tablet') {
+    margin-top: 0%;
+    width: 100%
+  }
+
+}
+
 video {
-  position:absolute;
+  position: absolute;
   z-index: 0;
   pointer-events: none;
   width: 100%;
@@ -89,6 +133,7 @@ video {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -98,21 +143,22 @@ video {
   top: 0;
   position: absolute;
   width: 100%;
-  overflow:none;
+  overflow: none;
 }
+
 .theNegroSpaceProgram__title {
 
   font-family: $font-nd-tupa-nova;
   font-size: 17.5rem;
-  position:absolute;
+  position: absolute;
   margin-top: 5%;
-  display:flex;
+  display: flex;
   justify-content: center;
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
 }
 
-.preface{
+.preface {
   font-family: $font-helvetica-neue-lt-pro;
   font-size: 5.5rem;
   position: absolute;
@@ -122,9 +168,22 @@ video {
   width: 100%;
   opacity: 1;
   margin-left: 0%;
+
+  @include media ('<tablet') {
+    font-family: $font-helvetica-neue-lt-pro;
+    font-size: 5.5rem;
+    position: absolute;
+    margin-top: 0%;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    margin-left: 0%;
+  }
 }
 
-.preface_Title, .preface_Title2 {
+.preface_Title,
+.preface_Title2 {
   position: absolute;
   font-size: 13rem;
   width: 100vw;
@@ -136,23 +195,57 @@ video {
   color: rgba(255, 255, 255, 0.25);
   transition: color 0.5s ease-in-out;
   padding-bottom: 4px;
+
+
+  @include media ('<tablet') {
+    position: absolute;
+    font-size: 20rem;
+    width: 100vw;
+    margin-top: 82vh;
+    margin-left: 0%;
+    z-index: 1;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.25);
+    transition: color 0.5s ease-in-out;
+    padding-bottom: 16vh;
+  }
 }
 
-.preface_Title.active, .preface_Title2.active {
+.preface_Title.active,
+.preface_Title2.active {
   color: rgba(255, 255, 255, 1);
 }
 
-.preface_Title:hover:not(.no-hover), .preface_Title2:hover:not(.no-hover) {
+.preface_Title:hover:not(.no-hover),
+.preface_Title2:hover:not(.no-hover) {
   color: rgba(255, 255, 255, 1);
 }
 
 .preface_Title2 {
   margin-left: 50%;
+
+  @include media ('<tablet') {
+    margin-left: 0%;
+    padding-bottom: 0%;
+    margin-top: 114%;
+  }
+}
+
+.preface_Title {
+  @include media ('<tablet') {
+    margin-left: 0%;
+    position: relative;
+    margin-top: 116%;
+    z-index: 0;
+    background: black;
+    padding-top: 10%;
+  }
 }
 
 
 
-.storyboard__Title, .menu__ac {
+.storyboard__Title,
+.menu__ac {
   font-family: $font-helvetica-neue-lt-pro;
   position: fixed;
   font-size: 13rem;
@@ -169,11 +262,13 @@ video {
   bottom: -103vh;
 }
 
-.storyboard__Title.active, .menu__ac.active {
+.storyboard__Title.active,
+.menu__ac.active {
   color: rgba(255, 255, 255, 1);
 }
 
-.storyboard__Title:hover:not(.no-hover), .menu__ac:hover:not(.no-hover) {
+.storyboard__Title:hover:not(.no-hover),
+.menu__ac:hover:not(.no-hover) {
   color: rgba(255, 255, 255, 1);
 }
 
@@ -188,7 +283,23 @@ video {
   width: 64%;
   padding: 30px 170px 32px 150px;
   pointer-events: all;
+
+  @include media ('<tablet') {
+    position: fixed;
+    align-content: stretch;
+    display: flex;
+    align-items: flex-end;
+    z-index: 2;
+    width: 100%;
+    padding: 30px 170px 32px 150px;
+    pointer-events: all;
+    padding-bottom: 19%;
+    font-size: 10rem;
+    justify-content: flex-start;
+    margin-left: 2%;
+  }
 }
+
 .menu__ac {
   position: fixed;
   align-content: stretch;
@@ -200,6 +311,24 @@ video {
   margin-left: 40vw;
   padding: 30px 215px 31px 150px;
   pointer-events: all;
+  z-index: 10;
+
+  @include media ('<tablet') {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    flex-direction: row;
+    margin-left: 0vw;
+    padding: 30px 215px 31px 150px;
+    pointer-events: all;
+    padding-bottom: 19%;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    font-size: 10rem;
+  }
+
 }
 
 
@@ -223,8 +352,33 @@ video {
 }
 
 
-#arrow2BackToContext, #arrow2ToAssets, #arrow2Animatic {
-display:none
+#arrow2BackToContext {
+  position: absolute;
+  width: 10vw;
+  top: 77vh;
+  left: 7vw;
+  fill: white;
+  display: block;
+
+  @include media ('<tablet') {
+    display: none;
+  }
+}
+
+
+.arrow2BackToContext1 {
+  fill: white;
+}
+
+.arrow2BackToContext2 {
+  fill: none;
+  stroke: none;
+}
+
+
+#arrow2ToAssets,
+#arrow2Animatic {
+  display: none
 }
 
 .context__flexbox {
@@ -240,7 +394,24 @@ display:none
   width: 100vw;
   align-content: center;
   align-items: stretch;
+
+  @include media ('<tablet') {
+    position: absolute;
+    display: flex;
+    height: 91%;
+    padding: 15px;
+    gap: 6px;
+    top: 0vh;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100vw;
+    align-content: center;
+    align-items: center;
+
+  }
 }
+
 
 .concept {
   position: absolute;
@@ -263,6 +434,17 @@ display:none
   left: 55vw;
   line-height: auto;
   z-index: 14;
+
+  @include media ('<tablet') {
+    font-size: 3.4rem;
+    position: absolute;
+    top: 56vh;
+    width: 104vw;
+    color: white;
+    left: 24vw;
+    line-height: auto;
+    z-index: 14;
+  }
 }
 
 #storyboardVideo {
@@ -272,6 +454,18 @@ display:none
   margin-left: 12vw;
   border: 0.5px solid #ffffff;
   border-radius: 60px;
+
+  @include media ('<tablet') {
+    position: relative;
+    width: 72%;
+    margin-top: 36%;
+    margin-left: 0vw;
+    border: 0.5px solid #ffffff;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 .process {
@@ -295,13 +489,14 @@ display:none
   margin-top: -200vh;
   margin-left: 200vw;
   pointer-events: none;
-  background: rgb(0,0,0);
-  background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 60%, rgba(0,0,0,1) 95%);
-  background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 60%, rgba(0,0,0,1) 95%);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 60%, rgba(0,0,0,1) 95%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 1) 95%);
+  background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 1) 95%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 1) 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
 }
-@include media ('<phone'){
+
+@include media ('<phone') {
   .blackOverlay {
     position: sticky;
     width: 100vw;
@@ -311,11 +506,11 @@ display:none
     margin-top: -200vh;
     margin-left: 200vw;
     pointer-events: none;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     background: -moz-linear-gradient(180deg, black 5%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, black 95%);
     background: linear-gradient(180deg, transparent 5%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, black 95%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
-}
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+  }
 }
 
 .blackProcessBg {
@@ -330,17 +525,18 @@ display:none
 
 
 .resultsContainer {
-  position:absolute;
-  top:0;
+  position: absolute;
+  top: 0;
   width: 50vw;
 }
 
 @include media ('<phone') {
   .resultsContainer {
-      position: absolute;
-      top: 0px;
-      width: 100vw;
-  }}
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+  }
+}
 
 .results {
   position: absolute;
@@ -355,17 +551,18 @@ display:none
 }
 
 @include media ('<phone') {
-  .results{
-  position: absolute;
-  top: 0px;
-  width: 100vw;
-  background: #000000;
-  z-index: 2;
-  opacity: 1.5;
-  height: 100vh;
-  margin-top: -100vh;
-  margin-left: 300vw;
-}}
+  .results {
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    background: #000000;
+    z-index: 2;
+    opacity: 1.5;
+    height: 100vh;
+    margin-top: -100vh;
+    margin-left: 300vw;
+  }
+}
 
 
 
@@ -381,18 +578,25 @@ display:none
 }
 
 
-.manifesto_text1, .manifesto_text2, .manifesto_text3  {
+.manifesto_text1,
+.manifesto_text2,
+.manifesto_text3 {
 
-font-family: $font-helvetica-neue-lt-pro;
-font-size: 1.1rem;
-width: 100vw;
-height: auto;
+  font-family: $font-helvetica-neue-lt-pro;
+  font-size: 1.1rem;
+  width: 90vw;
+  height: auto;
+
+  @include media ('<tablet') {
+    font-size: 2.2rem;
+  }
 
 }
 
-#arrowBackToContext, #arrowToAssets {
-  margin-top: 85vh;
-  display:none;
+#arrowBackToContext,
+#arrowToAssets {
+  margin-top: 84vh;
+  display: none;
   pointer-events: none;
 }
 
@@ -423,6 +627,26 @@ height: auto;
   border-style: outset;
   border-color: white;
   border-width: medium;
+
+  @include media ('<tablet') {
+    position: absolute;
+    font-family: $font-helvetica-neue-lt-pro;
+    font-size: 8.1rem;
+    width: 49%;
+    text-align: center;
+    margin-top: 0%;
+    margin-left: 0%;
+    z-index: 1;
+    background-color: black;
+    color: white;
+    height: 11vh;
+    border-radius: 10px;
+    border-style: outset;
+    border-color: white;
+    border-width: medium;
+    height: auto;
+    transform: translate(25vw, 50vw);
+  }
 }
 
 .access {
@@ -446,22 +670,26 @@ height: auto;
 
 
 #arrowBackToContext {
-  position: fixed;
-  padding: 40px 40px;
-  fill: rgba(255, 255, 255, 0);
-  z-index: 2;
-  stroke-width: 2px;
-  stroke: white;
-  stroke-opacity: 0.25;
-  transition: all 1s ease;
-  pointer-events: all;
-  height: 100%;
-  display: flex;
-  align-content: center;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 12vw;
+  @include media ('<tablet') {
+    position: fixed;
+    padding: 40px 40px;
+    fill: rgba(255, 255, 255, 1);
+    z-index: 2;
+    stroke-width: 2px;
+    stroke: white;
+    stroke-opacity: 0.25;
+    transition: all 1s ease;
+    pointer-events: all;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 19vw;
+    margin-left: -75%;
+  }
+
 }
 
 .arrowBackToContext {
@@ -469,8 +697,8 @@ height: auto;
 }
 
 #arrowBackToContext:hover {
-  fill:rgba(255, 255, 255, 1);
-  stroke-width:0;
+  fill: rgba(255, 255, 255, 1);
+  stroke-width: 0;
   stroke: white;
   stroke-opacity: 1;
   pointer-events: all;
@@ -494,6 +722,24 @@ height: auto;
   justify-content: flex-end;
   pointer-events: all;
   left: 190vw;
+
+  @include media ('<tablet') {
+    position: fixed;
+    fill: rgba(255, 255, 255, 1);
+    z-index: 2;
+    stroke-width: 2px;
+    stroke: white;
+    transition: all 1s ease;
+    padding: 40px 40px;
+    top: -5.5vh;
+    display: flex;
+    height: 100vh;
+    width: 19vw;
+    flex-direction: row;
+    justify-content: flex-end;
+    pointer-events: all;
+    left: 183%;
+  }
 }
 
 
@@ -502,13 +748,13 @@ height: auto;
 }
 
 #arrowToAssets:hover {
-  fill:rgba(255, 255, 255, 1);
-  stroke-width:0;
-  stroke:white;
-  stroke-opacity:1;
+  fill: rgba(255, 255, 255, 1);
+  stroke-width: 0;
+  stroke: white;
+  stroke-opacity: 1;
   pointer-events: all;
-  stroke:white;
-  stroke-width:0px;
+  stroke: white;
+  stroke-width: 0px;
 }
 
 
@@ -519,9 +765,20 @@ height: auto;
   margin-top: 50%;
   margin-left: 18%;
   border: 0.5px solid #c8c8c8;
+
+  @include media ('<tablet') {
+
+    position: absolute;
+    width: 36%;
+    margin-top: 155%;
+    margin-left: -50%;
+    border: 0.5px solid #c8c8c8;
+  }
 }
 
-.process__menu, .process__menu2 {
+
+.process__menu,
+.process__menu2 {
   font-family: $font-helvetica-neue-lt-pro;
   position: fixed;
   bottom: -100vh;
@@ -541,12 +798,23 @@ height: auto;
 
 .process__menu2 {
   margin-left: 71%;
+
+  @include media ('<tablet') {
+    margin-left: 57%;
+    padding-bottom: 11%;
+    display: none;
+  }
 }
+
 body {
-  margin: 0; /* Remove default body margin */
-  height: 100vh; /* Set body height to full viewport height */
-  display: flex; /* Use flexbox for vertical centering */
-  flex-direction: column; /* Align children vertically */
+  margin: 0;
+  /* Remove default body margin */
+  height: 100vh;
+  /* Set body height to full viewport height */
+  display: flex;
+  /* Use flexbox for vertical centering */
+  flex-direction: column;
+  /* Align children vertically */
 }
 
 .processButtons {
@@ -554,6 +822,14 @@ body {
   grid-template-columns: 1fr 1fr;
   width: 100%;
   margin-top: 41%;
+
+  @include media ('<tablet') {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 75%;
+    margin-top: 119%;
+    margin-left: 21%;
+  }
 }
 
 #arrowBackToProcess {
@@ -566,6 +842,8 @@ body {
   pointer-events: all;
   grid-column: 1;
   margin-left: -40%;
+
+
 }
 
 
@@ -578,10 +856,6 @@ body {
   margin-left: 40%;
 }
 
-#arrowBackToProcess, #arrowToNextSlide {
-  padding-bottom: 100px;
-  width:100%;
-}
 
 
 
@@ -594,22 +868,58 @@ body {
   #arrowBackToProcess {
     fill: white;
     justify-self: start;
+  }
 }
-}
 
 
 
 
 
-#arrowBackToProcess:hover:not(.no-hover), #arrowBackToProcess:hover:not(.no-hover) {
+#arrowBackToProcess:hover:not(.no-hover),
+#arrowBackToProcess:hover:not(.no-hover) {
   fill: rgba(255, 255, 255, 1);
 }
 
-#arrowBackToProcess, #arrowToNextSlide {
+#arrowBackToProcess,
+#arrowToNextSlide {
+
+  bottom: 16.5vh;
+  padding-bottom: 100px;
+  width: 100%;
   padding-bottom: 148%;
   width: 100%;
   height: 100%;
+  pointer-events: all;
+
+  @include media ('<tablet') {
+    pointer-events: all;
+    padding-bottom: 148%;
+    width: 50%;
+    height: 100%;
+    z-index: 20;
+    display: block;
+    fill: white;
+  }
+
+  @include media ('<phone') {
+    pointer-events: all;
+    width: 30%;
+    padding-bottom: 148%;
+    width: 100%;
+    height: 100%;
+  }
 }
+
+.arrowBackToProcess,
+.arrowToNextSlide {
+  width: 50%;
+}
+
+
+
+
+
+
 
 
 
@@ -625,20 +935,14 @@ body {
 
 @include media ('<phone') {
 
-    .processButtons {
-      grid-template-columns: 1fr 1fr;
-      align-items: end;
-      height: 100%;
-      margin-top:100%;
+  .processButtons {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    height: 100%;
+    margin-top: 100%;
+    margin-left: 10%;
   }
 
-
-
-
-  #arrowBackToProcess, #arrowToNextSlide {
-    bottom: 16.5vh;
-
-}
 }
 
 .tryFaceRig {
@@ -654,6 +958,21 @@ body {
   border-radius: 2px;
   background-color: rgba(0, 170, 3, 0.5);
   pointer-events: all;
+
+  @include media ('<tablet') {
+    font-family: $font-helvetica-neue-lt-pro;
+    position: absolute;
+    width: 30%;
+    margin-left: 65%;
+    margin-top: 33.3%;
+    z-index: 100;
+    border: 1px solid;
+    font-size: 1.45rem;
+    padding: 1px 3px;
+    border-radius: 2px;
+    background-color: rgba(0, 170, 3, 0.5);
+    pointer-events: all;
+  }
 }
 
 
@@ -673,16 +992,18 @@ body {
     border-radius: 2px;
     background-color: rgba(0, 170, 3, 0.5);
     font-family: $font-helvetica-neue-lt-pro;
-}
+  }
 
 
 }
+
 @include media ('<phone') {
-#progress-bar {
-width: 0%;
-height: 20px;
-background: green
-}}
+  #progress-bar {
+    width: 0%;
+    height: 20px;
+    background: green
+  }
+}
 
 .leaveFaceRig {
   position: absolute;
@@ -701,30 +1022,21 @@ background: green
     position: absolute;
     width: 100%;
     margin-left: 0vw;
-    height:100;
+    height: 100;
     z-index: 5;
-}
-}
-
-
-.arrowBackToProcess, .arrowToNextSlide {
-  pointer-events: all;
-  width:100%;
+  }
 }
 
-@include media ('<phone') {
 
-.arrowBackToProcess, .arrowToNextSlide {
-  pointer-events: all;
-  width:30%;
-}}
+
+
 
 #lottie-animation {
-display:none;
+  display: none;
 }
 
 
- @include media ('<phone') {
+@include media ('<phone') {
   #lottie-animation {
     position: absolute;
     width: 30%;
@@ -732,7 +1044,8 @@ display:none;
     margin-top: -9%;
     left: 43%;
     display: block;
-}}
+  }
+}
 
 
 .processText {
@@ -741,10 +1054,22 @@ display:none;
   height: auto;
   color: white;
   z-index: 5;
-  margin-top: 33%;
-  margin-left: 64%;
+  margin-top: -42%;
+  margin-left: -50%;
   width: 100%;
   font-size: 0.7rem;
+
+  @include media ('<tablet') {
+
+    position: absolute;
+    height: auto;
+    color: white;
+    z-index: 5;
+    margin-top: -76%;
+    margin-left: -12%;
+    width: 72%;
+    font-size: 01rem;
+  }
 }
 
 
@@ -760,25 +1085,26 @@ display:none;
     margin-left: 40%;
     width: 39%;
     font-size: 0.8rem;
-}
+  }
 }
 
-.unrealengine2 {
-
-}
+.unrealengine2 {}
 
 
 
 @include media ('<phone') {
 
-.unrealengine2 {
-
-}
+  .unrealengine2 {}
 }
 
 
 
-.cinema4D2, .unrealengine2, .marvelousdesigner2, .substancePainterSC, .houdini, .afterEffects {
+.cinema4D2,
+.unrealengine2,
+.marvelousdesigner2,
+.substancePainterSC,
+.houdini,
+.afterEffects {
   background: white;
   padding-left: 2px;
   padding-right: 2px;
@@ -790,40 +1116,42 @@ display:none;
 
 
 @include media ('<phone') {
-  .cinema4D2, ,.unrealengine2, .marvelousdesigner2, .substancePainterSC, .houdini, .afterEffects {
+
+  .cinema4D2,
+  .unrealengine2,
+  .marvelousdesigner2,
+  .substancePainterSC,
+  .houdini,
+  .afterEffects {
     background: white;
     padding-left: 2px;
     padding-right: 2px;
     border-radius: 22px;
-    padding-top:1px
-}}
-
-
-
-  #canvasContainer {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    /* Add other styles as needed */
+    padding-top: 1px
   }
-  .myNewElement {
-position:absolute;
-width:100%;
-top:0%;
 }
 
-  #characterWebcam {
-    position:absolute;
-    width: 100%;
-    top:0%;
-  }
-  .character__canvas {
-    position: absolute;
-    width: 100%;
-    top: -30%;
-    left: 88%;
-    height: 100vh;
-    z-index: 1;
+
+
+.myNewElement {
+  position: absolute;
+  width: 100%;
+  top: 0%;
+}
+
+#characterWebcam {
+  position: absolute;
+  width: 100%;
+  top: 0%;
+}
+
+.character__canvas {
+  position: absolute;
+  width: 100%;
+  top: -30%;
+  left: 88%;
+  height: 100vh;
+  z-index: 1;
 }
 
 
@@ -838,7 +1166,7 @@ top:0%;
     height: 110vh;
     z-index: 3;
     pointer-events: none;
-}
+  }
 }
 
 #indicator-container {
@@ -847,7 +1175,20 @@ top:0%;
   left: 208%;
   height: 100%;
   z-index: 10;
+
+  @include media ('<tablet') {
+    display: flex;
+    position: fixed;
+    top: 13vh;
+    left: 243%;
+    height: 100%;
+    z-index: 10;
+  }
 }
+
+
+
+
 
 @include media ('<phone') {
 
@@ -858,7 +1199,7 @@ top:0%;
     height: 100%;
     z-index: 10;
     width: 100vw;
-}
+  }
 
 
 
@@ -885,41 +1226,41 @@ top:0%;
     margin: 0 10px;
     transition: background-color 0.5s ease;
     margin-left: 1px;
-}
-
-
-
-
-}
-
-
-  #canvasContainer {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    top:0%;
-    z-index:2;
-    /* Add other styles as needed */
   }
 
-  .startWebcamButton {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    z-index: 5;
-    position: absolute;
-    top: 1%;
-    left: 101.7%;
-    border-radius: 10px;
-    width: 4%;
-    font-family: $font-helvetica-neue-lt-pro;
+
+
+
+}
+
+
+#canvasContainer {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0%;
+  z-index: 2;
+  /* Add other styles as needed */
+}
+
+.startWebcamButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  z-index: 5;
+  position: absolute;
+  top: 1%;
+  left: 101.7%;
+  border-radius: 10px;
+  width: 4%;
+  font-family: $font-helvetica-neue-lt-pro;
 }
 
 @include media ('<phone') {
@@ -943,7 +1284,7 @@ top:0%;
     font-family: $font-helvetica-neue-lt-pro;
     pointer-events: all;
     width: 16%;
-}
+  }
 
 
 }
@@ -966,7 +1307,7 @@ top:0%;
 }
 
 
-.lil-gui.root > .children {
+.lil-gui.root>.children {
   overflow-x: hidden;
   overflow-y: auto;
   font-size: 1rem;
@@ -974,18 +1315,18 @@ top:0%;
 }
 
 @include media ('<phone') {
-  .lil-gui.root > .children {
+  .lil-gui.root>.children {
     overflow-x: hidden;
     overflow-y: auto;
     font-size: 2.2rem;
-}
+  }
 
 }
 
 .lil-gui.root {
   display: flex;
   flex-direction: column;
-  width: var(--width,50vw);
+  width: var(--width, 50vw);
 }
 
 
@@ -1014,10 +1355,11 @@ top:0%;
     top: 104%;
     z-index: 2;
     font-family: $font-helvetica-neue-lt-pro;
-}}
+  }
+}
 
 
-.lil-gui.root > .title {
+.lil-gui.root>.title {
   background: #000000;
   color: var(--title-text-color);
   font-size: 5rem;
@@ -1026,13 +1368,14 @@ top:0%;
 
 
 @include media ('<phone') {
-  .lil-gui.root > .title {
+  .lil-gui.root>.title {
     background: #b85672;
     color: var(--title-text-color);
     font-size: 3rem;
     padding-bottom: 10%;
   }
 }
+
 .lil-gui .title {
   --title-height: calc(var(--widget-height) + var(--spacing)*17.25);
   -webkit-tap-highlight-color: transparent;
@@ -1045,10 +1388,10 @@ top:0%;
   padding: 0 var(--padding);
   font-size: 4rem;
 }
+
 @include media ('<phone') {
   .lil-gui .title {
-    --title-height: calc(var(
-    --widget-height) + var(--spacing)*5.25);
+    --title-height: calc(var(--widget-height) + var(--spacing)*5.25);
     -webkit-tap-highlight-color: transparent;
     text-decoration-skip: objects;
     cursor: pointer;
@@ -1057,7 +1400,7 @@ top:0%;
     line-height: calc(var(--title-height) + -4px);
     outline: none;
     padding: 0px 35vw var(--padding);
-}
+  }
 
 }
 
@@ -1074,8 +1417,8 @@ top:0%;
   --string-color: #b37e7e;
   --font-size: 11px;
   --input-font-size: 11px;
-  --font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  --font-family-mono: Menlo,Monaco,Consolas,"Droid Sans Mono",monospace;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-family-mono: Menlo, Monaco, Consolas, "Droid Sans Mono", monospace;
   --padding: 4px;
   --spacing: 4px;
   --widget-height: 31px;
@@ -1124,9 +1467,9 @@ top:0%;
     --string-color: #a2db3c;
     --font-size: 11px;
     --input-font-size: 11px;
-    --font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    --font-family-mono: Menlo,Monaco,Consolas,
-  "Droid Sans Mono",monospace;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-family-mono: Menlo, Monaco, Consolas,
+      "Droid Sans Mono", monospace;
     --padding: 4px;
     --spacing: 4px;
     --widget-height: 20px;
@@ -1139,8 +1482,7 @@ top:0%;
     --folder-indent: 0px;
     /* --widget-padding: 0 0 0 3px; */
     --widget-border-radius: 30px;
-    --checkbox-size: calc(var(
-  --widget-height)*0.75);
+    --checkbox-size: calc(var(--widget-height)*0.75);
     --scrollbar-width: 18px;
     background-color: #7d7d7d;
     color: var(--text-color);
@@ -1155,11 +1497,25 @@ top:0%;
     -webkit-user-select: none;
   }
 }
-  .image-grid {
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+
+  @include media ('<tablet') {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 10px;
+    margin: 50%;
+    position: relative;
+    width: 100%;
+    margin-top: 35%;
+    margin-left: 25vw;
+
+  }
 }
 
 @include media ('<phone') {
@@ -1169,21 +1525,22 @@ top:0%;
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 0px;
     margin-top: 25%;
-}
+    margin-left: 0%;
+  }
 }
 
 
 .image-grid img {
-    width: 100%;
-    height: auto;
-    opacity:1;
+  width: 100%;
+  height: auto;
+  opacity: 1;
 }
 
 @include media ('<phone') {
   .image-grid img {
-      width: 100%;
-      height: auto;
-      opacity:1;
+    width: 100%;
+    height: auto;
+    opacity: 1;
   }
 
 }
@@ -1200,6 +1557,20 @@ top:0%;
   color: black;
   border-radius: 1rem;
   padding-left: 17px;
+
+  @include media ('<tablet') {
+    position: absolute;
+    width: 79%;
+    top: 9%;
+    left: 60%;
+    font-size: 3rem;
+    font-family: $font-helvetica-neue-lt-pro;
+    font-size: 7rem;
+    background: white;
+    color: black;
+    border-radius: 1rem;
+    padding-left: 17px;
+  }
 }
 
 @include media ('<phone') {
@@ -1214,13 +1585,14 @@ top:0%;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: space-around;
-    background: rgba(255,255,255,0);
+    background: rgba(255, 255, 255, 0);
     color: white;
     display: none;
-}
+  }
 }
 
-#arrowBackToGallery, #arrowToCredits {
+#arrowBackToGallery,
+#arrowToCredits {
   position: absolute;
   width: 100%;
   top: 81%;
@@ -1228,100 +1600,116 @@ top:0%;
 }
 
 @include media ('<phone') {
-  #arrowBackToGallery, #arrowToCredits {
+
+  #arrowBackToGallery,
+  #arrowToCredits {
     position: absolute;
     width: 100%;
     top: 74.6vh;
     fill: white;
+  }
 }
+
+@include media ('<tablet') {
+
+  #arrowBackToGallery,
+  #arrowToCredits {
+    position: absolute;
+    width: 100%;
+    top: 129%;
+    fill: white;
+    margin-left: -21%;
+  }
 }
+
 
 #arrowBackToGallery {
   position: absolute;
   width: 100%;
   left: 57vw;
-}
 
-@include media ('<phone') {
-  #arrowBackToGallery {
+  @include media ('<tablet') {
     position: absolute;
-    left: 3%;
-}}
-
-
-@include media ('<phone') {
-  .arrowBackToGallery{
-  width: 16vw;}
+    left: 40%;
   }
 
+  @include media ('<phone') {
+    position: absolute;
+    left: 25%;
+    width: 100%;
+    top: 86%;
+    fill: white;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+  }
 
+}
 
 
 #arrowToCredits {
   position: absolute;
   width: 100%;
   left: 189%;
-}
 
+  @include media ('<phone') {
 
-
-#arrowToResults {
-  position: absolute;
-  width: 100%;
-  left: 0%;
-  fill: white;
-  top: 81%;
-}
-
-@include media ('<phone') {
-  #arrowToResults {
     position: absolute;
     width: 100%;
     fill: white;
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-end;
+    left: 17%;
+    top: 86%;
+  }
+
 }
-}
+
+
+
+
+
+
+
 
 @include media ('<phone') {
-  #arrowToCredits {
-    position: absolute;
-    width: 100%;
-    fill: white;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    left: -5%;
-}
-
-}
-
-@include media  ('<phone') {
   .arrowToCredits {
-  width: 16vw;
-  }}
+    width: 16vw;
+  }
+}
+
+
+
+@include media ('<tablet') {
+
+  .arrowToCredits,
+  .arrowBackToGallery {
+    width: 17%
+  }
+}
 
 @include media ('<phone') {
-#loading-text {
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2em;
-  color: white;
-  text-align: center;
-  opacity: 1;
-  transition: opacity 1s ease-out;
-  z-index: 3;
-  width: 81%;
-}}
+  #loading-text {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    z-index: 3;
+    width: 81%;
+  }
+}
 
 
 #BackUp {
-  position:absolute;
-  top:0%;
-  width:100%;
+  position: absolute;
+  top: 0%;
+  width: 100%;
 }
 
 @include media ('<phone') {
@@ -1331,9 +1719,10 @@ top:0%;
     width: 19%;
     left: 32vw;
     top: -10vh;
-}
+  }
 
 }
+
 .credits {
   position: absolute;
   top: 0px;
@@ -1348,17 +1737,18 @@ top:0%;
 
 
 @include media ('<phone') {
-.credits {
-  position: absolute;
-  top: 0px;
-  width: 100vw;
-  background: #000000;
-  z-index: 2;
-  opacity: 1.5;
-  height: 100vh;
-  margin-top: -100vh;
-  margin-left: 350vw;
-}}
+  .credits {
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    background: #000000;
+    z-index: 2;
+    opacity: 1.5;
+    height: 100vh;
+    margin-top: -100vh;
+    margin-left: 350vw;
+  }
+}
 
 @include media ('<phone') {
   .credits {
@@ -1371,7 +1761,8 @@ top:0%;
     height: 100vh;
     margin-top: -100vh;
     margin-left: 200%;
-}}
+  }
+}
 
 .laurels {
   position: absolute;
@@ -1380,6 +1771,15 @@ top:0%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   left: 32vw;
+
+  @include media ('<tablet') {
+    position: absolute;
+    top: 22%;
+    width: 54%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    left: 21vw;
+  }
 }
 
 @include media ('<phone') {
@@ -1390,7 +1790,7 @@ top:0%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     left: 9vw;
-}
+  }
 }
 
 
@@ -1411,16 +1811,23 @@ top:0%;
   width: 82%;
   font-size: 3rem;
   font-family: $font-helvetica-neue-lt-pro;
-}
 
-@include media ('<phone') {
-  .thankYou {
+
+  @include media ('<tablet') {
+    top: 85%;
+    left: 37%;
+    width: 130%;
+    font-size: 4.5rem;
+  }
+
+  @include media ('<phone') {
     position: absolute;
-    top: 97%;
-    left: 18px;
+    top: 72%;
+    left: 17px;
     width: 86%;
     font-size: 2.5rem;
-}
+
+  }
 }
 
 .thankYouNames {
@@ -1429,20 +1836,28 @@ top:0%;
   left: 0;
   width: 100%;
   font-size: 1.5rem;
-  font-family: arial;
-}
+  font-family: $font-suisse-bp;
 
 
-@include media ('<phone') {
-  .thankYouNames {
+  @include media ('<tablet') {
+    width: 100%;
+    top: 130%;
+    fill: white;
+    margin-left: 10%;
+    font-size: 3.5rem;
+  }
+
+  @include media ('<phone') {
     position: absolute;
     top: 122%;
     left: 27px;
     width: 100%;
     font-size: 11px;
-    font-family: Roboto;
+    font-family: $font-suisse-bp;
+  }
 }
-}
+
+
 
 
 
@@ -1452,33 +1867,41 @@ top:0%;
   top: 59%;
   left: 15%;
   z-index: 3;
-}
 
-@include media ('<phone') {
-  .PremiereInterview {
+  @include media ('<tablet') {
+    position: absolute;
+    width: 243%;
+    top: 33%;
+    left: 11%;
+    z-index: 3;
+  }
+
+  @include media ('<phone') {
     position: absolute;
     top: 36%;
     left: 66%;
     width: 100%;
+  }
+
 }
-}
+
 
 
 
 
 .framePremiere img {
-  position:absolute;
-  width:100%;
-  top:0%;
-  left:0%;
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
 }
 
 @include media ('<phone') {
-.framePremiere img {
-  position:absolute;
-  top:0%;
-  left:0%;
-}
+  .framePremiere img {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
 
 }
 
@@ -1500,7 +1923,7 @@ top:0%;
     -moz-box-shadow: -5px 5px 0px 2px #000, -5px 5px 0px 3px white;
     box-shadow: -5px 5px 0px 2px #000, -5px 5px 0px 3px white;
     border: 1px solid #ffffff;
-}
+  }
 }
 
 
@@ -1511,23 +1934,32 @@ top:0%;
   position: absolute;
   top: 45%;
   left: 2%;
-  width: 83%;
-}
+  width: 194%;
 
-@include media ('<phone') {
+  @include media ('<tablet') {
+    position: absolute;
+    top: 33%;
+    left: 43%;
+    width: 83%;
+    height: 83%;
 
-  .TempoInterview {
+  }
+
+
+  @include media ('<phone') {
     position: absolute;
     top: 36%;
     left: 15%;
-}
+  }
+
 
 }
+
 
 .frameTempo img {
   opacity: 1;
   width: 20%;
-  -webkit-box-shadow:-18px 18px 0px 2px #000, -18px 18px 0px 3px white;
+  -webkit-box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
   -moz-box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
   box-shadow: -18px 18px 0px 2px #000, -18px 18px 0px 3px white;
   border: 1px solid #ffffff;
@@ -1544,18 +1976,18 @@ top:0%;
     -moz-box-shadow: -7px 7px 0px 2px #000, -7px 7px 0px 3px white;
     box-shadow: -7px 7px 0px 2px #000000, -7px 7px 0px 3px white;
     border: 1px solid #ffffff;
-}
+  }
 
 
 }
 
 
 
-.frameTempo{
-  position:absolute;
-  width:100%;
-  top:0%;
-  left:0%;
+.frameTempo {
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
 }
 
 .screenings {
@@ -1565,6 +1997,16 @@ top:0%;
   lefT: 27%;
   top: 16%;
   font-family: $font-helvetica-neue-lt-pro;
+
+  @include media ('<tablet') {
+    position: absolute;
+    width: 81%;
+    font-size: 8rem;
+    left: 14%;
+    top: 16%;
+    font-family: $font-helvetica-neue-lt-pro;
+  }
+
 }
 
 
@@ -1576,11 +2018,10 @@ top:0%;
     lefT: 8%;
     top: 19%;
     font-family: $font-helvetica-neue-lt-pro;
-}
+  }
 
 
 }
-
 .screeningsText {
   position: absolute;
   width: 100%;
@@ -1588,6 +2029,17 @@ top:0%;
   top: 426%;
   z-index: 5;
   left: 10%;
+
+  @include media ('<tablet') {
+    position: absolute;
+    width: 156%;
+    font-size: 3rem;
+    top: 290%;
+    z-index: 5;
+    left: 0%;
+    margin-top: 60%;
+  }
+
 }
 
 @include media ('<phone') {
@@ -1595,14 +2047,20 @@ top:0%;
     position: absolute;
     width: 88%;
     font-size: 1.9rem;
-    top: 37vh;
+    top: 10vh;
     z-index: 5;
     left: 1%;
+  }
 }
+
+
+#arrowToResults {
+  position: absolute;
+  width: 100%;
+  left: 0%;
+  fill: white;
+  top: 81%;
 }
-
-
-
 
 @include media ('<phone') {
   #arrowToResults {
@@ -1614,13 +2072,15 @@ top:0%;
     justify-content: flex-end;
     margin-top: 38.55vh;
     margin-left: -72vw;
-}}
+  }
+}
 
 
 
-  @include media ('<phone') {.arrowBackToResults {
-    position:absolute;
+@include media ('<phone') {
+  .arrowBackToResults {
+    position: absolute;
 
     width: 18.5%;
-  }}
-
+  }
+}

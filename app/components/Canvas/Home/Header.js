@@ -61,7 +61,8 @@ class Header {
       'https://prismic-io.s3.amazonaws.com/mariensingbo/e765e072-22c6-4c3b-a13a-ce04ff0ef1bf_MarienSingbo_0004.glb',
       (gltf) => {
         gltf.scene.traverse((node) => {
-          if (node.isMesh) this.mesh = node;
+          if (node.isMesh) 
+          this.mesh = node;
         });
 
         this.mesh.morphTarget = true;
@@ -242,7 +243,7 @@ animateModelScale() {
 
 
     this.renderer = new THREE.WebGLRenderer({
-      canvas: this.headercanvas,
+      canvas: this.headerCanvas,
       context: this.gl,
       antialias: true,
       alpha: true,
@@ -251,7 +252,7 @@ animateModelScale() {
     this.renderer.setSize(this.sizes.width, this.sizes.height);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
     this.renderer.setClearColor(0x0500a3, 0);
-    this.renderer.outputColorSpace = THREE.LinearSRGBColorSpace
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   }

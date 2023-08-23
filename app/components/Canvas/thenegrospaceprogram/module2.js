@@ -190,6 +190,20 @@ updateLayout() {
       group.rotation.x = 0;
       group.rotation.z = 0;
     });
+
+
+    
+  } else if (width <= 1024) {
+    // Mobile devices
+    this.camera.position.set(0, -0.7, 2.32); // Adjust the camera distance and position for better visibility
+    this.groups.forEach((group, i) => {
+      this.meshes[i].position.x = i * 0;
+      this.meshes[i].position.y = 0;
+      group.rotation.y = 0;
+      group.rotation.x = 0;
+      group.rotation.z = 0;
+    });
+
   } else {
     // Desktop devices
     this.camera.position.set(0, -0.1, 1.5); // Default camera distance

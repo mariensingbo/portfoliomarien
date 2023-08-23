@@ -42,6 +42,12 @@
 }
 
 
+.places::-webkit-scrollbar {
+  display: none;
+}
+
+
+
 @include media ('<phone') {
 
   .places__wrapper {

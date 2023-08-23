@@ -20,7 +20,7 @@ export default class ProcessGallery {
     this.debounce = null;
     this.intersect = null;
     this.indicators = [];
-
+    this.screenCategory = [];
     this.animationFrameId = null;  // Add this line
 
     this.camera = new THREE.PerspectiveCamera(
@@ -63,10 +63,18 @@ export default class ProcessGallery {
     let objs = Array(5).fill({ dist: 0 })
 
     window.addEventListener("wheel", (e) => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 1024) {
         // For desktop
         speed += e.deltaY * 0.0003;
-      } else {
+      } 
+
+      if (window.innerWidth <= 1024) {
+        // Duplicate the code inside the block for "768" here
+        speed += e.deltaX * 0.0003;
+      }
+    
+      
+      else {
         // For mobile
         speed += e.deltaX * 0.0003;
       }
@@ -101,7 +109,7 @@ export default class ProcessGallery {
 
         // Updated target position setting code
         let targetY, targetX;
-        if (window.innerWidth <= 768) { // Mobile
+        if (window.innerWidth <= 1024) { // Mobile
           targetX = (i * 1.5 - position * 1.5) * 100;
           targetY = 0;
 
@@ -111,7 +119,7 @@ export default class ProcessGallery {
           targetX = 0;
         }
 
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
           // For mobile
           gsap.to(elems[i], {
             duration: 0.5,
@@ -145,7 +153,7 @@ export default class ProcessGallery {
         position += -(position - attractTo) * 0.04;
       } else {
         position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 1024) {
           // For desktop
           wrap.style.transform = `translate(0, ${-position * 100 + 50}px)`;
         } else {
@@ -205,7 +213,7 @@ export default class ProcessGallery {
   }
 
   function onTouchEnd(event) {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
       // For mobile
       attractTo = Math.round(position * 1.5); // Multiply by the same value used for mobile elems[i] spacing
     } else {
@@ -328,12 +336,36 @@ export default class ProcessGallery {
   const indicatorContainer = document.getElementById('indicator-container');
 
   for (let i = 0; i < this.sketch.meshes.length; i++) {
-      let indicator = document.createElement('div');
-      indicator.className = 'indicator';
-      indicatorContainer.appendChild(indicator);
-      this.indicators.push(indicator);
+    let indicator = document.createElement('div');
+    indicator.className = 'indicator';
+    indicatorContainer.appendChild(indicator);
+    this.indicators.push(indicator);
+  
+    // Add an event listener for the click event on the indicator
+    indicator.addEventListener('click', () => {
+      this.attractMesh(i); // Call your method to attract the mesh
+    });
   }
 }
+
+attractMesh = function(index) {
+  if (typeof index === 'number') {
+    attractMode = true; // Enable the attraction mode
+    attractTo = index; // Set the attractTo value based on the given index
+
+    // Perform a gsap animation or other operations that you want to execute when attracting to a specific mesh
+    gsap.to(rots, {
+      duration: 0.3,
+      x: -0.5,
+      y: 0,
+      z: 0,
+    });
+
+    // If you need to update other variables or trigger other actions, you can do it here
+  } else {
+    console.error('Invalid index provided to attractMesh method');
+  }
+};
 
 pollURLChange() {
   const currentURL = window.location.pathname;
@@ -393,20 +425,37 @@ if (wrap) {
 this.raycaster = null;
 this.camera = null;
 
-// Assuming sketch.meshes is an array of THREE.Mesh objects
-this.sketch.meshes.forEach((mesh) => {
-  mesh.geometry.dispose();  // Dispose of the mesh's geometry
-  mesh.material.dispose();  // Dispose of the mesh's material
-});
+this.raycaster = null;
+if (this.camera) {
+  this.camera = null; // Assuming you don't need to dispose of anything specific in the camera
+}
 
-// Dispose of other resources
+if (this.sketch) {
+  this.sketch.dispose(); // Assuming the Sketch class has a dispose method
+}
 
-this.sketch.dispose();
-gsap.killTweensOf('*');
+if (this.meshes) {
+  this.meshes.forEach(mesh => {
+    if (mesh.material) {
+      mesh.material.dispose();
+    }
+    if (mesh.geometry) {
+      mesh.geometry.dispose();
+    }
+  });
+}
+
+this.meshes = [];
+this.intersectedMesh = null;
+this.hoveredMesh = null;
+}
 
 
 
-};
+
+
+
+
 }
 
 

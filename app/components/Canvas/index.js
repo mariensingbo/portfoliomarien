@@ -523,9 +523,6 @@ export default class Canvas {
     }
 
 
-    if(this.thenegrospaceprogram) {
-      this.thenegrospaceprogram.onWheel(e);
-    }
 
    /* if (this.collections) {
       this.collections.onWheel(e);

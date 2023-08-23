@@ -1,8 +1,12 @@
 import { Plane, Transform } from 'ogl';
 import GSAP from 'gsap';
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
 import map from 'lodash/map';
 //import Media from './Media';
 import * as THREE from 'three';
+
+GSAP.registerPlugin(ScrollToPlugin);
 
 
 export default class {
@@ -30,6 +34,37 @@ export default class {
       y: 0,
     };
 
+    document.addEventListener('contextmenu', function(e) {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
+
+    function setSketchOpacity(opacity) {
+      document.querySelector('.newsBoxCurationSketch img').style.opacity = opacity;
+    }
+    
+    function handleStart() {
+      setSketchOpacity('1');
+    }
+    
+    function handleEnd() {
+      setSketchOpacity('0');
+    }
+    
+    var sketchButton = document.querySelector('.sketchbutton1');
+    
+    // Mouse events
+    sketchButton.addEventListener('mousedown', handleStart);
+    sketchButton.addEventListener('mouseup', handleEnd);
+    sketchButton.addEventListener('mouseleave', handleEnd);
+    
+    // Touch events
+    sketchButton.addEventListener('touchstart', handleStart);
+    sketchButton.addEventListener('touchend', handleEnd);
+    
+
+
     this.scroll = {
       x: 0,
       y: 0,
@@ -48,6 +83,76 @@ export default class {
 
     //this.createGeometry();
     //this.createGallery();
+
+    this.scrollContent = document.querySelector('.inlabschibsted__wrapper');
+
+
+    this.inlabSchibstedConceptOverviewElement = document.querySelector('.inlabSchibstedConceptOverview');
+    this.arrowSchibstedCaseElement = document.querySelector('#arrowToSchibstedCase');
+    this.scrolledDown = false; // You may want to initialize this elsewhere based on your logic
+    this.arrowSchibstedCaseElement.addEventListener('click', () => {
+        this.onArrowSchibstedContainerClick();
+    });
+
+    this.newsBoxCurationElement = document.querySelector('.newsboxCuration');
+    this.newsBoxCurationLink = document.querySelector('.newsBoxCurationLT');
+    this.scrolledDown = false; // You may want to initialize this elsewhere based on your logic
+    this.newsBoxCurationLink.addEventListener('click', () => {
+        this.newsBoxCurationLinkClick();
+    });
+
+
+
+    this.pointOfViewElement = document.querySelector('.pointOfView');
+    this.pointOfViewLink = document.querySelector('.pointOfViewsLT')
+    this.scrolledDown = false;
+    this.pointOfViewLink.addEventListener('click', () => {
+      this.pointOfViewLinkClick();
+  });
+
+
+  this.aNewSoundElement = document.querySelector('.aNewSound')
+  this.aNewSoundLink = document.querySelector('.aNewSoundLT')
+  this.scrolledDown = false;
+  this.aNewSoundLink.addEventListener('click', () => {
+    this.aNewSoundLinkClick();
+  });
+
+
+  this.weAreHereElement = document.querySelector('.weAreHere');
+  this.scrolledDown = false;
+  this.weAreHereLink = document.querySelector('.weAreHereLT')
+  this.weAreHereLink.addEventListener('click', () => {
+    this.weAreHereLinkClick();
+  })
+
+
+  this.newsTherapyElement = document.querySelector('.newsTherapy');
+  this.scrolledDown = false;
+
+  this.newsTherapyLink = document.querySelector('.newsTherapyLT')
+  this.newsTherapyLink.addEventListener('click', () => {
+    this.newsTherapyLinkClick();
+  })
+
+
+  this.surpriseMeElement = document.querySelector('.surpriseMe');
+  this.scrolledDown = false;
+  this.surpriseMeLink = document.querySelector('.surpriseMeLT')
+  this.surpriseMeLink.addEventListener('click', () => {
+    this.surpriseMeLinkClick();
+  })
+
+
+  this.inlabSchibstedHeaderElement = document.querySelector('#schibstedHeader');
+  this.inlabSchibstedHeaderLink = document.querySelector('#endTopButton');
+  this.inlabSchibstedHeaderLink.addEventListener('click', () => { 
+    this.inlabSchibstedHeaderLinkClick();
+  })
+
+
+
+
 
     this.onResize({
       sizes: this.sizes,
@@ -76,6 +181,174 @@ export default class {
       });
     });
   }*/
+
+
+  onArrowSchibstedContainerClick() {
+    const overviewRect = this.inlabSchibstedConceptOverviewElement.getBoundingClientRect();
+    
+    const scrollToEndOfOverview = this.scrollContent.scrollTop + overviewRect.bottom - window.innerHeight;
+
+    if (!this.scrolledDown) {
+        this.scrolledDown = true;
+        GSAP.to(this.scrollContent, {
+            scrollTop: scrollToEndOfOverview, // Using scrollTop instead of y
+            duration: 0.5,
+            ease: "expo.inOut",
+            onComplete: () => {
+                this.scrolledDown = false;
+                // Additional behavior here if needed
+            },
+        });
+    }
+}
+newsBoxCurationLinkClick() {
+  const newsBoxRect = this.newsBoxCurationElement.getBoundingClientRect();
+  const offsetPercentage = 10; 
+  const offsetPixels = (offsetPercentage / 100) * window.innerHeight;
+  const scrollToEndOfNewsBoxCuration = this.scrollContent.scrollTop + newsBoxRect.top + offsetPixels; // Subtracting the offset
+
+  if (!this.scrolledDown) {
+      this.scrolledDown = true;
+      GSAP.to(this.scrollContent, {
+          scrollTop: scrollToEndOfNewsBoxCuration,
+          duration: 0,
+          ease: "expo.inOut",
+          onComplete: () => {
+              this.scrolledDown = false;
+              // Additional behavior here if needed
+          },
+      });
+  }
+}
+
+
+
+pointOfViewLinkClick () {
+  const pointOfViewRect = this.pointOfViewElement.getBoundingClientRect();
+  const offsetPercentage = 10; 
+  const offsetPixels = (offsetPercentage / 100) * window.innerHeight;
+  const scrollToEndOfPointOfView = this.scrollContent.scrollTop + pointOfViewRect.top + offsetPixels;
+
+  if (!this.scrolledDown) {
+    this.scrolledDown = true;
+    GSAP.to(this.scrollContent, {
+        scrollTop: scrollToEndOfPointOfView, // Using scrollTop instead of y
+        duration: 0,
+        ease: "expo.inOut",
+        onComplete: () => {
+            this.scrolledDown = false;
+            // Additional behavior here if needed
+        },
+    });
+}
+
+
+}
+
+aNewSoundLinkClick() {
+  const aNewSoundRect = this.aNewSoundElement.getBoundingClientRect();
+  const offsetPercentage = 10;
+  const offsetPixels = (offsetPercentage / 100) * window.innerHeight;
+  const scrollToEndOfaNewSound = this.scrollContent.scrollTop + aNewSoundRect.top + offsetPixels; 
+
+  if (!this.scrolledDown) {
+    this.scrolledDown = true;
+    GSAP.to(this.scrollContent, {
+        scrollTop: scrollToEndOfaNewSound, // Using scrollTop instead of y
+        duration: 0,
+        ease: "expo.inOut",
+        onComplete: () => {
+            this.scrolledDown = false;
+            // Additional behavior here if needed
+        },
+    });
+  }
+}
+
+
+weAreHereLinkClick() { 
+  const weAreHereRect = this.weAreHereElement.getBoundingClientRect();
+  const offsetPercentage = 10;
+  const offsetPixels = (offsetPercentage / 100) * window.innerHeight;
+  const scrollToEndOfweAreHere = this.scrollContent.scrollTop + weAreHereRect.top + offsetPixels;
+
+  if (!this.scrolledDown) {
+    this.scrolledDown = true;
+    GSAP.to(this.scrollContent, {
+        scrollTop: scrollToEndOfweAreHere, // Using scrollTop instead of y
+        duration: 0,
+        ease: "expo.inOut",
+        onComplete: () => {
+            this.scrolledDown = false;
+            // Additional behavior here if needed
+        },
+    });
+  
+  }
+}
+
+
+newsTherapyLinkClick() { 
+  const newsTherapyRect = this.newsTherapyElement.getBoundingClientRect();
+  const offsetPercentage = 10;
+  const offsetPixels = (offsetPercentage / 100) * window.innerHeight;
+  const scrollToEndOfNewsTherapy = this.scrollContent.scrollTop + newsTherapyRect.top + offsetPixels; 
+
+  if (!this.scrolledDown) {
+    this.scrolledDown = true;
+    GSAP.to(this.scrollContent, {
+        scrollTop: scrollToEndOfNewsTherapy, // Using scrollTop instead of y
+        duration: 0,
+        ease: "expo.inOut",
+        onComplete: () => {
+            this.scrolledDown = false;
+            // Additional behavior here if needed
+        },
+    });
+  }
+}
+
+
+surpriseMeLinkClick() {
+  const surpriseMeRect = this.surpriseMeElement.getBoundingClientRect();
+  const offsetPercentage = 10; 
+  const offsetPixels = (offsetPercentage / 100) * window.innerHeight;
+  const scrollToEndOfSurpriseMe = this.scrollContent.scrollTop + surpriseMeRect.top + offsetPixels; 
+
+  if (!this.scrolledDown) {
+    this.scrolledDown = true;
+    GSAP.to(this.scrollContent, {
+        scrollTop: scrollToEndOfSurpriseMe, // Using scrollTop instead of y
+        duration: 0,
+        ease: "expo.inOut",
+        onComplete: () => {
+            this.scrolledDown = false;
+            // Additional behavior here if needed
+        },
+    });
+  }
+}
+
+inlabSchibstedHeaderLinkClick () {
+
+  const inlabSchibstedHeaderRect = this.inlabSchibstedHeaderElement.getBoundingClientRect();
+
+  const scrollToEndOfinlabSchibstedHeader = this.scrollContent.scrollTop + inlabSchibstedHeaderRect.top;
+  
+  if (!this.scrolledDown) {
+    this.scrolledDown = true;
+    GSAP.to(this.scrollContent, {
+      scrollTop: scrollToEndOfinlabSchibstedHeader,
+      duration: 0,
+      ease: "expo.inOut",
+      onComplete: () => {
+        this.scrolledDown = false;
+        // Additional behavior here if needed
+        },
+    });
+  }
+}
+
 
   onResize(e) {
     // this.galleryBounds = this.galleryElement.getBoundingClientRect();
@@ -109,7 +382,8 @@ export default class {
   }
 
   onWheel({ pixelX, pixelY }) {
-
+    this.x.target += pixelX;
+    this.y.target += pixelY;
   }
 
   onTouchUp({ x, y }) {
@@ -193,3 +467,4 @@ export default class {
 
   }
 }
+

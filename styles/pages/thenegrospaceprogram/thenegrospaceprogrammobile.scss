@@ -1,17 +1,16 @@
 $shadowcolour: #000000;
 
-@include media('<phone')  {
-  %textshade{
-    text-shadow:#000000
-    0 1px $shadowcolour,
-    0 1.05px $shadowcolour,
-    1.05px 1px $shadowcolour,
-    1.05px 1.05px $shadowcolour,
-    1.1px 1.1px $shadowcolour,
-    1.1px 1.15px $shadowcolour,
-    1.15px 1.2px $shadowcolour,
-    1.15px 1.25px $shadowcolour,
-    1.2px 1.3px $shadowcolour,
+@include media('<phone') {
+  %textshade {
+    text-shadow: #000000 0 1px $shadowcolour,
+      0 1.05px $shadowcolour,
+      1.05px 1px $shadowcolour,
+      1.05px 1.05px $shadowcolour,
+      1.1px 1.1px $shadowcolour,
+      1.1px 1.15px $shadowcolour,
+      1.15px 1.2px $shadowcolour,
+      1.15px 1.25px $shadowcolour,
+      1.2px 1.3px $shadowcolour,
   }
 
   .scrollContainer {
@@ -20,7 +19,8 @@ $shadowcolour: #000000;
     left: 0;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;  /* Hide the overflowing content */
+    overflow: hidden;
+    /* Hide the overflowing content */
   }
 
   .storyboard {
@@ -38,12 +38,13 @@ $shadowcolour: #000000;
     color: white;
     position: absolute;
     font-size: 4.2rem;
-    top: 13vh;
-    left: 9vh;
+    top: 11vh;
+    left: 0vh;
     width: 100%;
     z-index: 3;
     opacity: 1;
-}
+  }
+
 
 
   .scrollContent {
@@ -53,9 +54,13 @@ $shadowcolour: #000000;
     gap: 0;
   }
 
-  .theNegroSpaceProgram_wrapper, .case, .context, .concept {
+  .theNegroSpaceProgram_wrapper,
+  .case,
+  .context,
+  .concept {
     height: 100vh;
   }
+
   /* Each section should be at least the height of the viewport */
   .scrollContent section {
     height: 100vh;
@@ -65,7 +70,7 @@ $shadowcolour: #000000;
     @extend %page;
     background: black;
     // color: $color-bright-grey;
-    overflow:none;
+    overflow: none;
 
   }
 
@@ -74,7 +79,7 @@ $shadowcolour: #000000;
   }
 
   .headerVideo__mobile {
-    display:block;
+    display: block;
     position: absolute;
     z-index: 0;
     pointer-events: none;
@@ -85,14 +90,17 @@ $shadowcolour: #000000;
     animation: fadeIn 4s ease-in forwards;
   }
 
-#headerVideo {position:absolute;
-width:100%;
+  #headerVideo {
+    position: absolute;
+    width: 100%;
 
-}
+  }
+
   @keyframes fadeIn {
     0% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
@@ -102,21 +110,22 @@ width:100%;
     top: 0;
     position: absolute;
     width: 100%;
-    overflow:none;
+    overflow: none;
   }
+
   .theNegroSpaceProgram__title {
 
     font-family: $font-nd-tupa-nova;
     font-size: 17.5rem;
-    position:absolute;
+    position: absolute;
     margin-top: 5%;
-    display:flex;
+    display: flex;
     justify-content: center;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
   }
 
-  .preface{
+  .preface {
     font-family: $font-helvetica-neue-lt-pro;
     font-size: 5.5rem;
     position: absolute;
@@ -128,7 +137,8 @@ width:100%;
     margin-left: 0%;
   }
 
-  .preface_Title, .preface_Title2 {
+  .preface_Title,
+  .preface_Title2 {
     position: absolute;
     font-size: 13rem;
     width: 100vw;
@@ -139,34 +149,39 @@ width:100%;
     color: rgba(255, 255, 255, 0.25);
     transition: color 0.5s ease-in-out;
     padding-bottom: 4px;
-}
+  }
 
-  .preface_Title.active, .preface_Title2.active {
+  .preface_Title.active,
+  .preface_Title2.active {
     color: rgba(255, 255, 255, 1);
   }
 
-  .preface_Title:hover:not(.no-hover), .preface_Title2:hover:not(.no-hover) {
+  .preface_Title:hover:not(.no-hover),
+  .preface_Title2:hover:not(.no-hover) {
     color: rgba(255, 255, 255, 1);
   }
 
   .preface_Title2 {
     margin-left: 0%;
-    top: 51vh;
+    top: 1vh;
     font-size: 12rem;
     z-index: 0;
-    padding-left: -23vw;
+    padding-bottom: -23vw;
 }
 
 
-.preface_Title {
-  position: absolute;
-  top: 62vh;
-  font-size: 52px;
-  left: -12vw;
-  font-size: 10rem;
+  .preface_Title {
+    position: absolute;
+    top: 9vh;
+    left: -12vw;
+    font-size: 10rem;
+    padding-top: 0%;
 }
 
-  .storyboard__Title, .menu__ac {
+
+
+  .storyboard__Title,
+  .menu__ac {
     font-family: $font-helvetica-neue-lt-pro;
     position: fixed;
     font-size: 13rem;
@@ -183,11 +198,13 @@ width:100%;
     bottom: -103vh;
   }
 
-  .storyboard__Title.active, .menu__ac.active {
+  .storyboard__Title.active,
+  .menu__ac.active {
     color: rgba(255, 255, 255, 1);
   }
 
-  .storyboard__Title:hover:not(.no-hover), .menu__ac:hover:not(.no-hover) {
+  .storyboard__Title:hover:not(.no-hover),
+  .menu__ac:hover:not(.no-hover) {
     color: rgba(255, 255, 255, 1);
   }
 
@@ -201,20 +218,22 @@ width:100%;
     left: -36vw;
     height: 100%;
     top: 45vh;
-    display:none;
-    pointer-events: none;;
-}
-.menu__ac {
-  position: fixed;
-  width: 100vw;
-  margin-left: 37vw;
-  pointer-events: all;
-  top: -21.2vh;
-  height: 100vh;
-  font-size: 4rem;
-  display:none;
-  pointer-events:none;
-}
+    display: none;
+    pointer-events: none;
+    ;
+  }
+
+  .menu__ac {
+    position: fixed;
+    width: 100vw;
+    margin-left: 37vw;
+    pointer-events: all;
+    top: -21.2vh;
+    height: 100vh;
+    font-size: 4rem;
+    display: none;
+    pointer-events: none;
+  }
 
 
   .case {
@@ -235,21 +254,23 @@ width:100%;
     background: #000000;
     z-index: 2;
     overflow: scroll;
-}
+  }
 
-.context__flexbox {
-  position: absolute;
-  display: flex;
-  height: auto;
-  padding: 15px;
-  top: -2vh;
-  flex-direction: column;
-  width: 100vw;
-  align-content: center;
-  align-items: stretch;
-  justify-content: space-around;
-  overflow: scroll;
-}
+  .context__flexbox {
+    position: absolute;
+    display: flex;
+    height: auto;
+    padding: 15px;
+    top: -2vh;
+    flex-direction: column;
+    width: 100vw;
+    align-content: center;
+    align-items: stretch;
+    justify-content: space-around;
+    overflow: scroll;
+
+
+  }
 
 
   .concept {
@@ -274,43 +295,45 @@ width:100%;
     z-index: 14;
     left: 19vw;
     font-family: $font-helvetica-neue-lt-pro;
-}
-
-#arrow2ToAssets {
-  position: absolute;
-  width: 34vw;
-  top: 74vh;
-  left: 60vw;
-  fill: white;
-  display:block;
-}
 
 
-#arrow2Animatic {
-  position: absolute;
-  width: 34vw;
-  top: 74vh;
-  left: 28vw;
-  fill: white;
-  display:block;
-}
+  }
 
-#arrow2BackToContext {
-  position: absolute;
-  width: 22vw;
-  top: 77vh;
-  left: 7vw;
-  fill: white;
-  display:block;
-}
+  #arrow2ToAssets {
+    position: absolute;
+    width: 34vw;
+    top: 74vh;
+    left: 60vw;
+    fill: white;
+    display: block;
+  }
 
-#storyboardVideo {
-  position: absolute;
-  width: 90%;
-  margin-top: 37%;
-  margin-left: 5vw;
-  border-radius: 24px;
-}
+
+  #arrow2Animatic {
+    position: absolute;
+    width: 34vw;
+    top: 74vh;
+    left: 28vw;
+    fill: white;
+    display: block;
+  }
+
+  #arrow2BackToContext {
+    position: absolute;
+    width: 22vw;
+    top: 77vh;
+    left: 7vw;
+    fill: white;
+    display: block;
+  }
+
+  #storyboardVideo {
+    position: absolute;
+    width: 90%;
+    margin-top: 37%;
+    margin-left: 5vw;
+    border-radius: 24px;
+  }
 
   .process {
     position: absolute;
@@ -331,13 +354,13 @@ width:100%;
 
   .blackProcessBg {
 
-      position: absolute;
-      height: 200vh;
-      width: 100vw;
-      background-color: black;
-      z-index: 0;
-      margin-top: -100vh;
-      margin-left: 200vw;
+    position: absolute;
+    height: 200vh;
+    width: 100vw;
+    background-color: black;
+    z-index: 0;
+    margin-top: -100vh;
+    margin-left: 200vw;
 
   }
 
@@ -366,17 +389,21 @@ width:100%;
   }
 
 
-  .manifesto_text1, .manifesto_text2, .manifesto_text3 {
+  .manifesto_text1,
+  .manifesto_text2,
+  .manifesto_text3 {
     font-family: $font-helvetica-neue-lt-pro;
     font-size: 1.1rem;
     width: 118vw;
     height: 21%;
     font-size: 1.8rem;
     line-height: 2;
-}
-  #arrowBackToContext, #arrowToAssets {
-    margin-top: 85vh;
-    display:none;
+  }
+
+  #arrowBackToContext,
+  #arrowToAssets {
+    margin-top: 84vh;
+    display: none;
     pointer-events: none;
   }
 
@@ -388,34 +415,56 @@ width:100%;
     z-index: 5;
     pointer-events: all;
     width: 50px;
-}
-.festival_notification {
-  position: absolute;
-  font-family: $font-helvetica-neue-lt-pro;
-  font-size: 3.1rem;
-  width: 41vw;
-  text-align: center;
-  margin-top: 50%;
-  margin-left: 32%;
-  z-index: 1;
-  background-color: black;
-  color: white;
-  height: 10vh;
-  border-radius: 3px;
-  border-style: outset;
-  border-color: white;
-  border-width: medium;
-  opacity: 0.5;
-}
-.access {
-  position: absolute;
-  height: auto;
-  width: 138%;
-  top: 11rem;
-  text-align: left;
-  left: 19%;
-  font-size: 1.3rem;
-}
+  }
+
+  .festival_notification {
+    position: absolute;
+    font-family: $font-helvetica-neue-lt-pro;
+    font-size: 3.1rem;
+    width: 41vw;
+    text-align: center;
+    margin-top: 50%;
+    margin-left: 32%;
+    z-index: 1;
+    background-color: black;
+    color: white;
+    height: 10vh;
+    border-radius: 3px;
+    border-style: outset;
+    border-color: white;
+    border-width: medium;
+    opacity: 0.5;
+
+    @include media ('<tablet') {
+      position: absolute;
+      font-family: "Helvetica Neue LT Pro";
+      font-size: 3.1rem;
+      width: 41vw;
+      text-align: center;
+      margin-top: 50%;
+      margin-left: 32%;
+      z-index: 1;
+      background-color: black;
+      color: white;
+      height: 10vh;
+      border-radius: 3px;
+      border-style: outset;
+      border-color: white;
+      border-width: medium;
+      opacity: 0.5;
+      transform: translate(0px, 0px);
+    }
+  }
+
+  .access {
+    position: absolute;
+    height: auto;
+    width: 138%;
+    top: 11rem;
+    text-align: left;
+    left: 19%;
+    font-size: 1.3rem;
+  }
 
   .face__canvas {
     position: absolute;
@@ -440,15 +489,15 @@ width:100%;
     width: 36vw;
     left: 0vw;
     top: -8.3vh;
-}
+  }
 
   .arrowBackToContext {
     pointer-events: all;
   }
 
   #arrowBackToContext:hover {
-    fill:rgba(255, 255, 255, 1);
-    stroke-width:0;
+    fill: rgba(255, 255, 255, 1);
+    stroke-width: 0;
     stroke: white;
     stroke-opacity: 1;
     pointer-events: all;
@@ -459,9 +508,9 @@ width:100%;
 
 
   #arrowToAssets svg {
-    display:none;
+    display: none;
     pointer-events: none;
-}
+  }
 
 
 
@@ -470,13 +519,13 @@ width:100%;
   }
 
   #arrowToAssets:hover {
-    fill:rgba(255, 255, 255, 1);
-    stroke-width:0;
-    stroke:white;
-    stroke-opacity:1;
+    fill: rgba(255, 255, 255, 1);
+    stroke-width: 0;
+    stroke: white;
+    stroke-opacity: 1;
     pointer-events: all;
-    stroke:white;
-    stroke-width:0px;
+    stroke: white;
+    stroke-width: 0px;
   }
 
 
@@ -487,11 +536,12 @@ width:100%;
     margin-top: 211%;
     margin-left: 24%;
     border: 0.5px solid #c8c8c8;
-}
+  }
 
-  .process__menu, .process__menu2 {
-  display:none;
-  pointer-events: none;
+  .process__menu,
+  .process__menu2 {
+    display: none;
+    pointer-events: none;
   }
 
 
@@ -521,22 +571,22 @@ width:100%;
 
 
 
-    .navdescription__nebula {
-      font-family: $font-helvetica-neue-lt-pro;
+  .navdescription__nebula {
+    font-family: $font-helvetica-neue-lt-pro;
 
-      height: 100%;
-      width: 82%;
-      position: absolute;
-      margin-top: 59px;
-      margin-left: 98px;
+    height: 100%;
+    width: 82%;
+    position: absolute;
+    margin-top: 59px;
+    margin-left: 98px;
 
-      z-index: 1;
-      opacity: 1;
-      font-size: 0.7rem;
-      color: #ffffff;
-      text-align: left;
-      transition: opacity 0.1s ease-in-out;
-    }
+    z-index: 1;
+    opacity: 1;
+    font-size: 0.7rem;
+    color: #ffffff;
+    text-align: left;
+    transition: opacity 0.1s ease-in-out;
+  }
 
 
 
